@@ -1,0 +1,63 @@
+body{
+	font-family: sans-serif;
+	background: #E3E2DF;
+}
+#menu {
+	position: absolute;
+	right:0;
+	left:0;
+	top:0;
+	background: #0B0C10;
+	color: #FFFFFF;
+	height: 45px;
+	padding-left: 18px;
+	border-radius: 6px;
+}
+#menu ul, #menu li {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none
+}
+#menu ul {
+	width: 100%;
+}
+#menu li {
+	display: inline;
+	position: relative;
+}
+#menu a {
+	display: block;
+	line-height: 45px;
+	padding: 0 14px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+#menu li a:hover {
+	color: #C3073F;
+	background: #1F2833;
+}
+
+.account{
+	float: right;
+}
+input[type=text] {
+    margin: auto;
+}
+
+
+input[type=button] {
+	border-radius: 6px;
+	color: #ffffff;
+	font-size: 16px;
+	font-family:sans-serif;
+	background: #6F2232;
+	padding: 10px 20px 10px 20px;
+}
+form {
+	position: absolute;
+}
+
+input[type=button]:hover {
+  background: #950740;
+}
