@@ -59,11 +59,32 @@ form[id=search] {
 	right: 30%;
 	width: 40%;
 	top: 25%;
+	display: inline;
+	background: #E3E2DF;
+	border-radius: 6px;
 }
 input[type=text].search {
+	background: #E3E2DF;
     width:90%;
 	height:100%;
 	border-radius: 6px;
+	border:none;
+
+}
+input[type=text].search:focus{
+	outline: none;
+}
+form[id=search]:focus-within{
+	outline: 2px solid gray;
+}
+
+button[type=submit].search {
+	background: #E3E2DF;
+	border-radius: 6px;
+	border:none;
+	float: right;
+	cursor:pointer;
+	
 }
 
 input[type=button]:hover,input[type=submit]:hover {
