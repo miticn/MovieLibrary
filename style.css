@@ -28,7 +28,6 @@ body{
 }
 #menu a {
 	display: block;
-	
 	line-height: 45px;
 	height: 100%;
 	padding: 0 14px;
@@ -58,7 +57,7 @@ form[id=search] {
 	left: 30%;
 	right: 30%;
 	width: 40%;
-	top: 25%;
+	top: 30%;
 	display: inline;
 	background: #E3E2DF;
 	border-radius: 6px;
