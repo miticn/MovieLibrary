@@ -44,14 +44,6 @@ body{
 	float: right;
 }
 
-input[type=button], input[type=submit] {
-	border-radius: 6px;
-	color: #ffffff;
-	font-size: 16px;
-	font-family:sans-serif;
-	background: #6F2232;
-	padding: 10px 20px 10px 20px;
-}
 form[id=search] {
 	position: absolute;
 	left: 30%;
@@ -86,9 +78,33 @@ button[type=submit].search {
 	
 }
 
+
+input[type=button], input[type=submit] {
+	border-radius: 6px;
+	color: #ffffff;
+	font-size: 16px;
+	font-family:sans-serif;
+	background: #6F2232;
+	padding: 10px 20px 10px 20px;
+}
+
 input[type=button]:hover,input[type=submit]:hover {
   background: #950740;
 }
+
+input[type=button].boring, input[type=submit].boring {
+	border-radius: 6px;
+	color: #ffffff;
+	font-size: 16px;
+	font-family:sans-serif;
+	background: #636363;
+	padding: 10px 20px 10px 20px;
+}
+
+input[type=button].boring:hover,input[type=submit].boring:hover {
+  background: #a3a3a3;
+}
+
 a.logo{
 	position: absolute;
 
