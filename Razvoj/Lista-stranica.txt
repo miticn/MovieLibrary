@@ -1,9 +1,0 @@
-Index index.html
-Login	login.html
-Register register.html
-Stranica nekog filma movie.html
-Stranica nekog glumca actor.html
-Profil nekog korisnika profile.html
-Ulogovan korisnik 
-Ulogovan admin
-Opcije profila settings.html
