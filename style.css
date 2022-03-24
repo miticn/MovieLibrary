@@ -24,10 +24,13 @@ body{
 #menu li {
 	display: inline;
 	position: relative;
+	height:100%;
 }
 #menu a {
 	display: block;
+	
 	line-height: 45px;
+	height: 100%;
 	padding: 0 14px;
 	text-decoration: none;
 	color: #FFFFFF;
@@ -41,12 +44,8 @@ body{
 .account{
 	float: right;
 }
-input[type=text] {
-    margin: auto;
-}
 
-
-input[type=button] {
+input[type=button], input[type=submit] {
 	border-radius: 6px;
 	color: #ffffff;
 	font-size: 16px;
@@ -54,10 +53,23 @@ input[type=button] {
 	background: #6F2232;
 	padding: 10px 20px 10px 20px;
 }
-form {
+form[id=search] {
 	position: absolute;
+	left: 30%;
+	right: 30%;
+	width: 40%;
+	top: 25%;
+}
+input[type=text].search {
+    width:90%;
+	height:100%;
+	border-radius: 6px;
 }
 
-input[type=button]:hover {
+input[type=button]:hover,input[type=submit]:hover {
   background: #950740;
+}
+a.logo{
+	position: absolute;
+
 }
