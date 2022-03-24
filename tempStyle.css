@@ -2,13 +2,22 @@
     background-color:bisque;
 }
 table{
+    padding: 20px 20px;
+    border-radius: 25px;
+    font-family: cursive;
     margin-top: 200;
     margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
-    border: 10px solid;
+    border: 5px solid;
     border-color: brown;
 }
 tr{
     height: 50;
+}
+input[type=submit] {
+    padding:5px 20px; 
+    border:0 none;
+    background: rgb(231, 170, 170);
+    border-radius: 5px; 
 }
