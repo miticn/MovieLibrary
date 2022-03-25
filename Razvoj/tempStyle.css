@@ -201,6 +201,17 @@ img.movie-banner{
 	height: 100px;
 	font-size: large;
 }
+#profile_prvi{
+	background-image: url(profile_images/lotr.jpg);
+	background-position: center;
+}
+#profile_drugi{
+	background-image: url(profile_images/pacino.jpg);
+	background-position: center;
+}
+#profile_treci{
+	background-image: url(profile_images/nic_cage.jpg) !important;
+}
 ul.new-popular-movies{
 	column-count: auto;
 	column-width: 200px;
