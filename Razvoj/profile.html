@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Profile</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="tempStyle.css" rel="stylesheet">
 </head>
 <body>
     <table id="profile_profile">
@@ -43,76 +43,98 @@
                                 <input type="button" value="Napravi novu listu" id="profile_new_list">
                             </td>
                         </tr>
-                        <tr class="profile_movie_lists">
-                            <td>
-                                <select>
+                        <tr>
+                            <td class="profile_movie_lists">
+                                <select class="profile_select">
                                     <option>Lista1</option>
                                     <option>Film1</option>
                                     <option>Film2</option>
                                     <option>Film3</option>
                                     <option>Film4</option>
-                                  </select>
+                                </select>
                             </td>
-                            <td class="profile_movie_edits">
-                                <input type="button" value="edit">
+                            <td class="profile_movie_edits_and_likes">
+                                <table>
+                                    <tr>
+                                        <p class="profile_likes">32</p>
+                                    </tr>
+                                    <tr class="profile_movie_edits">
+                                        <input type="button" value="edit" class="profile_button_edit">
+                                    </tr>
+                                </table>
                             </td>
-                        </tr>
-                        <tr class="profile_movie_lists">
-                            <td>
-                                <select>
+                        </tr >
+                        <tr>
+                            <td class="profile_movie_lists">
+                                <select class="profile_select">
                                     <option>Lista2</option>
                                     <option>Film1</option>
                                     <option>Film2</option>
                                     <option>Film3</option>
                                     <option>Film4</option>
-                                  </select>
+                                </select>
                             </td>
-                            <td class="profile_movie_edits">
-                                <input type="button" value="edit">
+                            <td class="profile_movie_edits_and_likes">
+                                <table>
+                                    <tr>
+                                        <p class="profile_likes">70</p>
+                                    </tr>
+                                    <tr class="profile_movie_edits">
+                                        <input type="button" value="edit" class="profile_button_edit">
+                                    </tr>
+                                </table>
                             </td>
                         </tr >
-                        <tr class="profile_movie_lists">
-                            <td>
-                                <select>
+                        <tr>
+                            <td class="profile_movie_lists">
+                                <select class="profile_select">
                                     <option>Lista3</option>
                                     <option>Film1</option>
                                     <option>Film2</option>
                                     <option>Film3</option>
                                     <option>Film4</option>
-                                  </select>
+                                </select>
                             </td>
-                            <td class="profile_movie_edits">
-                                <input type="button" value="edit">
+                            <td class="profile_movie_edits_and_likes">
+                                <table>
+                                    <tr>
+                                        <p class="profile_likes">2</p>
+                                    </tr>
+                                    <tr class="profile_movie_edits">
+                                        <input type="button" value="edit" class="profile_button_edit">
+                                    </tr>
+                                </table>
                             </td>
-                        </tr>
+                        </tr >
                     </table>
                 </td>
-                <td>
+                <td id="profile_sacuvani_column">
                     <table id="profile_sacuvani">
-                        <tr>
+                        <tr class="profile_sacuvani_red">
                             <td>
-                                <p>slika1</p>
+                                <img src="IMG/profile_gurl.webp" height="50px" width="50px">
                             </td>
                             <td>
-                                <p>profil1</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>slika2</p>
-                            </td>
-                            <td>
-                                <p>profil2</p>
+                                <p>Sanya</p>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="profile_sacuvani_red">
                             <td>
-                                <p>slika3</p>
+                                <img src="IMG/profile_monke.png" height="50px" width="50px">
                             </td>
                             <td>
-                                <p>profil3</p>
+                                <p>NFT Lord</p>
                             </td>
                         </tr>
+                        <tr class="profile_sacuvani_red">
+                            <td>
+                                <img src="IMG/user.png" height="50px" width="50px">
+                            </td>
+                            <td>
+                                <p>Damjan Peric</p>
+                            </td>
+                        </tr>
+                        <tr id="profile_sacuvani_prazno"></tr>
                     </table>
                 </td>
             </tr>
