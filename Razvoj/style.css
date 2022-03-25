@@ -111,6 +111,48 @@ a.logo{
 }
 
 img.movie-banner{
-	width:14%;
+	width:100%;
 	height:auto;
+	border-radius: 6px;
+
+}
+ul.new-popular-movies{
+	column-count: auto;
+	column-width: 200px;
+	list-style: none;
+	padding: 0;
+
+
+}
+li.new-popular-movies{
+	display: inline-block;
+	width:100%;
+	height:auto;
+	text-align: center;
+}
+li.new-popular-movies a{
+	color: black;
+}
+
+a.new-popular-movies{
+	text-decoration: none;
+}
+
+i.gold-trophy{
+	color: #FFD700;
+	text-shadow: 1px 1px 1px black;
+}
+
+i.silver-trophy{
+	color: #C0C0C0;
+	text-shadow: 1px 1px 1px black;
+}
+
+i.bronze-trophy{
+	color: #CD7F32;
+	text-shadow: 1px 1px 1px black;
+}
+i.trash{
+	color: #026928;
+	text-shadow: 1px 1px 1px black;
 }
