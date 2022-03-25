@@ -113,7 +113,6 @@ a.logo{
 img.movie-banner{
 	width:100%;
 	height:auto;
-<<<<<<< HEAD
 }
 
 #profile_profile{
@@ -172,7 +171,6 @@ img.movie-banner{
 }
 .profile_movie_lists{
 	background-color: brown solid;
-=======
 	border-radius: 6px;
 
 }
@@ -215,5 +213,4 @@ i.bronze-trophy{
 i.trash{
 	color: #026928;
 	text-shadow: 1px 1px 1px black;
->>>>>>> 1d8774576d397e9e1ae0aa864262636a1aa46b39
 }
