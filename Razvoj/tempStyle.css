@@ -1,17 +1,293 @@
-﻿h1{
-    text-align: center;
+body{
+	font-family: sans-serif;
+	background: #E3E2DF;
 }
-table{
-    padding: 20px 20px;
-    border-radius: 25px;
-    font-family: cursive;
-    margin-top: 200;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    border: 5px solid;
-    border-color: brown;
+#menu {
+	position: absolute;
+	right:0;
+	left:0;
+	top:0;
+	background: #0B0C10;
+	color: #FFFFFF;
+	height: 45px;
+	padding-left: 18px;
+	border-radius: 6px;
 }
-tr{
-    height: 50;
+#menu ul, #menu li {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none
+}
+#menu ul {
+	width: 100%;
+}
+#menu li {
+	display: inline;
+	position: relative;
+	height:100%;
+}
+#menu a {
+	display: block;
+	line-height: 45px;
+	height: 100%;
+	padding: 0 14px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+#menu li a:hover {
+	color: #C3073F;
+	background: #1F2833;
+}
+
+.account{
+	float: right;
+}
+
+form[id=search] {
+	position: absolute;
+	left: 30%;
+	right: 30%;
+	width: 40%;
+	top: 30%;
+	display: inline;
+	background: #E3E2DF;
+	border-radius: 6px;
+}
+input[type=text].search {
+	background: #E3E2DF;
+    width:90%;
+	height:100%;
+	border-radius: 6px;
+	border:none;
+
+}
+input[type=text].search:focus{
+	outline: none;
+}
+form[id=search]:focus-within{
+	outline: 2px solid gray;
+}
+
+button[type=submit].search {
+	background: #E3E2DF;
+	border-radius: 6px;
+	border:none;
+	float: right;
+	cursor:pointer;
+	
+}
+
+
+input[type=button], input[type=submit] {
+	border-radius: 6px;
+	color: #ffffff;
+	font-size: 16px;
+	font-family:sans-serif;
+	background: #6F2232;
+	padding: 10px 20px 10px 20px;
+}
+
+input[type=button]:hover,input[type=submit]:hover {
+  background: #950740;
+}
+
+input[type=button].boring, input[type=submit].boring {
+	border-radius: 6px;
+	color: #ffffff;
+	font-size: 16px;
+	font-family:sans-serif;
+	background: #636363;
+	padding: 10px 20px 10px 20px;
+}
+
+input[type=button].boring:hover,input[type=submit].boring:hover {
+  background: #a3a3a3;
+}
+
+a.logo{
+	position: absolute;
+
+}
+
+img.movie-banner{
+	width:100%;
+	height:auto;
+}
+
+#profile_profile{
+	border: 10px black solid;
+	background: gray;
+	border-radius: 25px;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	padding: 10px;
+}
+#profile_pic{
+	width: 200px;
+	height: 200px;
+	border: 5px black solid;
+}
+#profile_edit{
+	bottom: -30px;
+	text-align: right;
+	position: relative;
+}
+#profile_name{
+	bottom: 60px;
+	text-align: center;
+	position: relative;
+}
+#profile_bio{
+	text-align: center;
+}
+#profile_content{
+	overflow: scroll;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#profile_new_list{
+	width: 100%;
+}
+#profile_new_list_td{
+	text-align: center;
+}
+#profile_lists_table{
+	border: 3px blue solid;
+}
+#profile_sacuvani{
+	height: 360px;
+	width: 200px;
+}
+#profile_sacuvani_column{
+	border: 3px brown solid;
+	border-radius: 5px;
+	width: 25%;
+}
+#profile_author{
+	text-align: center;
+	font-family: sans-serif;
+}
+#profile_movie_only{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 3px brown solid;
+	border-radius: 5px;
+}
+#profile_lists{
+	border: 3px brown solid;
+	border-radius: 5px;
+	width: 100%;
+}
+input[type=submit].profile_select{
+	height: 100px;
+}
+.profile_sacuvani_red{
+	height: 50px;
+}
+.profile_button_edit{
+	height: 50px;
+	width: 100%;
+}
+.profile_likes{
+	color: red;
+	font-size: small;
+}
+.profile_movie_edits_and_likes{
+	text-align: center;
+	width: 10%;
+	position: relative;
+}
+.profile_movie_lists{
+	background-color: brown solid;
+	text-align: center;
+}
+.profile_likes{
+	text-align: center;
+	color:#6F2232;
+	font-size: large;
+}
+.profile_select{
+	width: 100%;
+	height: 100px;
+	font-size: large;
+}
+#profile_prvi{
+	background-image: url(profile_images/lotr.jpg);
+	background-position: center;
+}
+#profile_drugi{
+	background-image: url(profile_images/pacino.jpg);
+	background-position: center;
+}
+#profile_treci{
+	background-image: url(profile_images/nic_cage.jpg) !important;
+}
+#profile_film1{
+	background-image: url(profile_images/lotr1.jpg);
+	background-position: center;
+}
+#profile_film2{
+	background-image: url(profile_images/lotr2.jpg);
+	background-position: center;
+}
+#profile_film3{
+	background-image: url(profile_images/lotr3.jpg);
+	background-position: center;
+}
+#profile_prvi_other{
+	background-image: url(profile_images/hotel.jpg);
+	background-position: center;
+}
+#profile_drugi_other{
+	background-image: url(profile_images/shrek.jpg);
+	background-position: center;
+}
+#profile_treci_other{
+	background-image: url(profile_images/worst.jpg);
+	background-position: center;
+}
+ul.new-popular-movies{
+	column-count: auto;
+	column-width: 200px;
+	list-style: none;
+	padding: 0;
+
+
+}
+li.new-popular-movies{
+	display: inline-block;
+	width:100%;
+	height:auto;
+	text-align: center;
+}
+li.new-popular-movies a{
+	color: black;
+}
+
+a.new-popular-movies{
+	text-decoration: none;
+}
+
+i.gold-trophy{
+	color: #FFD700;
+	text-shadow: 1px 1px 1px black;
+}
+
+i.silver-trophy{
+	color: #C0C0C0;
+	text-shadow: 1px 1px 1px black;
+}
+
+i.bronze-trophy{
+	color: #CD7F32;
+	text-shadow: 1px 1px 1px black;
+}
+i.trash{
+	color: #026928;
+	text-shadow: 1px 1px 1px black;
 }
