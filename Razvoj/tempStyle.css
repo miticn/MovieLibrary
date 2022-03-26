@@ -149,11 +149,6 @@ img.movie-banner{
 	margin-left: auto;
 	margin-right: auto;
 }
-#profile_lists{
-	border: 3px brown solid;
-	border-radius: 5px;
-	width: 100%;
-}
 #profile_new_list{
 	width: 100%;
 }
@@ -176,10 +171,17 @@ img.movie-banner{
 	text-align: center;
 	font-family: sans-serif;
 }
-.profile_movie_only, #profile_lists{
+#profile_movie_only{
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
+	border: 3px brown solid;
+	border-radius: 5px;
+}
+#profile_lists{
+	border: 3px brown solid;
+	border-radius: 5px;
+	width: 100%;
 }
 input[type=submit].profile_select{
 	height: 100px;
@@ -189,14 +191,15 @@ input[type=submit].profile_select{
 }
 .profile_button_edit{
 	height: 50px;
+	width: 100%;
 }
 .profile_likes{
 	color: red;
 	font-size: small;
 }
 .profile_movie_edits_and_likes{
-	text-align: right;
-	width: 15%;
+	text-align: center;
+	width: 10%;
 	position: relative;
 }
 .profile_movie_lists{
@@ -234,6 +237,18 @@ input[type=submit].profile_select{
 }
 #profile_film3{
 	background-image: url(profile_images/lotr3.jpg);
+	background-position: center;
+}
+#profile_prvi_other{
+	background-image: url(profile_images/hotel.jpg);
+	background-position: center;
+}
+#profile_drugi_other{
+	background-image: url(profile_images/shrek.jpg);
+	background-position: center;
+}
+#profile_treci_other{
+	background-image: url(profile_images/worst.jpg);
 	background-position: center;
 }
 ul.new-popular-movies{
