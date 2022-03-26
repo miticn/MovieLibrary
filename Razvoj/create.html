@@ -3,8 +3,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<title>MovieLibrary</title>
 		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="tempStyle-old.css">
-
+    <link href="tempStyle-old.css" rel="stylesheet">
 	</head>
 	<body>
 		<nav id='menu'>
@@ -21,14 +20,15 @@
 
 			</ul>
 		</nav>
-		<form>
-			<table>
-				<tr><td>Ime glumca:</td><td><input type='text' placeholder="Ime glumca" required></input></td></tr>
-				<tr><td>Datum rođenja:</td><td><input type="date" required></td></tr>
-				<tr><td>Slike glumca:</td><td><input type="file" id="poster" name="Izaberi sliku"></tr>
-				<tr><td colspan="2" align="center"><a href=actor.html><input type="button" value="Napravi stranicu glumca"></a></td></tr>
-			</table>
-    </form>
+		<br>
+    <table>
+        <tr>
+            <td align="center">
+                <a href=createmovie.html><input type="button" value="Kreiraj stranicu filma"></input></a>
+                <a href=createactor.html><input type="button" value="Kreiraj stranicu glumca"></input></a>
+            </td>
+        </tr>
+    </table>
 
 
 	</body>
