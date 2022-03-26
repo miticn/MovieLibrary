@@ -1,0 +1,17 @@
+﻿h1{
+    text-align: center;
+}
+table{
+    padding: 20px 20px;
+    border-radius: 25px;
+    font-family: sans-serif;
+    margin-top: 200;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid;
+    border-color: brown;
+}
+tr{
+    height: 50;
+}
