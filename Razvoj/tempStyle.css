@@ -172,6 +172,18 @@ img.movie-banner{
 	border-radius: 5px;
 	width: 25%;
 }
+#profile_author{
+	text-align: center;
+	font-family: sans-serif;
+}
+.profile_movie_only, #profile_lists{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+input[type=submit].profile_select{
+	height: 100px;
+}
 .profile_sacuvani_red{
 	height: 50px;
 }
@@ -180,6 +192,7 @@ img.movie-banner{
 }
 .profile_likes{
 	color: red;
+	font-size: small;
 }
 .profile_movie_edits_and_likes{
 	text-align: right;
@@ -189,7 +202,6 @@ img.movie-banner{
 .profile_movie_lists{
 	background-color: brown solid;
 	text-align: center;
-
 }
 .profile_likes{
 	text-align: center;
@@ -211,6 +223,18 @@ img.movie-banner{
 }
 #profile_treci{
 	background-image: url(profile_images/nic_cage.jpg) !important;
+}
+#profile_film1{
+	background-image: url(profile_images/lotr1.jpg);
+	background-position: center;
+}
+#profile_film2{
+	background-image: url(profile_images/lotr2.jpg);
+	background-position: center;
+}
+#profile_film3{
+	background-image: url(profile_images/lotr3.jpg);
+	background-position: center;
 }
 ul.new-popular-movies{
 	column-count: auto;
