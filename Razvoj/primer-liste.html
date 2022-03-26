@@ -4,50 +4,51 @@
     <title>Lista</title>
     <link href="tempStyle.css" rel="stylesheet">
 </head>
-<body>
+<body id="profile_primer_liste">
     <table id="profile_content">
         <tr>
-            <td>
-                <table id="profile_lists">
-                    <tr>
-                        <h1>EPIC LISTA</h1>
-                    </tr>
-                    <tr>
-                        <td class="profile_movie_lists">
-                            <input type="button" value="Epic films" id="profile_prvi" class="profile_select">
-                        </td>
-                        <td class="profile_movie_edits_and_likes">
-                            <table>
-                                <tr>
-                                    <p class="profile_likes">32</p>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr >
-                    <tr>
-                        <td class="profile_movie_lists">
-                            <input type="button" value="Moja omiljeni filmovi" id="profile_drugi" class="profile_select">
-                        </td>
-                        <td class="profile_movie_edits_and_likes">
-                            <table>
-                                <tr>
-                                    <p class="profile_likes">70</p>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr >
-                    <tr>
-                        <td class="profile_movie_lists">
-                            <input type="button" value="Nic Cage FTW" id="profile_treci" class="profile_select">
-                        </td>
-                        <td class="profile_movie_edits_and_likes">
-                            <table>
-                                <tr>
-                                    <p class="profile_likes">2</p>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr >
-                </table>
+            <table id="profile_lists" class="profile_movie_only">
+                <tr>
+                    <h1 id="profile_author">EPIC FILMS<br>by Marko Marković</h1>
+                </tr>
+                <tr>
+                    <td class="profile_movie_lists">
+                        <input type="submit" value="The fellowship of the ring" id="profile_prvi" class="profile_select">
+                    </td>
+                    <td class="profile_movie_edits_and_likes">
+                        <table>
+                            <tr>
+                                <p class="profile_likes">235.234</p>
+                            </tr>
+                        </table>
+                    </td>
+                </tr >
+                <tr>
+                    <td class="profile_movie_lists">
+                        <input type="submit" value="Two towers" id="profile_film2" class="profile_select">
+                    </td>
+                    <td class="profile_movie_edits_and_likes">
+                        <table>
+                            <tr>
+                                <p class="profile_likes">170.603</p>
+                            </tr>
+                        </table>
+                    </td>
+                </tr >
+                <tr>
+                    <td class="profile_movie_lists">
+                        <input type="submit" value="The return of the king" id="profile_film3" class="profile_select">
+                    </td>
+                    <td class="profile_movie_edits_and_likes">
+                        <table>
+                            <tr>
+                                <p class="profile_likes">255.322</p>
+                            </tr>
+                        </table>
+                    </td>
+                </tr >
+            </table>
+        </tr>
+    </table>
 </body>
 </html>
