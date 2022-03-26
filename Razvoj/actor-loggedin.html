@@ -8,18 +8,20 @@
     <link rel="stylesheet" href="library_style.css">
 </head>
 <body>
-    <nav id='menu'>
-        <a class="logo" href="index.html">𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎</a>
-        <form id="search" action="search.html">
-            <input type="text" class="search" placeholder="Pretraga.." name="naziv">
-            <button type="submit" class="search"><i class="fa fa-search"></i></button>
-        </form>
-        <ul>
-            <li class="account"><a href="register.html">Registruj se</a></li>
-            <li class="account"><a href="login.html">Prijavi se</a></li>
-            
-        </ul>
-    </nav>
+  <nav id='menu'>
+    <a class="logo" href="index-loggedin.html">𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎</a>
+    <form id="search" action="search.html">
+      <input type="text" class="search" placeholder="Pretraga.." name="naziv">
+      <button type="submit" class="search"><i class="fa fa-search"></i></button>
+    </form>
+    <ul>
+      <li class="account"><a href="index.html">Odjavi se</a></li>
+      <li class="account"><a href="profile.html">admin</a></li>
+      <li class="account"><a href="create.html">Napravi stranicu</a></li>
+
+
+    </ul>
+  </nav>
     <div class="content_wrapper">
         <img class="library-image" src="IMG/Robert_Pattinson.jpg"><br><b>Robert Pattinson</b>
         <br>
@@ -45,11 +47,23 @@
             <h3>Komentari</h3>
             <tr>
                 <td class="comment">
+                    Ostavite komentar:
+                    <br>
+                    <div class="comment-box">
+                        <textarea id="" cols="30" rows="3" class="comment-box" placeholder="Unesite vaše utiske..."></textarea>
+                    </div>
+                    <br>
+                    <input type="button" value="Objavi">
+                </td>
+            </tr>
+            <tr>
+                <td class="comment">
                     <a href="profile.html">
                         <img src="profile_images/profile_pic.png" class="comment-profile-pic">
                     </a>
                     <h4 class="comment-username">
                         <a href="profile.html" class="comment-username">Marko Markovic</a>
+                        <button class="remove-comment">X</button>
                     </h4>
                     <hr>
                     <p class="comment-text">
@@ -66,6 +80,7 @@
                     <img src="profile_images/profile_pic_default.jpg" class="comment-profile-pic">
                     <h4 class="comment-username">
                         <a href="profile.html" class="comment-username">Username</a>
+                        <button class="remove-comment">X</button>
                     </h4>
                     <hr>
                     <p class="comment-text">
