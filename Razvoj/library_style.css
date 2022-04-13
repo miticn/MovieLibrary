@@ -20,6 +20,8 @@ img.library-image{
 
 .like {
 	border-radius: 15px;
+	border: 2px solid;
+	border-color: rgb(156, 154, 154);
 	color: #070000;
 	font-size: 30px;
 	font-family:sans-serif;
@@ -29,11 +31,21 @@ img.library-image{
 
 .dislike {
 	border-radius: 15px;
+	border: 2px solid;
+	border-color: rgb(156, 154, 154);
 	color: #070000;
 	font-size: 30px;
 	font-family:sans-serif;
 	background: #f75656;
 	padding: 12px 20px 15px 20px;
+}
+
+.like:active:not(.guest){
+	border-color: black;
+}
+
+.dislike:active:not(.guest){
+	border-color: black;
 }
 
 li.cast-filmography{
@@ -94,6 +106,10 @@ p.comment-text{
 	padding: 6px 10px 8px 10px;
 }
 
+.comment-like:active:not(.guest){
+	border-color: black;
+}
+
 .comment-dislike{
 	border: 2px solid;
 	border-radius: 10px;
@@ -103,6 +119,10 @@ p.comment-text{
 	background: #f75656;
 	color: #070000;
 	padding: 6px 10px 8px 10px;
+}
+
+.comment-dislike:active:not(.guest){
+	border-color: black;
 }
 
 .comment-username{
