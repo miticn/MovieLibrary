@@ -40,11 +40,13 @@ img.library-image{
 	padding: 12px 20px 15px 20px;
 }
 
-.like:active:not(.guest){
-	border-color: black;
+.like:hover:not(.guest), .dislike:hover:not(.guest),
+.comment-like:hover:not(.guest), .comment-dislike:hover:not(.guest){
+	border-color: rgb(78, 77, 77);
 }
 
-.dislike:active:not(.guest){
+.like:active:not(.guest), .dislike:active:not(.guest), 
+.comment-like:active:not(.guest), .comment-dislike:active:not(.guest){
 	border-color: black;
 }
 
@@ -106,10 +108,6 @@ p.comment-text{
 	padding: 6px 10px 8px 10px;
 }
 
-.comment-like:active:not(.guest){
-	border-color: black;
-}
-
 .comment-dislike{
 	border: 2px solid;
 	border-radius: 10px;
@@ -119,10 +117,6 @@ p.comment-text{
 	background: #f75656;
 	color: #070000;
 	padding: 6px 10px 8px 10px;
-}
-
-.comment-dislike:active:not(.guest){
-	border-color: black;
 }
 
 .comment-username{
