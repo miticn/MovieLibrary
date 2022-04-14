@@ -292,3 +292,8 @@ i.trash{
 	color: #026928;
 	text-shadow: 1px 1px 1px black;
 }
+
+a.profilename{
+	text-decoration: none;
+	color: inherit;
+}
