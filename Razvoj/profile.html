@@ -33,17 +33,17 @@
                 <table id="profile_desc">
                     <tr>
                         <div id="profile_name">
-                            <p>Marko Markovic</p>
+                            <p id="pname">Marko Markovic</p>
                         </div>
                     </tr>
                     <tr>
                         <div id="profile_bio">
-                            <p>Neki jako genericni status ili citat.</p>
+                            <p id="pbio">Neki jako genericni status ili citat.</p>
                         </div>
                     </tr>
                     <tr>
                         <div id="profile_edit">
-                            <input type="button" value="Izmeni">
+                            <button onclick="editProfile()">Izmeni</button>
                         </div>
                     </tr>
                 </td>
@@ -57,7 +57,7 @@
                     <table id="profile_lists">
                         <tr class="profile_movie_lists">
                             <td colspan="2" id="profile_new_list_td">
-                                <input type="button" value="Napravi novu listu" id="profile_new_list">
+                                <button onclick = "makeList()" id="profile_new_list">Napravi novu listu</button>
                             </td>
                         </tr>
                         <tr>
@@ -72,7 +72,7 @@
                                         <p class="profile_likes">32</p>
                                     </tr>
                                     <tr class="profile_movie_edits">
-                                        <input type="submit" value="izmeni" class="profile_button_edit">
+                                        <input type="submit" value="Reaguj" class="profile_button_edit">
                                     </tr>
                                 </table>
                             </td>
@@ -89,7 +89,7 @@
                                         <p class="profile_likes">70</p>
                                     </tr>
                                     <tr class="profile_movie_edits">
-                                        <input type="button" value="izmeni" class="profile_button_edit">
+                                        <input type="button" value="Reaguj" class="profile_button_edit">
                                     </tr>
                                 </table>
                             </td>
@@ -106,7 +106,7 @@
                                         <p class="profile_likes">2</p>
                                     </tr>
                                     <tr class="profile_movie_edits">
-                                        <input type="button" value="izmeni" class="profile_button_edit">
+                                        <input type="button" value="Reaguj" class="profile_button_edit">
                                     </tr>
                                 </table>
                             </td>
@@ -159,3 +159,22 @@
     </div>
 </body>
 </html>
+<script>
+    function editProfile(){
+        var name = document.getElementById("pname");
+        var bio = document.getElementById("pbio");
+        if(name.contentEditable == "true"){
+            name.contentEditable = "false";
+            bio.contentEditable = "false";
+        }else{
+            name.contentEditable = "true";
+            bio.contentEditable = "true";
+        }
+    }
+    function makeList(){
+        let p = prompt("Unesite naziv liste", "");
+    }
+    function like(){
+        
+    }
+</script>
