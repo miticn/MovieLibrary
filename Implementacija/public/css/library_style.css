@@ -1,0 +1,152 @@
+/*autor: Momcilo Milic*/
+
+.content_wrapper {
+	padding: 10px;
+	width: 60%;
+	margin-top: 100;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+	border: 5px solid;
+	border-radius: 10px;
+    border-color: brown;
+}
+
+img.library-image{
+	width:20%;
+	height:auto;
+	padding-bottom: 5px;
+}
+
+.like {
+	border-radius: 15px;
+	border: 2px solid;
+	border-color: rgb(156, 154, 154);
+	color: #070000;
+	font-size: 30px;
+	font-family:sans-serif;
+	background: #49f87e;
+	padding: 12px 20px 15px 20px;
+}
+
+.dislike {
+	border-radius: 15px;
+	border: 2px solid;
+	border-color: rgb(156, 154, 154);
+	color: #070000;
+	font-size: 30px;
+	font-family:sans-serif;
+	background: #f75656;
+	padding: 12px 20px 15px 20px;
+}
+
+.like:hover:not(.guest), .dislike:hover:not(.guest),
+.comment-like:hover:not(.guest), .comment-dislike:hover:not(.guest){
+	border-color: rgb(78, 77, 77);
+}
+
+.like:active:not(.guest), .dislike:active:not(.guest), 
+.comment-like:active:not(.guest), .comment-dislike:active:not(.guest){
+	border-color: black;
+}
+
+li.cast-filmography{
+	border: 2px solid;
+	border-radius: 10px;
+	padding: 5px;
+	flex-direction: left;
+	width: 50%;
+	background: #f5a6db;
+}
+
+.library-info{
+	border-right: 1px solid;
+	border-color: rgb(156, 154, 154);
+}
+
+.theatre-links{
+	padding-top: 10px;
+	padding-left: 5px;
+}
+
+table.comment-table{
+	width: 80%;
+}
+
+td.comment{
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	border: 2px solid;
+	border-color: rgb(109, 108, 108);
+	border-radius: 10px;
+	width: 100%;
+	height: auto;
+}
+
+img.comment-profile-pic{
+	float: left;
+	border: 2px solid;
+	border-radius: 10px;
+	padding: 2px;
+	width: 5%;
+	height: auto;
+}
+
+p.comment-text{
+	padding-bottom: 5px;
+}
+
+.comment-like{
+	border: 2px solid;
+	border-radius: 10px;
+	border-color: rgb(156, 154, 154);
+	font-size: 15px;
+	font-family:sans-serif;
+	background: #49f87e;
+	color: #070000;
+	padding: 6px 10px 8px 10px;
+}
+
+.comment-dislike{
+	border: 2px solid;
+	border-radius: 10px;
+	border-color: rgb(156, 154, 154);
+	font-size: 15px;
+	font-family:sans-serif;
+	background: #f75656;
+	color: #070000;
+	padding: 6px 10px 8px 10px;
+}
+
+.comment-username{
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: black;
+}
+
+a.comment-username{
+	text-decoration: none;
+}
+
+a.handle{
+	text-decoration: none;
+}
+
+div.comment-box{
+	padding-left: 10px;
+	padding-top: 10px;
+	width: 100%;
+}
+
+.comment-box{
+	width: 60%;
+}
+
+.remove-comment{
+	float: right;
+	border-radius: 5px;
+	background-color: red;
+	padding: 8px 10px 8px 10px;
+}
