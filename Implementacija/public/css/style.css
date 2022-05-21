@@ -236,8 +236,6 @@ td.ocena{
 	text-align: center;
 }
 
-td.title{
-}
 tr.search{
 	cursor: pointer;
 }
@@ -247,4 +245,10 @@ img.search{
 	max-height:100%;
 	height: auto;
 
+}
+
+.login_form{
+	margin: auto;
+	margin-top:300px;
+	height:200px;
 }

@@ -19,8 +19,14 @@
 				<button type="submit" class="search"><i class="fa fa-search"></i></button>
 			</form>
 			<ul>
-				<li class="account"><a href="register">Registruj se</a></li>
-				<li class="account"><a href="login">Prijavi se</a></li>
+				@guest
+					<li class="account"><a href="register">Registruj se</a></li>
+					<li class="account"><a href="login">Prijavi se</a></li>
+				@endguest
+				@auth
+					<li class="account"><a href="profile">&#91;{{auth()->user()->Ime}}&#93;</a></li>
+					<li class="account"><a href="login">Odjavi se</a></li>
+				@endauth
 			</ul>
 		</nav>
 		<br>

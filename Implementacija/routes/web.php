@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('index');});
-Route::get('/index', function () {return view('index');});
+Route::get('/{index}', function () {return view('index');})->where('index', '(home|index|)')->name('index');
+
+Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
+Route::post('/login_submit', [GostController::class, 'login_submit'])->middleware('guest')->name('login_submit');
+
+Route::get('/profil', [KorisnikController::class, 'profil'])->middleware('auth')->name('profil');
