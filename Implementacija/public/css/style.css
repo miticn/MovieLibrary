@@ -250,5 +250,24 @@ img.search{
 .login_form{
 	margin: auto;
 	margin-top:300px;
-	height:200px;
+	height:180px;
 }
+
+table.login_form{
+	border: 5px solid black;
+}
+
+.error{
+	color: #950740;
+	text-align: center;
+}
+
+#prijavi_se{
+	text-align: center;
+}
+
+.levo{
+	border-right: 5px solid black;
+	text-align: right;
+}
+

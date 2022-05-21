@@ -25,7 +25,7 @@
 				@endguest
 				@auth
 					<li class="account"><a href="profile">&#91;{{auth()->user()->Ime}}&#93;</a></li>
-					<li class="account"><a href="login">Odjavi se</a></li>
+					<li class="account"><a href="logout">Odjavi se</a></li>
 				@endauth
 			</ul>
 		</nav>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GostController;
+use App\Http\Controllers\KorisnikController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,12 @@ use App\Http\Controllers\GostController;
 |
 */
 
-Route::get('/{index}', function () {return view('index');})->where('index', '(home|index|)')->name('index');
+Route::get('/', function () {return view('index');})->name('index');
+Route::get('/{index}', function () {return view('index');})->where('index', 'index|home|pocetna');
 
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
+Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');
 Route::post('/login_submit', [GostController::class, 'login_submit'])->middleware('guest')->name('login_submit');
 
+Route::get('/logout', [KorisnikController::class, 'logout'])->middleware('auth')->name('logout');
 Route::get('/profil', [KorisnikController::class, 'profil'])->middleware('auth')->name('profil');
