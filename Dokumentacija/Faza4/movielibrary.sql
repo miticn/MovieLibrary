@@ -8,6 +8,7 @@
 -- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,7 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `movielibrary`
 --
-
+CREATE DATABASE IF NOT EXISTS `movielibrary`;
+USE `movielibrary`;
 -- --------------------------------------------------------
 
 --
@@ -57,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `cuva_listu` (
 
 DROP TABLE IF EXISTS `film`;
 CREATE TABLE IF NOT EXISTS `film` (
-  `idFilm` int(11) NOT NULL,
+  `idFilm` int(11) NOT NULL AUTO_INCREMENT,
   `Naziv` varchar(45) NOT NULL,
   `Opis` varchar(500) NOT NULL,
   `BrojLajk` int(11) NOT NULL,
@@ -121,17 +123,26 @@ CREATE TABLE IF NOT EXISTS `komentar` (
 
 DROP TABLE IF EXISTS `korisnik`;
 CREATE TABLE IF NOT EXISTS `korisnik` (
-  `idKorisnik` int(11) NOT NULL,
+  `idKorisnik` int(11) NOT NULL AUTO_INCREMENT,
   `KorisnickoIme` varchar(45) NOT NULL,
   `Ime` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `Sifra` varchar(60) NOT NULL,
-  `Vrsta` int(11) NOT NULL,
+  `Vrsta` tinyint(1) NOT NULL,
+  `Opis` varchar(120) DEFAULT 'Novajlija ovde.',
   PRIMARY KEY (`idKorisnik`),
   UNIQUE KEY `idKor_UNIQUE` (`idKorisnik`),
   UNIQUE KEY `KorisnickoIme_UNIQUE` (`KorisnickoIme`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `korisnik`
+--
+
+INSERT INTO `korisnik` (`KorisnickoIme`, `Ime`, `email`, `Sifra`, `Vrsta`, `Opis`) VALUES
+('brucewillis', 'John McClane', 'bruce@movielibrary.com', 'bruce123', '1', 'Ja sam admin.'),
+('alanrickman', 'Hans Gruber', 'alan@movielibrary.com', 'alan123', '0', 'Ja nisam admin.');
 
 -- --------------------------------------------------------
 
