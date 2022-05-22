@@ -30,6 +30,8 @@
 			</ul>
 		</nav>
 		<br>
-	</body>
+	
 	@yield('content')
+
+	</body>
 </html>
