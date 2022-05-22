@@ -13,19 +13,19 @@
 	</head>
 	<body>
 		<nav id='menu'>
-			<a class="logo" href="index">𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎</a>
-			<form id="search" action="search">
+			<a class="logo" href="/index">𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎</a>
+			<form id="search" action="/search">
 				<input type="text" class="search" placeholder="Pretraga.." name="naziv">
 				<button type="submit" class="search"><i class="fa fa-search"></i></button>
 			</form>
 			<ul>
 				@guest
-					<li class="account"><a href="register">Registruj se</a></li>
-					<li class="account"><a href="login">Prijavi se</a></li>
+					<li class="account"><a href="/register">Registruj se</a></li>
+					<li class="account"><a href="/login">Prijavi se</a></li>
 				@endguest
 				@auth
 					<li class="account"><a href={{route('profile', ['id' => auth()->user()->idKorisnik])}}>&#91;{{auth()->user()->Ime}}&#93;</a></li>
-					<li class="account"><a href="logout">Odjavi se</a></li>
+					<li class="account"><a href="/logout">Odjavi se</a></li>
 				@endauth
 			</ul>
 		</nav>
