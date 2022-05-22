@@ -223,9 +223,14 @@ table.login_form{
 
 #down{
 	text-align: bottom;
+	background-color: red;
 }
 
 #up{
 	text-align: top;
+}
+
+#test{
+	background-color: gray;
 }
 

@@ -9,13 +9,13 @@
             onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_profile/profile_def.jpg')}}'">
             </div>
         </td>
-        <td>
-            <table>
-                <tr><td>
-                    <p id="up">{{$profile->Ime}}</p>
+        <td #test>
+            <table  id="up">
+                <tr id="up"><td>
+                    <p>{{$profile->Ime}}</p>
                 </td></tr>
-                <tr><td>
-                    <p id="down">{{$profile->Opis}}</p>
+                <tr><td id="down">
+                    <p>{{$profile->Opis}}</p>
                 </td></tr>
             </table>
         </td>
