@@ -117,72 +117,11 @@ img.movie-banner{
 	border-radius: 6px;
 }
 
-#profile_profile{
-	border: 10px black solid;
-	background: gray;
-	border-radius: 25px;
-	padding: 0;
-	margin-left: auto;
-	margin-right: auto;
-	width: 50%;
-	padding: 10px;
-}
-#profile_pic{
-	width: 200px;
-	height: 200px;
-	border: 5px black solid;
-}
-#profile_edit{
-	bottom: -30px;
-	text-align: right;
-	position: relative;
-}
-#profile_name{
-	bottom: 60px;
-	text-align: center;
-	position: relative;
-}
-#profile_bio{
-	text-align: center;
-}
-#profile_content{
-	width: 50%;
-	border:#0B0C10 solid;
-	margin-left: auto;
-	margin-right: auto;
-}
-#profile_lists{
-	border: 3px brown solid;
-	width: 100%;
-}
-#profile_new_list{
-	width: 100%;
-}
-#profile_new_list_td{
-	text-align: center;
-	border: 1px solid;
-}
-#profile_lists_table{
-	border: 3px blue solid;
-}
-.profile_movie_edits{
-	text-align: right;
-	width: 15%;
-	border: 1px solid;
-	position: relative;
-}
-.profile_movie_lists{
-	background-color: brown solid;
-	border-radius: 6px;
-
-}
 ul.new-popular-movies{
 	column-count: auto;
 	column-width: 190px;
 	list-style: none;
 	padding: 0;
-
-
 }
 li.new-popular-movies{
 	display: inline-block;
@@ -269,5 +208,24 @@ table.login_form{
 .levo{
 	border-right: 5px solid black;
 	text-align: right;
+}
+
+.profile{
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.profile img{
+	height: 200px;
+	width: 200px;
+}
+
+#down{
+	text-align: bottom;
+}
+
+#up{
+	text-align: top;
 }
 

@@ -24,13 +24,12 @@
 					<li class="account"><a href="login">Prijavi se</a></li>
 				@endguest
 				@auth
-					<li class="account"><a href="profile">&#91;{{auth()->user()->Ime}}&#93;</a></li>
+					<li class="account"><a href={{route('profile', ['id' => auth()->user()->idKorisnik])}}>&#91;{{auth()->user()->Ime}}&#93;</a></li>
 					<li class="account"><a href="logout">Odjavi se</a></li>
 				@endauth
 			</ul>
 		</nav>
 		<br>
-		@yield('content')
-
 	</body>
+	@yield('content')
 </html>

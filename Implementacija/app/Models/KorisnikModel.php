@@ -28,4 +28,5 @@ class KorisnikModel extends Authenticatable
     {
         return $this->Sifra;
     }
+
 }

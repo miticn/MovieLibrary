@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GostController;
 use App\Http\Controllers\KorisnikController;
+use App\Http\Controllers\BaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,4 @@ Route::get('/register', [GostController::class, 'register'])->middleware('guest'
 Route::post('/login_submit', [GostController::class, 'login_submit'])->middleware('guest')->name('login_submit');
 
 Route::get('/logout', [KorisnikController::class, 'logout'])->middleware('auth')->name('logout');
-Route::get('/profil', [KorisnikController::class, 'profil'])->middleware('auth')->name('profil');
+Route::get('/profile/{id}', [BaseController::class, 'profile'])->name('profile');
