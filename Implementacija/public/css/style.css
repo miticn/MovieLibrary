@@ -244,14 +244,46 @@ table.login_form{
 
 #bez_margine{
 	margin-top: 0 !important;
+	background-color: blueviolet;
 }
 
 #profili div{
 	background-color: aquamarine;
 	width: 200px;
+	height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#profili p{
+	height: 50px;
 }
 
 #liste{
 	width: 100%;
 	background-color: red;
+}
+
+#liste div{
+	width: 100%;
+	height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#liste p{
+	height:100px;
+	text-align: center;
+	background-position: center;
+	color: white;
+}
+
+.sacuvani_slika{
+	width: 50px;
+	height: 50px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }

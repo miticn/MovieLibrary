@@ -24,4 +24,11 @@ Route::get('/register', [GostController::class, 'register'])->middleware('guest'
 Route::post('/login_submit', [GostController::class, 'login_submit'])->middleware('guest')->name('login_submit');
 
 Route::get('/logout', [KorisnikController::class, 'logout'])->middleware('auth')->name('logout');
+
 Route::get('/profile/{id}', [BaseController::class, 'profile'])->name('profile');
+Route::get('/lista/{id}', [BaseController::class, 'lista'])->name('lista');
+
+Route::get('/lista/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_listu'])->name('sacuvaj_listu');
+Route::get('/lista/zaboravi/{id}', [KorisnikController::class, 'zaboravi_listu'])->name('zaboravi_listu');
+Route::get('/profile/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_korisnika'])->name('sacuvaj_korisnika');
+Route::get('/profile/zaboravi/{id}', [KorisnikController::class, 'zaboravi_korisnika'])->name('zaboravi_korisnika');

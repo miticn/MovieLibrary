@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\ListaModel;
 
 class KorisnikModel extends Authenticatable
 {
@@ -27,6 +28,16 @@ class KorisnikModel extends Authenticatable
     public function getAuthPassword()
     {
         return $this->Sifra;
+    }
+
+    public function sacuvani()
+    {
+        return $this->belongsToMany(KorisnikModel::class, 'cuva_korisnika', 'idCuva', 'idCuvan');
+    }
+
+    public function liste()
+    {
+        return $this->belongsToMany(ListaModel::class, 'cuva_listu', 'Korisnik_id_cuva', 'Lista_id_cuvana');
     }
 
 }

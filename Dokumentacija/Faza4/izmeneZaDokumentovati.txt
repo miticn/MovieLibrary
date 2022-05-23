@@ -1,0 +1,2 @@
+Atribut Opis u Korisnik dodat
+Vrsta smanjena na tinyint
