@@ -28,7 +28,8 @@ Route::get('/logout', [KorisnikController::class, 'logout'])->middleware('auth')
 Route::get('/profile/{id}', [BaseController::class, 'profile'])->name('profile');
 Route::get('/lista/{id}', [BaseController::class, 'lista'])->name('lista');
 
-Route::get('/lista/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_listu'])->name('sacuvaj_listu');
-Route::get('/lista/zaboravi/{id}', [KorisnikController::class, 'zaboravi_listu'])->name('zaboravi_listu');
-Route::get('/profile/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_korisnika'])->name('sacuvaj_korisnika');
-Route::get('/profile/zaboravi/{id}', [KorisnikController::class, 'zaboravi_korisnika'])->name('zaboravi_korisnika');
+Route::get('/napravi_listu', [KorisnikController::class, 'napravi_listu'])->middleware('auth')->name('napravi_listu');
+Route::get('/lista/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_listu'])->middleware('auth')->name('sacuvaj_listu');
+Route::get('/lista/zaboravi/{id}', [KorisnikController::class, 'zaboravi_listu'])->middleware('auth')->name('zaboravi_listu');
+Route::get('/profile/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_korisnika'])->middleware('auth')->name('sacuvaj_korisnika');
+Route::get('/profile/zaboravi/{id}', [KorisnikController::class, 'zaboravi_korisnika'])->middleware('auth')->name('zaboravi_korisnika');

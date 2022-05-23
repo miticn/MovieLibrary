@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 23, 2022 at 11:28 AM
+-- Generation Time: May 23, 2022 at 04:41 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -82,10 +82,20 @@ CREATE TABLE IF NOT EXISTS `film` (
   `idFilm` int(11) NOT NULL AUTO_INCREMENT,
   `Naziv` varchar(45) NOT NULL,
   `Opis` varchar(500) NOT NULL,
-  `BrojLajk` int(11) NOT NULL,
-  `BrojDislajk` int(11) NOT NULL,
+  `BrojLajk` int(11) NOT NULL DEFAULT '0',
+  `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idFilm`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `film`
+--
+
+INSERT INTO `film` (`idFilm`, `Naziv`, `Opis`, `BrojLajk`, `BrojDislajk`) VALUES
+(1, 'Lotr1', 'epic', 0, 0),
+(2, 'lotr2', 'epic', 0, 0),
+(3, 'lotr3', 'epic', 0, 0),
+(4, 'hobbit', 'manje epic', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -95,11 +105,11 @@ CREATE TABLE IF NOT EXISTS `film` (
 
 DROP TABLE IF EXISTS `glumac`;
 CREATE TABLE IF NOT EXISTS `glumac` (
-  `idGlumac` int(11) NOT NULL,
+  `idGlumac` int(11) NOT NULL AUTO_INCREMENT,
   `Ime` varchar(45) NOT NULL,
   `Opis` varchar(500) NOT NULL,
-  `BrojLajk` int(11) NOT NULL,
-  `BrojDislajk` int(11) NOT NULL,
+  `BrojLajk` int(11) NOT NULL DEFAULT '0',
+  `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idGlumac`),
   UNIQUE KEY `idGlumac_UNIQUE` (`idGlumac`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -126,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `glumi` (
 
 DROP TABLE IF EXISTS `komentar`;
 CREATE TABLE IF NOT EXISTS `komentar` (
-  `idKomentar` int(11) NOT NULL,
+  `idKomentar` int(11) NOT NULL AUTO_INCREMENT,
   `Tekst` varchar(200) NOT NULL,
   `Korisnik_idKorisnik` int(11) NOT NULL,
   `Indikator` int(11) NOT NULL,
@@ -174,7 +184,7 @@ INSERT INTO `korisnik` (`idKorisnik`, `KorisnickoIme`, `Ime`, `email`, `Sifra`, 
 
 DROP TABLE IF EXISTS `lajk_dislajk`;
 CREATE TABLE IF NOT EXISTS `lajk_dislajk` (
-  `idLajk_Dislajk` int(11) NOT NULL,
+  `idLajk_Dislajk` int(11) NOT NULL AUTO_INCREMENT,
   `Korisnik_idKorisnik` int(11) NOT NULL,
   `Indikator` int(11) NOT NULL,
   `Lokacija` int(11) NOT NULL,
@@ -237,6 +247,16 @@ CREATE TABLE IF NOT EXISTS `u_listi` (
   PRIMARY KEY (`Lista_idLista`,`Film_idFilm`),
   KEY `fk_U_Listi_Film1_idx` (`Film_idFilm`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `u_listi`
+--
+
+INSERT INTO `u_listi` (`Lista_idLista`, `Film_idFilm`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4);
 
 --
 -- Constraints for dumped tables

@@ -18,4 +18,9 @@ class FilmModel extends Model
         'BrojLajk',
         'BrojDislajk'
     ];
+
+    public function u_listi()
+    {
+        return $this->belongsToMany(ListaModel::class, 'u_listi', 'Film_idFilm', 'Lista_idLista');
+    }
 }

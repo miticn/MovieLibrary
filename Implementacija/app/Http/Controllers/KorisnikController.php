@@ -14,6 +14,20 @@ class KorisnikController extends Controller{
         return redirect()->route('index');
     }
 
+    public function napravi_listu(Request $request)
+    {
+        $this->validate($request,[
+            'Ime' => 'required'
+        ]);
+
+        $lista = ListaModel::create([
+            'Korisnik_idKorisnik' => auth()->id(),
+            'Ime' => $request->Ime
+        ]);
+        $lista->cuvana_je()->attach(auth::id());
+        return back();
+    }
+
     public function sacuvaj_listu(Request $request)
     {
         $lista = ListaModel::find($request->id);
@@ -36,7 +50,7 @@ class KorisnikController extends Controller{
 
     public function zaboravi_korisnika(Request $request)
     {
-        KorisnikModel::find(auth::id())->sacuvani()->detach(auth::id($request->id));
+        KorisnikModel::find(auth::id())->sacuvani()->detach($request->id);
         return back();
     }
 }
