@@ -211,26 +211,47 @@ table.login_form{
 }
 
 .profile{
-	margin-top: 200px;
+	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
+	width: 50%;
+	border: solid 1px black;
+	background-color: yellow;
 }
 
-.profile img{
+#profile_ime{
+	vertical-align: top;
+	text-align: center;
+	background-color: blue;
+	height: 15px;
+}
+
+#profile_opis{
+	vertical-align: center;
+	text-align: center;
+}
+
+#ime_opis{
 	height: 200px;
+	background-color: green;
+	width: 100%;
+}
+
+.profile_slika{
+	width: 200px;
+	height: 200px;
+}
+
+#bez_margine{
+	margin-top: 0 !important;
+}
+
+#profili div{
+	background-color: aquamarine;
 	width: 200px;
 }
 
-#down{
-	text-align: bottom;
+#liste{
+	width: 100%;
 	background-color: red;
 }
-
-#up{
-	text-align: top;
-}
-
-#test{
-	background-color: gray;
-}
-

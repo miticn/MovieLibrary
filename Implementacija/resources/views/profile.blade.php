@@ -3,23 +3,44 @@
 
 <table class="profile">
     <tr>
-        <td>
+        <td class="profile_slika">
             <div>
-                <img src="{{URL::asset('IMG/img_profile/profile'.$profile->idKorisnik.'.png')}}"
+                <img class="profile_slika" src="{{URL::asset('IMG/img_profile/profile'.$profile->idKorisnik.'.png')}}"
             onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_profile/profile_def.jpg')}}'">
             </div>
         </td>
-        <td #test>
-            <table  id="up">
-                <tr id="up"><td>
-                    <p>{{$profile->Ime}}</p>
+        <td>
+            <table id="ime_opis">
+                <tr id="profile_ime"><td>
+                    {{$profile->Ime}}
                 </td></tr>
-                <tr><td id="down">
-                    <p>{{$profile->Opis}}</p>
+                <tr id="profile_opis"><td>
+                    {{$profile->Opis}}
                 </td></tr>
             </table>
         </td>
     </tr>
 </table>
+
+<table class="profile" id="bez_margine"><tr>
+    <td id="liste">
+        <ul style="list-style-type:none;">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>  
+
+
+
+
+
+
+    </td>
+    <td id="profili">
+        <div>
+            bruh
+        </div>
+    </td>
+</tr></table>
 
 @endsection
