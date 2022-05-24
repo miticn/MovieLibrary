@@ -1,0 +1,3 @@
+Atribut Opis u Korisnik dodat
+Vrsta kod Korisnika smanjena na tinyint
+auto increment stavljen kod svih id

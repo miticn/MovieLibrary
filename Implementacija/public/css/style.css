@@ -211,26 +211,93 @@ table.login_form{
 }
 
 .profile{
-	margin-top: 200px;
+	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
+	width: 70%;
+	border: solid 1px black;
+	background-color: yellow;
 }
 
-.profile img{
+#profile_ime{
+	vertical-align: top;
+	text-align: center;
+	background-color: blue;
+	height: 15px;
+}
+
+#profile_opis{
+	vertical-align: center;
+	text-align: center;
+}
+
+#ime_opis{
 	height: 200px;
-	width: 200px;
+	background-color: green;
+	width: 100%;
 }
 
-#down{
-	text-align: bottom;
+.profile_slika{
+	width: 200px;
+	height: 200px;
+}
+
+#bez_margine{
+	margin-top: 0 !important;
+	background-color: blueviolet;
+}
+
+#profili table{
+	background-color: aquamarine;
+	width: 300px;
+	height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#profili p{
+	height: 50px;
+}
+
+#liste{
+	width: 100%;
 	background-color: red;
 }
 
-#up{
-	text-align: top;
+#liste div{
+	width: 100%;
+	height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
-#test{
-	background-color: gray;
+#liste p{
+	height:100px;
+	text-align: center;
+	background-position: center;
+	color: white;
 }
 
+.sacuvani_slika{
+	width: 50px;
+	height: 50px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.prikaz_liste{
+	margin: auto;
+	margin-top: 100px;
+	width: 70%;
+	text-align: center;
+	background-color: white;
+}
+
+.prikaz_liste .background_movie{
+	height: 100px;
+	background-position: center;
+	padding: 10%;
+}

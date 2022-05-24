@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
 use App\Models\KorisnikModel;
+use App\Models\ListaModel;
+use GuzzleHttp\Psr7\Request;
 
 class BaseController extends Controller{
     private static function getTrophy($score){
@@ -42,5 +44,10 @@ class BaseController extends Controller{
     }
     public function search($Naziv){
 
+    }
+
+    public function lista($id)
+    {
+       return view('lista', ['lista' => ListaModel::find($id)]);
     }
 }

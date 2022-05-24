@@ -3,12 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 20, 2022 at 01:07 PM
+-- Generation Time: May 23, 2022 at 04:41 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,8 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `movielibrary`
 --
-CREATE DATABASE IF NOT EXISTS `movielibrary`;
+CREATE DATABASE IF NOT EXISTS `movielibrary` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `movielibrary`;
+
 -- --------------------------------------------------------
 
 --
@@ -37,6 +37,17 @@ CREATE TABLE IF NOT EXISTS `cuva_korisnika` (
   KEY `fk_Cuva_Korisnika_Korisnik2_idx` (`idCuva`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `cuva_korisnika`
+--
+
+INSERT INTO `cuva_korisnika` (`idCuva`, `idCuvan`) VALUES
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 3),
+(4, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -45,11 +56,20 @@ CREATE TABLE IF NOT EXISTS `cuva_korisnika` (
 
 DROP TABLE IF EXISTS `cuva_listu`;
 CREATE TABLE IF NOT EXISTS `cuva_listu` (
-  `Korsinik_id_cuva` int(11) NOT NULL,
+  `Korisnik_id_cuva` int(11) NOT NULL,
   `Lista_id_cuvana` int(11) NOT NULL,
-  PRIMARY KEY (`Korsinik_id_cuva`,`Lista_id_cuvana`),
+  PRIMARY KEY (`Korisnik_id_cuva`,`Lista_id_cuvana`),
   KEY `fk_Cuva_Listu_Lista1_idx` (`Lista_id_cuvana`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cuva_listu`
+--
+
+INSERT INTO `cuva_listu` (`Korisnik_id_cuva`, `Lista_id_cuvana`) VALUES
+(1, 1),
+(1, 2),
+(1, 3);
 
 -- --------------------------------------------------------
 
@@ -62,10 +82,20 @@ CREATE TABLE IF NOT EXISTS `film` (
   `idFilm` int(11) NOT NULL AUTO_INCREMENT,
   `Naziv` varchar(45) NOT NULL,
   `Opis` varchar(500) NOT NULL,
-  `BrojLajk` int(11) NOT NULL,
-  `BrojDislajk` int(11) NOT NULL,
+  `BrojLajk` int(11) NOT NULL DEFAULT '0',
+  `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idFilm`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `film`
+--
+
+INSERT INTO `film` (`idFilm`, `Naziv`, `Opis`, `BrojLajk`, `BrojDislajk`) VALUES
+(1, 'Lotr1', 'epic', 0, 0),
+(2, 'lotr2', 'epic', 0, 0),
+(3, 'lotr3', 'epic', 0, 0),
+(4, 'hobbit', 'manje epic', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -75,11 +105,11 @@ CREATE TABLE IF NOT EXISTS `film` (
 
 DROP TABLE IF EXISTS `glumac`;
 CREATE TABLE IF NOT EXISTS `glumac` (
-  `idGlumac` int(11) NOT NULL,
+  `idGlumac` int(11) NOT NULL AUTO_INCREMENT,
   `Ime` varchar(45) NOT NULL,
   `Opis` varchar(500) NOT NULL,
-  `BrojLajk` int(11) NOT NULL,
-  `BrojDislajk` int(11) NOT NULL,
+  `BrojLajk` int(11) NOT NULL DEFAULT '0',
+  `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idGlumac`),
   UNIQUE KEY `idGlumac_UNIQUE` (`idGlumac`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -106,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `glumi` (
 
 DROP TABLE IF EXISTS `komentar`;
 CREATE TABLE IF NOT EXISTS `komentar` (
-  `idKomentar` int(11) NOT NULL,
+  `idKomentar` int(11) NOT NULL AUTO_INCREMENT,
   `Tekst` varchar(200) NOT NULL,
   `Korisnik_idKorisnik` int(11) NOT NULL,
   `Indikator` int(11) NOT NULL,
@@ -134,15 +164,17 @@ CREATE TABLE IF NOT EXISTS `korisnik` (
   UNIQUE KEY `idKor_UNIQUE` (`idKorisnik`),
   UNIQUE KEY `KorisnickoIme_UNIQUE` (`KorisnickoIme`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `korisnik`
 --
 
-INSERT INTO `korisnik` (`KorisnickoIme`, `Ime`, `email`, `Sifra`, `Vrsta`, `Opis`) VALUES
-('brucewillis', 'John McClane', 'bruce@movielibrary.com', 'bruce123', '1', 'Ja sam admin.'),
-('alanrickman', 'Hans Gruber', 'alan@movielibrary.com', 'alan123', '0', 'Ja nisam admin.');
+INSERT INTO `korisnik` (`idKorisnik`, `KorisnickoIme`, `Ime`, `email`, `Sifra`, `Vrsta`, `Opis`) VALUES
+(1, 'brucewillis', 'John McClane', 'bruce@movielibrary.com', 'bruce123', 1, 'Ja sam admin.'),
+(2, 'alanrickman', 'Hans Gruber', 'alan@movielibrary.com', 'alan123', 0, 'Ja nisam admin.'),
+(3, 'bonniebedelia', 'Holly Gennaro', 'holly@movielibrary.com', 'bonnie123', 0, 'Novajlija ovde.'),
+(4, 'reginaldveljohnson', 'Sgt. Al Powell', 'reginald@movielibrary.com', 'reginald123', 0, 'Novajlija ovde.');
 
 -- --------------------------------------------------------
 
@@ -152,7 +184,7 @@ INSERT INTO `korisnik` (`KorisnickoIme`, `Ime`, `email`, `Sifra`, `Vrsta`, `Opis
 
 DROP TABLE IF EXISTS `lajk_dislajk`;
 CREATE TABLE IF NOT EXISTS `lajk_dislajk` (
-  `idLajk_Dislajk` int(11) NOT NULL,
+  `idLajk_Dislajk` int(11) NOT NULL AUTO_INCREMENT,
   `Korisnik_idKorisnik` int(11) NOT NULL,
   `Indikator` int(11) NOT NULL,
   `Lokacija` int(11) NOT NULL,
@@ -170,15 +202,24 @@ CREATE TABLE IF NOT EXISTS `lajk_dislajk` (
 
 DROP TABLE IF EXISTS `lista`;
 CREATE TABLE IF NOT EXISTS `lista` (
-  `idLista` int(11) NOT NULL,
+  `idLista` int(11) NOT NULL AUTO_INCREMENT,
   `Ime` varchar(45) NOT NULL,
   `Korisnik_idKorisnik` int(11) NOT NULL,
-  `BrojLajk` int(11) NOT NULL,
-  `BrojDislajk` int(11) NOT NULL,
+  `BrojLajk` int(11) NOT NULL DEFAULT '0',
+  `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idLista`),
   UNIQUE KEY `idLista_UNIQUE` (`idLista`),
   KEY `fk_Lista_Korisnik_idx` (`Korisnik_idKorisnik`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `lista`
+--
+
+INSERT INTO `lista` (`idLista`, `Ime`, `Korisnik_idKorisnik`, `BrojLajk`, `BrojDislajk`) VALUES
+(1, 'Epic Lista', 1, 0, 0),
+(2, 'Jos Bolja', 2, 5, 0),
+(3, 'Najbolja Lista', 3, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -208,6 +249,16 @@ CREATE TABLE IF NOT EXISTS `u_listi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `u_listi`
+--
+
+INSERT INTO `u_listi` (`Lista_idLista`, `Film_idFilm`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4);
+
+--
 -- Constraints for dumped tables
 --
 
@@ -215,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `u_listi` (
 -- Constraints for table `cuva_listu`
 --
 ALTER TABLE `cuva_listu`
-  ADD CONSTRAINT `fk_Cuva_Listu_Korisnik1` FOREIGN KEY (`Korsinik_id_cuva`) REFERENCES `korisnik` (`idKorisnik`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Cuva_Listu_Korisnik1` FOREIGN KEY (`Korisnik_id_cuva`) REFERENCES `korisnik` (`idKorisnik`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Cuva_Listu_Lista1` FOREIGN KEY (`Lista_id_cuvana`) REFERENCES `lista` (`idLista`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
