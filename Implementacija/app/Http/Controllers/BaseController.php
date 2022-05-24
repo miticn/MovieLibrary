@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
+use App\Models\GlumacModel;
 use App\Models\KorisnikModel;
 use App\Models\ListaModel;
-use GuzzleHttp\Psr7\Request;
+
+use Illuminate\Http\Request;
+
 
 class BaseController extends Controller{
     private static function getTrophy($score){
@@ -25,6 +28,18 @@ class BaseController extends Controller{
         return round($BrojLajk/($BrojLajk+$BrojDislajk)*100);
     }
 
+    private static function getScoreAndTrophyArray($Library){
+        $array = [];
+        $array['scores'] = [];
+        $array['trophies'] = [];
+        foreach($Library as $lib){
+            $score = BaseController::getScore($lib->BrojLajk,$lib->BrojDislajk);
+            array_push($array['scores'],$score);
+            array_push($array['trophies'],BaseController::getTrophy($score));
+        }
+        return $array;
+    }
+
 
     public function profile($id){
         return view('profile', ['profile' => KorisnikModel::find($id)]);
@@ -32,18 +47,31 @@ class BaseController extends Controller{
 
     public function indexPage(){
         $filmovi = FilmModel::orderByDesc('BrojLajk')->limit(18)->get();
-        $trophies = [];
-        $scores = [];
-        foreach($filmovi as $film){
-            $score = BaseController::getScore($film->BrojLajk,$film->BrojDislajk);
-            array_push($scores,$score);
-            array_push($trophies,BaseController::getTrophy($score));
-        }
+        $array = BaseController::getScoreAndTrophyArray($filmovi);
         
-        return view('index',['filmovi' => $filmovi, 'scores'=>$scores, 'trophies'=>$trophies]);
+        return view('index',['filmovi' => $filmovi, 'scores'=>$array['scores'], 'trophies'=>$array['trophies']]);
     }
-    public function search($Naziv){
+    public function search(Request $request){
+        $Naziv = $request->query('naziv');
+        $filmovi = FilmModel::query()
+            ->where('Naziv', 'LIKE', "%{$Naziv}%")
+            ->orWhere('Opis', 'LIKE', "%{$Naziv}%")
+            ->limit(50)->get();
 
+        $glumci = GlumacModel::query()
+            ->where('Ime', 'LIKE', "%{$Naziv}%")
+            ->orWhere('Opis', 'LIKE', "%{$Naziv}%")
+            ->limit(50)->get();
+
+        $korisnici = KorisnikModel::query()
+            ->where('KorisnickoIme', 'LIKE', "%{$Naziv}%")
+            ->orWhere('Ime', 'LIKE', "%{$Naziv}%")
+            ->orWhere('Opis', 'LIKE', "%{$Naziv}%")
+            ->limit(50)->get();
+
+        $stFilmovi = BaseController::getScoreAndTrophyArray($filmovi);
+        $stGlumci = BaseController::getScoreAndTrophyArray($glumci);
+        return view('search',['filmovi' => $filmovi, "glumci" => $glumci, "stFilmovi"=> $stFilmovi, "stGlumci"=> $stGlumci ,"korisnici" => $korisnici ,"naziv" => $Naziv]);
     }
 
     public function lista($id)

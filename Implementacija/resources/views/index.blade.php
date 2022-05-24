@@ -1,6 +1,10 @@
 @extends('template')
 @section('content')
-<h1>Aktuelni Filmovi:</h1>
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Aktuelni Filmovi:</h1>
+			</div>
+		</div>
 		@for ($j =0; $j<3; $j++)
 			<div class="row">
 				@for ($i = $j*6; $i < ((count($filmovi)<($j+1)*6)?count($filmovi):($j+1)*6); $i++)
