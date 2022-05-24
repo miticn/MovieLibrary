@@ -19,6 +19,7 @@ class BaseController extends Controller{
         return $trophy;
     }
     private static function getScore($BrojLajk,$BrojDislajk){
+        if ($BrojLajk+$BrojDislajk===0) return 0;
         return round($BrojLajk/($BrojLajk+$BrojDislajk)*100);
     }
 
