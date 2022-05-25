@@ -53,4 +53,21 @@ class KorisnikController extends Controller{
         KorisnikModel::find(auth::id())->sacuvani()->detach($request->id);
         return back();
     }
+
+
+    public function createPage(Request $request){
+        if (auth::check()) {
+            abort_if(! $request->user()->isAdmin(), 404);
+            return view('create');
+        }
+        else abort(404);
+    }
+
+    public function createPageMovie(Request $request){
+        if (auth::check()) {
+            abort_if(! $request->user()->isAdmin(), 404);
+            return view('create');
+        }
+        else abort(404);
+    }
 }

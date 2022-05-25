@@ -43,4 +43,5 @@ class KorisnikModel extends Authenticatable
     public function isAdmin(){
         return $this->Vrsta;
     }
+    
 }
