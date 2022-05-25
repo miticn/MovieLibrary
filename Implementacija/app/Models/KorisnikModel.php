@@ -40,4 +40,7 @@ class KorisnikModel extends Authenticatable
         return $this->belongsToMany(ListaModel::class, 'cuva_listu', 'Korisnik_id_cuva', 'Lista_id_cuvana');
     }
 
+    public function isAdmin(){
+        return $this->Vrsta;
+    }
 }
