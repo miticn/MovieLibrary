@@ -10,29 +10,32 @@
 
         <title>MovieLibrary</title>
 		<link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
-		@yield('registerStyles')
+		<link rel="stylesheet" href="{{ URL::asset('css/library_style.css') }}">
+		
 	</head>
 	<body>
-		<nav id='menu'>
-			<a class="logo" href="/index">𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎</a>
-			<form id="search" action="/search">
-				<input type="text" class="search" placeholder="Pretraga.." name="naziv">
-				<button type="submit" class="search"><i class="fa fa-search"></i></button>
-			</form>
-			<ul>
-				@guest
-					<li class="account"><a href="{{route('register')}}">Registruj se</a></li>
-					<li class="account"><a href="{{route('login')}}">Prijavi se</a></li>
-				@endguest
-				@auth
-					<li class="account"><a href={{route('profile', ['id' => auth()->user()->idKorisnik])}}>&#91;{{auth()->user()->Ime}}&#93;</a></li>
-					<li class="account"><a href="{{route('logout')}}">Odjavi se</a></li>
-				@endauth
-			</ul>
-		</nav>
-		<br>
+		<div class="container">
+			<div class="row">
+				<nav id='menu'>
+					<a class="logo" href="/index">𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎</a>
+					<form id="search" action="/search">
+						<input type="text" class="search" placeholder="Pretraga.." name="naziv">
+						<button type="submit" class="search"><i class="fa fa-search"></i></button>
+					</form>
+					<ul>
+						@guest
+							<li class="account"><a href="{{route('register')}}">Registruj se</a></li>
+							<li class="account"><a href="{{route('login')}}">Prijavi se</a></li>
+						@endguest
+						@auth
+							<li class="account"><a href={{route('profile', ['id' => auth()->user()->idKorisnik])}}>&#91;{{auth()->user()->Ime}}&#93;</a></li>
+							<li class="account"><a href="{{route('logout')}}">Odjavi se</a></li>
+						@endauth
+					</ul>
+				</nav>
+			</div>
 	
-	@yield('content')
-
+			@yield('content')
+		</div>
 	</body>
 </html>

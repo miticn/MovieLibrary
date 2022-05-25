@@ -18,7 +18,7 @@ use App\Http\Controllers\BaseController;
 
 Route::get('/', [BaseController::class, 'indexPage'])->name('index');
 Route::get('/{index}',  [BaseController::class, 'indexPage'])->where('index', 'index|home|pocetna');
-Route::get('/search',function(){return view('search');});
+Route::get('/search',[BaseController::class, 'search'])->name('search');
 
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');
