@@ -11,7 +11,7 @@
         <title>MovieLibrary</title>
 		<link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/library_style.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('css/tempStyle-old.css') }}">
+		<!--<link rel="stylesheet" href="{{ URL::asset('css/tempStyle-old.css') }}">-->
 		
 	</head>
 	<body>
