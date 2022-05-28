@@ -18,7 +18,8 @@
                     @auth    
                     <td style="text-align: right; width:50px;">
                         @if ($profile->idKorisnik == Auth::id())
-                        izmeni
+                        <form name="izmeni" action="{{route('izmeni')}}" method="GET">
+                        <input type="submit" value="izmeni"></form>
                         @else
                         <form name="sacuvaj" action="{{route('sacuvaj_korisnika', ['id' => $profile->idKorisnik])}}"
                             method="GET"><input type="submit" value="sacuvaj"></form>

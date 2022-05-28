@@ -32,6 +32,9 @@ Route::get('/logout', [KorisnikController::class, 'logout'])->middleware('auth')
 Route::get('/profile/{id}', [BaseController::class, 'profile'])->name('profile');
 Route::get('/lista/{id}', [BaseController::class, 'lista'])->name('lista');
 
+Route::get('/izmeni', [KorisnikController::class, 'izmeni'])->middleware('auth')->name('izmeni');
+Route::post('/izmeni_submit', [KorisnikController::class, 'izmeni_submit'])->middleware('auth')->name('izmeni_submit');
+
 Route::get('/napravi_listu', [KorisnikController::class, 'napravi_listu'])->middleware('auth')->name('napravi_listu');
 Route::get('/lista/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_listu'])->middleware('auth')->name('sacuvaj_listu');
 Route::get('/lista/zaboravi/{id}', [KorisnikController::class, 'zaboravi_listu'])->middleware('auth')->name('zaboravi_listu');
