@@ -11,6 +11,7 @@
         <title>MovieLibrary</title>
 		<link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/library_style.css') }}">
+		<!--<link rel="stylesheet" href="{{ URL::asset('css/tempStyle-old.css') }}">-->
 		
 	</head>
 	<body>
@@ -30,6 +31,9 @@
 						@auth
 							<li class="account"><a href={{route('profile', ['id' => auth()->user()->idKorisnik])}}>&#91;{{auth()->user()->Ime}}&#93;</a></li>
 							<li class="account"><a href="{{route('logout')}}">Odjavi se</a></li>
+							@if (auth()->user()->isAdmin())
+								<li class="account"><a href="{{route('createPage')}}">Napravi stranicu</a></li>
+							@endif
 						@endauth
 					</ul>
 				</nav>
