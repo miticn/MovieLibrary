@@ -26,4 +26,8 @@ class CineplexxController extends Controller
                 }
             });
     }
+
+    public static function inRepertoar($id){
+        return PrikazujeModel::find($id)!=null;
+    }
 }
