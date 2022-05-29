@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\KorisnikModel;
 use App\Models\ListaModel;
@@ -12,6 +13,21 @@ class KorisnikController extends Controller{
     {
         auth()->logout();
         return redirect()->route('index');
+    }
+
+    public function izmeni()
+    {
+        return view('izmeni');
+    }
+
+    public function izmeni_submit(Request $request)
+    {
+        if($request->has('slika')){
+            #$request->file('slika')->storeAs('public/IMG', "yeboi");
+            #Storage::disk('library')->put("pleasebruv.txt", 'sum');
+        }
+        KorisnikModel::find(auth()->id())->izmeniProfil($request);
+        return redirect()->route('profile', ['id' => auth()->id(), 'profile' => KorisnikModel::find(auth()->id())]);
     }
 
     public function napravi_listu(Request $request)
