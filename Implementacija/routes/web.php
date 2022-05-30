@@ -24,6 +24,7 @@ Route::get('/createMovie',[KorisnikController::class, 'createPageMovie'])->middl
 Route::get('/createActor',[KorisnikController::class, 'createPageActor'])->middleware('auth')->name('createPageActor');
 Route::post('/createActor',[KorisnikController::class, 'createActor'])->middleware('auth')->name('createActor');
 Route::post('/createMovie',[KorisnikController::class, 'createMovie'])->middleware('auth')->name('createMovie');
+Route::get('/movie/{id}',[BaseController::class, 'movie'])->name('movie');
 
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');

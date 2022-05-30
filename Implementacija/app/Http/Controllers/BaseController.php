@@ -78,4 +78,11 @@ class BaseController extends Controller{
     {
        return view('lista', ['lista' => ListaModel::find($id)]);
     }
+
+    public function movie($id){
+        $film = FilmModel::find($id);
+        $score = BaseController::getScore($film->BrojLajk,$film->BrojDislajk);
+        $trophy = BaseController::getTrophy($score);
+        return view('movie',['film'=>$film, 'score'=>$score, 'trophy'=>$trophy]);
+    }
 }
