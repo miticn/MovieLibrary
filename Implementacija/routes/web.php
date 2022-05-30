@@ -19,10 +19,11 @@ use App\Http\Controllers\BaseController;
 Route::get('/', [BaseController::class, 'indexPage'])->name('index');
 Route::get('/{index}',  [BaseController::class, 'indexPage'])->where('index', 'index|home|pocetna');
 Route::get('/search',[BaseController::class, 'search'])->name('search');
-Route::get('/create',[KorisnikController::class, 'createPage'])->name('createPage');
-Route::get('/createMovie',[KorisnikController::class, 'createPageMovie'])->name('createPageMovie');
-Route::get('/createActor',[KorisnikController::class, 'createPageActor'])->name('createPageActor');
-Route::post('/createActor',[KorisnikController::class, 'createActor'])->name('createActor');
+Route::get('/create',[KorisnikController::class, 'createPage'])->middleware('auth')->name('createPage');
+Route::get('/createMovie',[KorisnikController::class, 'createPageMovie'])->middleware('auth')->name('createPageMovie');
+Route::get('/createActor',[KorisnikController::class, 'createPageActor'])->middleware('auth')->name('createPageActor');
+Route::post('/createActor',[KorisnikController::class, 'createActor'])->middleware('auth')->name('createActor');
+Route::post('/createMovie',[KorisnikController::class, 'createMovie'])->middleware('auth')->name('createMovie');
 
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');

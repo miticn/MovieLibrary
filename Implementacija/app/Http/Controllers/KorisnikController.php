@@ -73,45 +73,50 @@ class KorisnikController extends Controller{
 
 
     public function createPage(Request $request){
-        if (auth::check()) {
-            abort_if(! $request->user()->isAdmin(), 404);
-            return view('create');
-        }
-        else abort(404);
+        abort_if(! $request->user()->isAdmin(), 404);
+        return view('create');
     }
 
     public function createPageMovie(Request $request){
-        if (auth::check()) {
-            abort_if(! $request->user()->isAdmin(), 404);
-            return view('createMovie');
-        }
-        else abort(404);
+        abort_if(! $request->user()->isAdmin(), 404);
+        return view('createMovie');
     }
 
     public function createPageActor(Request $request){
-        if (auth::check()) {
-            abort_if(! $request->user()->isAdmin(), 404);
-            return view('createActor');
-        }
-        else abort(404);
+        abort_if(! $request->user()->isAdmin(), 404);
+        return view('createActor');
+
     }
 
     public function createActor(Request $request){
-        if (auth::check()) {
-            abort_if(! $request->user()->isAdmin(), 404);
-            $request->validate([
-                'poster'=>'mimes:jpg,jpeg|max:2048',
-                'ime'=> 'required',
-                'opis' => 'required',
-                'datum' => 'required'
-            ]);
-            $glumac = new GlumacModel();
-            $glumac->Ime=$request->ime;
-            $glumac->Opis=$request->opis;
-            $glumac->save();
-            $request->file('poster')->storeAs('public/img_actor',($glumac->idGlumac).'.jpg');
-            return view('createActor',['uspeh'=>'Glumac je uspešno kreiran.']);
-        }
-        else abort(404);
+        abort_if(! $request->user()->isAdmin(), 404);
+        $request->validate([
+            'poster'=>'mimes:jpg,jpeg|max:2048',
+            'ime'=> 'required',
+            'opis' => 'required',
+            'datum' => 'required'
+        ]);
+        $glumac = new GlumacModel();
+        $glumac->Ime=$request->ime;
+        $glumac->Opis=$request->opis;
+        $glumac->save();
+        $request->file('poster')->storeAs('public/img_actor',($glumac->idGlumac).'.jpg');
+        return view('createActor',['uspeh'=>'Glumac je uspešno kreiran.']);
+    }
+
+    public function createMovie(Request $request){
+        abort_if(! $request->user()->isAdmin(), 404);
+        $request->validate([
+            'poster'=>'mimes:jpg,jpeg|max:2048',
+            'ime'=> 'required',
+            'opis' => 'required',
+            'datum' => 'required'
+        ]);
+        $glumac = new GlumacModel();
+        $glumac->Ime=$request->ime;
+        $glumac->Opis=$request->opis;
+        $glumac->save();
+        $request->file('poster')->storeAs('public/img_actor',($glumac->idGlumac).'.jpg');
+        return view('createActor',['uspeh'=>'Glumac je uspešno kreiran.']);
     }
 }
