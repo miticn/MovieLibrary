@@ -100,6 +100,7 @@ class KorisnikController extends Controller{
         $glumac = new GlumacModel();
         $glumac->Ime=$request->ime;
         $glumac->Opis=$request->opis;
+        $glumac->Datum_Rodjenja = $request->datum;
         $glumac->save();
         $request->file('poster')->storeAs('public/img_actor',($glumac->idGlumac).'.jpg');
         return view('createActor',['uspeh'=>'Glumac je uspešno kreiran.']);
@@ -111,11 +112,20 @@ class KorisnikController extends Controller{
             'poster'=>'mimes:jpg,jpeg|max:2048',
             'ime'=> 'required',
             'opis' => 'required',
-            'datum' => 'required'
+            'reziseri' => 'required',
+            'pisci' => 'required',
+            'zanrovi' => 'required',
+            'datum' => 'required',
+            'trajanje' => 'required'
         ]);
         $film = new FilmModel();
         $film->Naziv = $request->ime;
         $film->Opis = $request->opis;
+        $film->Reziseri = $request->reziseri;
+        $film->Pisci = $request->pisci;
+        $film->Zanrovi = $request->zanrovi;
+        $film->Datum_Objave = $request->datum;
+        $film->Trajanje = $request->trajanje;
         $film->save();
         $request->file('poster')->storeAs('public/img_film',($film->idFilm).'.jpg');
         return view('createMovie',['uspeh'=>'Film je uspešno kreiran.']);

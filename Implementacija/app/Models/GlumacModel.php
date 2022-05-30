@@ -17,6 +17,7 @@ class GlumacModel extends Model
     protected $fillable = [
         'Ime',
         'Opis',
+        'Datum_Rodjenja',
         'BrojLajk',
         'BrojDislajk'
     ];
