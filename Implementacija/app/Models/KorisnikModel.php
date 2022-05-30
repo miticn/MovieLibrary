@@ -15,6 +15,7 @@ class KorisnikModel extends Authenticatable
 
     protected $table = 'korisnik';
     protected $primaryKey = 'idKorisnik';
+    public $timestamps = false;
     
     protected $fillable = [
         'KorisnickoIme',
@@ -42,6 +43,14 @@ class KorisnikModel extends Authenticatable
 
     public function isAdmin(){
         return $this->Vrsta;
+    }
+
+    public function izmeniProfil($request)
+    {
+        
+        $this->Ime = $request->Ime;
+        $this->Opis = $request->Opis;
+        $this->save();
     }
     
 }
