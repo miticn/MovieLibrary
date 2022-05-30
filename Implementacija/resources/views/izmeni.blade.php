@@ -18,7 +18,7 @@
 
         <tr>
             <td>
-                <input type="file" name="slika">
+                <input type="file" name="slika" accept="image/jpeg">
             </td>
         </tr>
 
