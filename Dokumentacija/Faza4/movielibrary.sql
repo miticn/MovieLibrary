@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 23, 2022 at 04:41 PM
+-- Generation Time: May 30, 2022 at 03:55 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `movielibrary`
 --
-CREATE DATABASE IF NOT EXISTS `movielibrary` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `movielibrary`;
 
 -- --------------------------------------------------------
 
@@ -82,20 +80,28 @@ CREATE TABLE IF NOT EXISTS `film` (
   `idFilm` int(11) NOT NULL AUTO_INCREMENT,
   `Naziv` varchar(45) NOT NULL,
   `Opis` varchar(500) NOT NULL,
+  `Reziseri` varchar(45) NOT NULL,
+  `Pisci` varchar(45) NOT NULL,
+  `Zanrovi` varchar(45) NOT NULL,
+  `Datum_Objave` date DEFAULT NULL,
+  `Trajanje` time DEFAULT NULL,
   `BrojLajk` int(11) NOT NULL DEFAULT '0',
   `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idFilm`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `film`
 --
 
-INSERT INTO `film` (`idFilm`, `Naziv`, `Opis`, `BrojLajk`, `BrojDislajk`) VALUES
-(1, 'Lotr1', 'epic', 0, 0),
-(2, 'lotr2', 'epic', 0, 0),
-(3, 'lotr3', 'epic', 0, 0),
-(4, 'hobbit', 'manje epic', 0, 0);
+INSERT INTO `film` (`idFilm`, `Naziv`, `Opis`, `Reziseri`, `Pisci`, `Zanrovi`, `Datum_Objave`, `Trajanje`, `BrojLajk`, `BrojDislajk`) VALUES
+(1, 'Lotr1', 'epic', '', '', '', NULL, NULL, 0, 0),
+(2, 'lotr2', 'epic', '', '', '', NULL, NULL, 0, 0),
+(3, 'lotr3', 'epic', '', '', '', NULL, NULL, 0, 0),
+(4, 'hobbit', 'manje epic', '', '', '', NULL, NULL, 0, 0),
+(5, 'unesi ime', 'Dobar film', '', '', '', NULL, NULL, 0, 0),
+(6, 'Fiml1', 'Dobar film', 'Marko,Zika', 'Marko,Pera', 'Akcija, Reakcija', '2022-05-10', '02:02:00', 0, 0),
+(7, 'Fiml1', 'Dobar film', 'Marko,Zika', 'Marko,Pera', 'Akcija, Reakcija', '2022-05-10', '02:02:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -108,11 +114,20 @@ CREATE TABLE IF NOT EXISTS `glumac` (
   `idGlumac` int(11) NOT NULL AUTO_INCREMENT,
   `Ime` varchar(45) NOT NULL,
   `Opis` varchar(500) NOT NULL,
+  `Datum_Rodjenja` date DEFAULT NULL,
   `BrojLajk` int(11) NOT NULL DEFAULT '0',
   `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idGlumac`),
   UNIQUE KEY `idGlumac_UNIQUE` (`idGlumac`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `glumac`
+--
+
+INSERT INTO `glumac` (`idGlumac`, `Ime`, `Opis`, `Datum_Rodjenja`, `BrojLajk`, `BrojDislajk`) VALUES
+(12, 'unesi ime', 'Glumac', NULL, 0, 0),
+(13, 'Neki Glumac', 'Glumac', '2022-05-10', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -124,6 +139,7 @@ DROP TABLE IF EXISTS `glumi`;
 CREATE TABLE IF NOT EXISTS `glumi` (
   `Film_idFilm` int(11) NOT NULL,
   `Glumac_idGlumac` int(11) NOT NULL,
+  `Ime_uloge` varchar(45) NOT NULL,
   PRIMARY KEY (`Film_idFilm`,`Glumac_idGlumac`),
   KEY `fk_Glumi_Glumac1_idx` (`Glumac_idGlumac`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

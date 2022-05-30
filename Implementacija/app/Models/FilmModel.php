@@ -17,6 +17,11 @@ class FilmModel extends Model
     protected $fillable = [
         'Naziv',
         'Opis',
+        'Reziseri',	
+        'Pisci',	
+        'Zanrovi',	
+        'Datum_Objave',	
+        'Trajanje',	
         'BrojLajk',
         'BrojDislajk'
     ];
