@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FilmModel;
 use App\Models\GlumacModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -112,11 +113,11 @@ class KorisnikController extends Controller{
             'opis' => 'required',
             'datum' => 'required'
         ]);
-        $glumac = new GlumacModel();
-        $glumac->Ime=$request->ime;
-        $glumac->Opis=$request->opis;
-        $glumac->save();
-        $request->file('poster')->storeAs('public/img_actor',($glumac->idGlumac).'.jpg');
-        return view('createActor',['uspeh'=>'Glumac je uspešno kreiran.']);
+        $film = new FilmModel();
+        $film->Naziv = $request->ime;
+        $film->Opis = $request->opis;
+        $film->save();
+        $request->file('poster')->storeAs('public/img_film',($film->idFilm).'.jpg');
+        return view('createMovie',['uspeh'=>'Film je uspešno kreiran.']);
     }
 }

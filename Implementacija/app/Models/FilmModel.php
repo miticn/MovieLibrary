@@ -12,6 +12,8 @@ class FilmModel extends Model
     protected $table = 'film';
     protected $primaryKey = 'idFilm';
     
+    public $timestamps = false;
+
     protected $fillable = [
         'Naziv',
         'Opis',
