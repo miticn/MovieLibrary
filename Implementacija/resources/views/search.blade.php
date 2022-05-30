@@ -12,7 +12,7 @@
 			@for ($i = 0; $i < count($filmovi); $i++)
 				<tr class="search" onclick="window.location='movie/{{$filmovi[$i]->idFilm}}';">
 					<td class="search ocena"><i class="fa {{$stFilmovi['trophies'][$i]}}"></i> {{$stFilmovi['scores'][$i]}}%</td>
-					<td class="search poster"><img class="search" src="IMG/Batman-2022.jpg"></td> 
+					<td class="search poster"><img class="search" src="IMG/img_film/film{{$filmovi[$i]->idFilm}}.jpg"></td> 
 					<td class="search title"><b>{{$filmovi[$i]->Naziv}}</b></td> 
 				</tr>
 			@endfor
@@ -27,7 +27,7 @@
 			@for ($i = 0; $i < count($glumci); $i++)
 				<tr class="search" onclick="window.location='movie.html';">
 					<td class="search"><i class="fa {{$stGlumci['trophies'][$i]}}"></i> {{$stGlumci['scores'][$i]}}%</td>
-					<td class="search poster"><img class="search" src="IMG/Batman-2022.jpg"></td> 
+					<td class="search poster"><img class="search" src="IMG/img_actor/actor{{$glumci[$i]->idGlumac}}.jpg"></td> 
 					<td class="search"><b>{{$glumci[$i]->Ime}}</b></td> 
 				</tr>
 			@endfor
