@@ -5,7 +5,7 @@
     <tr class="border">
         <td class="profile_slika">
             <div>
-                <img class="profile_slika" src="{{URL::asset('IMG/img_profile/profile'.$profile->idKorisnik.'.png')}}"
+                <img class="profile_slika" src="{{URL::asset('IMG/img_profile/profile'.$profile->idKorisnik.'.jpg')}}"
             onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_profile/profile_def.jpg')}}'">
             </div>
         </td>
@@ -18,11 +18,12 @@
                     @auth    
                     <td style="text-align: right; width:50px;">
                         @if ($profile->idKorisnik == Auth::id())
-                        <form name="izmeni" action="{{route('izmeni')}}" method="GET">
+                        <form name="izmeni" action="{{route('izmeni')}}" method="POST">
+                        @csrf
                         <input type="submit" value="izmeni"></form>
                         @else
                         <form name="sacuvaj" action="{{route('sacuvaj_korisnika', ['id' => $profile->idKorisnik])}}"
-                            method="GET"><input type="submit" value="sacuvaj"></form>
+                            method="POST"><input type="submit" value="sacuvaj">@csrf</form>
                         @endif
                     </td>
                     @endauth
@@ -44,7 +45,8 @@
         @auth
         @if($profile->idKorisnik == Auth::id())
         <tr style="background-color: #2f2f2f">
-            <form name="napravi_listu" action="{{route('napravi_listu')}}" method="GET">
+            <form name="napravi_listu" action="{{route('napravi_listu')}}" method="POST">
+                @csrf
                 <td>
                     <input type="submit" value="Napravi listu">
                 </td>
@@ -66,14 +68,14 @@
             <div>@auth
                 @if($profile->idKorisnik == Auth::id())
                 <form name="zaboravi" action="{{route('zaboravi_listu', ['id' => $lista->idLista])}}"
-                    method="GET"><input type="submit" value="zaboravi"></form>
+                    method="POST"><input type="submit" value="zaboravi">@csrf</form>
                 @else
                 <form name="sacuvaj" action="{{route('sacuvaj_listu', ['id' => $lista->idLista])}}"
-                    method="GET"><input type="submit" value="sacuvaj"></form>
+                    method="POST"><input type="submit" value="sacuvaj">@csrf</form>
                 @endif
-                <form name="oceni"><input type="submit" value="oceni"></form>
+                <form name="oceni"><input type="submit" value="oceni">@csrf</form>
                 @endauth
-                <form style="color: white; font-size: 20px;">2452346</form>
+                <form style="color: white; font-size: 20px;">2452346 @csrf</form>
             </div>
             </div>
         </a>
@@ -88,7 +90,7 @@
         @foreach ($profile->sacuvani as $sacuvan)
         <tr class="profili">
             <td colspan="2"><a href="{{route('profile', ['id' => $sacuvan->idKorisnik])}}">
-                <img class="sacuvani_slika" src="{{URL::asset('IMG/img_profile/profile'.$sacuvan->idKorisnik.'.png')}}"
+                <img class="sacuvani_slika" src="{{URL::asset('IMG/img_profile/profile'.$sacuvan->idKorisnik.'.jpg')}}"
                 onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_profile/profile_def.jpg')}}'">
                 {{$sacuvan->Ime}}</a>
             </td>
@@ -96,7 +98,7 @@
                 @auth
                 @if($profile->idKorisnik == Auth::id())
                 <form name="zaboravi" action="{{route('zaboravi_korisnika', ['id' => $sacuvan->idKorisnik])}}"
-                    method="GET"><input type="submit" value="x">
+                    method="POST"><input type="submit" value="x">@csrf
                 </form>
                 @endif
                 @endauth

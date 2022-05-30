@@ -25,8 +25,7 @@ class KorisnikController extends Controller{
     public function izmeni_submit(Request $request)
     {
         if($request->has('slika')){
-            #$request->file('slika')->storeAs('public/IMG', "yeboi");
-            #Storage::disk('library')->put("pleasebruv.txt", 'sum');
+            $request->file('slika')->storeAs('public/img_profile','profile'.auth()->id().'.jpg');
         }
         KorisnikModel::find(auth()->id())->izmeniProfil($request);
         return redirect()->route('profile', ['id' => auth()->id(), 'profile' => KorisnikModel::find(auth()->id())]);
