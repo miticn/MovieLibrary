@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GlumacModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\KorisnikModel;
@@ -82,7 +83,34 @@ class KorisnikController extends Controller{
     public function createPageMovie(Request $request){
         if (auth::check()) {
             abort_if(! $request->user()->isAdmin(), 404);
-            return view('create');
+            return view('createMovie');
+        }
+        else abort(404);
+    }
+
+    public function createPageActor(Request $request){
+        if (auth::check()) {
+            abort_if(! $request->user()->isAdmin(), 404);
+            return view('createActor');
+        }
+        else abort(404);
+    }
+
+    public function createActor(Request $request){
+        if (auth::check()) {
+            abort_if(! $request->user()->isAdmin(), 404);
+            $request->validate([
+                'poster'=>'mimes:jpg,jpeg|max:2048',
+                'ime'=> 'required',
+                'opis' => 'required',
+                'datum' => 'required'
+            ]);
+            $glumac = new GlumacModel();
+            $glumac->Ime=$request->ime;
+            $glumac->Opis=$request->opis;
+            $glumac->save();
+            $request->file('poster')->storeAs('public/img_actor',($glumac->idGlumac).'.jpg');
+            return view('createActor',['uspeh'=>'Glumac je uspešno kreiran.']);
         }
         else abort(404);
     }

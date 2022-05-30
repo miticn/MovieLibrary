@@ -12,6 +12,8 @@ class GlumacModel extends Model
     protected $table = 'glumac';
     protected $primaryKey = 'idGlumac';
     
+    public $timestamps = false;
+
     protected $fillable = [
         'Ime',
         'Opis',

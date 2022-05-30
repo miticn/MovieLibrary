@@ -22,6 +22,7 @@ Route::get('/search',[BaseController::class, 'search'])->name('search');
 Route::get('/create',[KorisnikController::class, 'createPage'])->name('createPage');
 Route::get('/createMovie',[KorisnikController::class, 'createPageMovie'])->name('createPageMovie');
 Route::get('/createActor',[KorisnikController::class, 'createPageActor'])->name('createPageActor');
+Route::post('/createActor',[KorisnikController::class, 'createActor'])->name('createActor');
 
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');
