@@ -1,4 +1,10 @@
 @extends('template')
+@section('css')
+    <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>
+    <link rel='stylesheet' href='{{ URL::asset('css/library_style.css') }}'>
+
+@endsection
+
 @section('content')
 <div class="content_wrapper">
     <table >
@@ -66,14 +72,17 @@
             </td>
         </tr>
         @endauth
+        @if ($komentari->isEmpty())
+            <h4>Nema komentara.</h4>
+        @endif
         @foreach ($komentari as $komentar)
             <tr>
                 <td class="comment">
-                    <a href="profile-notLoggedin.html">
+                    <a href="/profile/{{$komentar->Korisnik_idKorisnik}}">
                     <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.png" class="comment-profile-pic">
                     </a>
                     <h4 class="comment-username">
-                        <a href="profile-notLoggedin.html" class="comment-username">{{$komentar->getKorisnik->Ime}}</a>
+                        <a href="/profile/{{$komentar->Korisnik_idKorisnik}}" class="comment-username">{{$komentar->getKorisnik->Ime}}</a>
                     </h4>
                     <hr>
                     <p class="comment-text">
