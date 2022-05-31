@@ -20,7 +20,7 @@
                         @if ($profile->idKorisnik == Auth::id())
                         <form name="izmeni" action="{{route('izmeni')}}" method="POST">
                         @csrf
-                        <input type="submit" value="izmeni"></form>
+                        <input type="submit" value="&#128736;"></form>
                         @else
                         <form name="sacuvaj" action="{{route('sacuvaj_korisnika', ['id' => $profile->idKorisnik])}}"
                             method="POST"><input type="submit" value="sacuvaj">@csrf</form>
@@ -68,13 +68,15 @@
             <div>@auth
                 @if($profile->idKorisnik == Auth::id())
                 <form name="zaboravi" action="{{route('zaboravi_listu', ['id' => $lista->idLista])}}"
-                    method="POST"><input type="submit" value="zaboravi">@csrf</form>
+                    method="POST"><input type="submit" value="&#10006;">@csrf</form>
                 @else
                 <form name="sacuvaj" action="{{route('sacuvaj_listu', ['id' => $lista->idLista])}}"
-                    method="POST"><input type="submit" value="sacuvaj">@csrf</form>
+                    method="POST"><input type="submit" value="Sacuvaj">@csrf</form>
                 @endif
                 <form name="oceni" action="{{route('oceni_listu', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '1'])}}" method="POST">
-                    <input type="submit" value="oceni">@csrf</form>
+                    <input type="submit" value="&#128525;">@csrf</form>
+                <form name="oceni" action="{{route('oceni_listu', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '0'])}}" method="POST">
+                    <input type="submit" value="&#128545;">@csrf</form>
                 @endauth
                 <form style="color: white; font-size: 20px;"> {{$lista->BrojLajk - $lista->BrojDislajk}} @csrf</form>
             </div>
@@ -99,7 +101,7 @@
                 @auth
                 @if($profile->idKorisnik == Auth::id())
                 <form name="zaboravi" action="{{route('zaboravi_korisnika', ['id' => $sacuvan->idKorisnik])}}"
-                    method="POST"><input type="submit" value="x">@csrf
+                    method="POST"><input type="submit" value="&#10006;">@csrf
                 </form>
                 @endif
                 @endauth

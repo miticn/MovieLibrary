@@ -20,9 +20,4 @@ class Lajk_DislajkModel extends Model
         'Lokacija',
         'Vrsta'
     ];
-
-    public function oceni($request)
-    {
-
-    }
 }
