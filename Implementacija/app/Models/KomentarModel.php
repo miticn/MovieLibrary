@@ -12,10 +12,12 @@ class KomentarModel extends Model
     protected $table = 'komentar';
     protected $primaryKey = 'idKomentar';
     
+    public $timestamps = false;
+
     protected $fillable = [
         'Tekst',
         'Korisnik_idKorisnik',
-        'Idikator',
+        'Indikator',
         'Stranica'
     ];
 }

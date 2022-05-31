@@ -48,6 +48,25 @@
     <hr>
     <table class="comment-table">
         <h3>Komentari</h3>
+        @auth
+            
+        
+        <tr>
+            <td class="comment">
+                Ostavite komentar:
+                <form method="POST" action="/movie/{{$film->idFilm}}/comment">
+                    @csrf
+                    <br>
+                    <div class="comment-box">
+                        <textarea id="" cols="30" rows="3" name="tekst" class="comment-box" placeholder="Unesite vaše utiske..."></textarea>
+                    </div>
+                    <br>
+                    <input type="Submit" value="Objavi">
+                </form>
+            </td>
+        </tr>
+        @endauth
+
         <tr>
             <td class="comment">
                 <a href="profile-notLoggedin.html">
