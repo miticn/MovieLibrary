@@ -66,6 +66,9 @@
             </td>
         </tr>
         @endauth
+        @if ($komentari->isEmpty())
+            <h4>Nema komentara.</h4>
+        @endif
         @foreach ($komentari as $komentar)
             <tr>
                 <td class="comment">
