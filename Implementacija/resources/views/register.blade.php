@@ -59,7 +59,7 @@
         <tr>
             <td>Unesite ime i prezime: </td>
             <td>
-                <input type='text' placeholder="Ime" name="Ime" value="{{old('Ime')}}">
+                <input type='text' placeholder="Ime" name="Ime" value="{{old('Ime')}}">as
             </td>
         </tr>
         <tr class="levoReg">
