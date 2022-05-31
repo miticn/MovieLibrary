@@ -36,10 +36,12 @@
         </tr>
         <tr>
             <td class="theatre-links">
+                @if ($film->u_bioskopu!=NULL)
                 <h3>Dopstupnost u bioskopima</h3>
                 <ul>
-                    <li><a href="https://www.cineplexx.rs/movie/betmen/">Cineplexx</a></li>
+                    <li><a href="{{$film->u_bioskopu->URL}}">Cineplexx</a></li>
                 </ul>
+                @endif
             </td>
         </tr>
     </table>

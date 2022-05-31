@@ -29,6 +29,9 @@ class FilmModel extends Model
     public function glumci(){
         return $this->belongsToMany(GlumacModel::class, 'glumi', 'Film_idFilm', 'Glumac_idGlumac')->withPivot('Ime_uloge');
     }
+    public function u_bioskopu(){
+        return $this->hasOne(PrikazujeModel::class,'Film_idFilm');
+    }
 
     public function u_listi()
     {
