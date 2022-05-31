@@ -24,6 +24,8 @@ Route::get('/createMovie',[KorisnikController::class, 'createPageMovie'])->middl
 Route::get('/createActor',[KorisnikController::class, 'createPageActor'])->middleware('auth')->name('createPageActor');
 Route::post('/createActor',[KorisnikController::class, 'createActor'])->middleware('auth')->name('createActor');
 Route::post('/createMovie',[KorisnikController::class, 'createMovie'])->middleware('auth')->name('createMovie');
+Route::get('/movie/{id}',[BaseController::class, 'movie'])->name('movie');
+Route::post('/movie/{id}/comment',[KorisnikController::class, 'comment'])->middleware('auth')->name('comment');
 
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');
@@ -34,11 +36,11 @@ Route::get('/logout', [KorisnikController::class, 'logout'])->middleware('auth')
 Route::get('/profile/{id}', [BaseController::class, 'profile'])->name('profile');
 Route::get('/lista/{id}', [BaseController::class, 'lista'])->name('lista');
 
-Route::get('/izmeni', [KorisnikController::class, 'izmeni'])->middleware('auth')->name('izmeni');
+Route::post('/izmeni', [KorisnikController::class, 'izmeni'])->middleware('auth')->name('izmeni');
 Route::post('/izmeni_submit', [KorisnikController::class, 'izmeni_submit'])->middleware('auth')->name('izmeni_submit');
 
-Route::get('/napravi_listu', [KorisnikController::class, 'napravi_listu'])->middleware('auth')->name('napravi_listu');
-Route::get('/lista/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_listu'])->middleware('auth')->name('sacuvaj_listu');
-Route::get('/lista/zaboravi/{id}', [KorisnikController::class, 'zaboravi_listu'])->middleware('auth')->name('zaboravi_listu');
-Route::get('/profile/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_korisnika'])->middleware('auth')->name('sacuvaj_korisnika');
-Route::get('/profile/zaboravi/{id}', [KorisnikController::class, 'zaboravi_korisnika'])->middleware('auth')->name('zaboravi_korisnika');
+Route::post('/napravi_listu', [KorisnikController::class, 'napravi_listu'])->middleware('auth')->name('napravi_listu');
+Route::post('/lista/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_listu'])->middleware('auth')->name('sacuvaj_listu');
+Route::post('/lista/zaboravi/{id}', [KorisnikController::class, 'zaboravi_listu'])->middleware('auth')->name('zaboravi_listu');
+Route::post('/profile/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_korisnika'])->middleware('auth')->name('sacuvaj_korisnika');
+Route::post('/profile/zaboravi/{id}', [KorisnikController::class, 'zaboravi_korisnika'])->middleware('auth')->name('zaboravi_korisnika');

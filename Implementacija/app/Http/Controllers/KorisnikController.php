@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
 use App\Models\GlumacModel;
+use App\Models\KomentarModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\KorisnikModel;
@@ -25,8 +26,7 @@ class KorisnikController extends Controller{
     public function izmeni_submit(Request $request)
     {
         if($request->has('slika')){
-            #$request->file('slika')->storeAs('public/IMG', "yeboi");
-            #Storage::disk('library')->put("pleasebruv.txt", 'sum');
+            $request->file('slika')->storeAs('public/img_profile','profile'.auth()->id().'.jpg');
         }
         KorisnikModel::find(auth()->id())->izmeniProfil($request);
         return redirect()->route('profile', ['id' => auth()->id(), 'profile' => KorisnikModel::find(auth()->id())]);
@@ -102,7 +102,7 @@ class KorisnikController extends Controller{
         $glumac->Opis=$request->opis;
         $glumac->Datum_Rodjenja = $request->datum;
         $glumac->save();
-        $request->file('poster')->storeAs('public/img_actor',($glumac->idGlumac).'.jpg');
+        $request->file('poster')->storeAs('public/img_actor','glumac'.($glumac->idGlumac).'.jpg');
         return view('createActor',['uspeh'=>'Glumac je uspešno kreiran.']);
     }
 
@@ -127,7 +127,24 @@ class KorisnikController extends Controller{
         $film->Datum_Objave = $request->datum;
         $film->Trajanje = $request->trajanje;
         $film->save();
-        $request->file('poster')->storeAs('public/img_film',($film->idFilm).'.jpg');
+        $request->file('poster')->storeAs('public/img_film','film'.($film->idFilm).'.jpg');
         return view('createMovie',['uspeh'=>'Film je uspešno kreiran.']);
+    }
+
+
+    
+
+    public function comment(Request $request, $id){
+        $request->validate([
+            'tekst' => 'required'
+        ]);
+        $indLong = explode('/',$request->getRequestUri())[1];
+        $komentar = new KomentarModel();
+        $komentar->Tekst = $request->tekst;
+        $komentar->Korisnik_idKorisnik = auth()->id();
+        $komentar->Indikator = BaseController::getIndikator($indLong);
+        $komentar->Stranica = $id;
+        $komentar->save();
+        return redirect('/movie/'.$id);
     }
 }

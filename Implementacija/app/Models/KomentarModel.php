@@ -12,10 +12,16 @@ class KomentarModel extends Model
     protected $table = 'komentar';
     protected $primaryKey = 'idKomentar';
     
+    public $timestamps = false;
+
     protected $fillable = [
         'Tekst',
         'Korisnik_idKorisnik',
-        'Idikator',
+        'Indikator',
         'Stranica'
     ];
+
+    public function getKorisnik(){
+        return $this->hasOne(KorisnikModel::class,'idKorisnik','Korisnik_idKorisnik');
+    }
 }
