@@ -1,4 +1,9 @@
 @extends('template')
+
+@section('css')
+    <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>
+@endsection
+
 @section('content')
 <div class="row">
 <h1>Rezultati pretrage "{{$naziv}}":</h1>
