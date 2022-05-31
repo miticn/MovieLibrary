@@ -12,6 +12,7 @@ table{
     margin-right: auto;
     border: 5px solid;
     border-color: brown;
+	border-collapse : separate;
 }
 tr{
     height: 50;
