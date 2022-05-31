@@ -26,6 +26,7 @@ Route::post('/createActor',[KorisnikController::class, 'createActor'])->middlewa
 Route::post('/createMovie',[KorisnikController::class, 'createMovie'])->middleware('auth')->name('createMovie');
 Route::get('/movie/{id}',[BaseController::class, 'movie'])->name('movie');
 Route::post('/movie/{id}/comment',[KorisnikController::class, 'comment'])->middleware('auth')->name('comment');
+Route::post('/movie/{id}/removeComment/{commId}',[KorisnikController::class, 'removeComment'])->middleware('auth')->name('removeComment');
 
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');

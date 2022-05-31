@@ -2,7 +2,7 @@
 @section('css')
     <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>
     <link rel='stylesheet' href='{{ URL::asset('css/library_style.css') }}'>
-
+    <script src='{{ URL::asset('js/rm-comment.js') }}'></script>
 @endsection
 
 @section('content')
@@ -77,12 +77,21 @@
         @endif
         @foreach ($komentari as $komentar)
             <tr>
-                <td class="comment">
+                <td class="comment" id="{{$komentar->idKomentar}}">
                     <a href="/profile/{{$komentar->Korisnik_idKorisnik}}">
                     <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.png" class="comment-profile-pic">
                     </a>
                     <h4 class="comment-username">
                         <a href="/profile/{{$komentar->Korisnik_idKorisnik}}" class="comment-username">{{$komentar->getKorisnik->Ime}}</a>
+                        @auth
+                            @if (auth()->user()->isAdmin())
+                                <iframe name="nothing" style="display:none;"></iframe>
+                                <form method="POST" action="/movie/{{$film->idFilm}}/removeComment/{{$komentar->idKomentar}}" target="nothing">
+                                    @csrf
+                                    <button type="submit" class="remove-comment" onclick="removeFadeOut(this.parentNode.parentNode.parentNode.id)">X</button>
+                                </form>
+                            @endif
+                        @endauth
                     </h4>
                     <hr>
                     <p class="comment-text">

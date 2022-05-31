@@ -147,4 +147,10 @@ class KorisnikController extends Controller{
         $komentar->save();
         return redirect('/movie/'.$id);
     }
+
+    public function removeComment(Request $request, $id ,$commId){
+        abort_if(! $request->user()->isAdmin(), 404);
+        $komentar = KomentarModel::find($commId);
+        $komentar->delete();
+    }
 }
