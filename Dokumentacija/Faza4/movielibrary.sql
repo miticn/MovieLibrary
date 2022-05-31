@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `movielibrary`
 --
-
+CREATE DATABASE IF NOT EXISTS `movielibrary`;
+USE `movielibrary`;
 -- --------------------------------------------------------
 
 --
@@ -329,6 +330,8 @@ CREATE TABLE IF NOT EXISTS `komentar` (
   `Korisnik_idKorisnik` int(11) NOT NULL,
   `Indikator` int(11) NOT NULL,
   `Stranica` int(11) NOT NULL,
+  `BrojLajk` int(11) NOT NULL DEFAULT '0',
+  `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idKomentar`),
   KEY `fk_Komentar_Korisnik1` (`Korisnik_idKorisnik`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -378,7 +381,6 @@ CREATE TABLE IF NOT EXISTS `lajk_dislajk` (
   `Lokacija` int(11) NOT NULL,
   `Vrsta` int(11) DEFAULT NULL,
   PRIMARY KEY (`idLajk_Dislajk`),
-  UNIQUE KEY `Lokacija_UNIQUE` (`Lokacija`),
   KEY `fk_Lajk_Dislajk_Korisnik1` (`Korisnik_idKorisnik`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
