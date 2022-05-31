@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\KorisnikModel;
+use Illuminate\Support\Facades\DB;
 
 class ListaModel extends Model
 {
@@ -36,4 +37,18 @@ class ListaModel extends Model
     {
         return $this->belongsToMany(FilmModel::class, 'u_listi', 'Lista_idLista', 'Film_idFilm');
     }
+
+    // public function ocena(){
+    //     $brojLajk = DB::table('Lajk_Dislajk')
+    //     ->where('Indikator', '=', 3)
+    //     ->where('Lokacija', '=', $this->idLista)
+    //     ->where('Vrsta', '=', 1)
+    //     ->count();
+    //     $brojDislajk = DB::table('Lajk_Dislajk')
+    //     ->where('Indikator', '=', 3)
+    //     ->where('Lokacija', '=', $this->idLista)
+    //     ->where('Vrsta', '=', 0)
+    //     ->count();
+    //     return $brojLajk - $brojDislajk;
+    // }
 }

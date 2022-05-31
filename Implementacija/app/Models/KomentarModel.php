@@ -18,7 +18,9 @@ class KomentarModel extends Model
         'Tekst',
         'Korisnik_idKorisnik',
         'Indikator',
-        'Stranica'
+        'Stranica',
+        'BrojLajk',
+        'BrojDislajk'
     ];
 
     public function getKorisnik(){

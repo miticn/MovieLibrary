@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `movielibrary`
 --
-
+CREATE DATABASE IF NOT EXISTS `movielibrary`;
+USE `movielibrary`;
 -- --------------------------------------------------------
 
 --
@@ -67,7 +68,17 @@ CREATE TABLE IF NOT EXISTS `cuva_listu` (
 INSERT INTO `cuva_listu` (`Korisnik_id_cuva`, `Lista_id_cuvana`) VALUES
 (1, 1),
 (1, 2),
-(1, 3);
+(2, 3),
+(3, 3),
+(1, 4),
+(2, 5),
+(4, 6),
+(1, 3),
+(3, 7),
+(2, 7),
+(4, 4),
+(3, 2);
+
 
 -- --------------------------------------------------------
 
@@ -329,6 +340,8 @@ CREATE TABLE IF NOT EXISTS `komentar` (
   `Korisnik_idKorisnik` int(11) NOT NULL,
   `Indikator` int(11) NOT NULL,
   `Stranica` int(11) NOT NULL,
+  `BrojLajk` int(11) NOT NULL DEFAULT '0',
+  `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idKomentar`),
   KEY `fk_Komentar_Korisnik1` (`Korisnik_idKorisnik`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -378,7 +391,6 @@ CREATE TABLE IF NOT EXISTS `lajk_dislajk` (
   `Lokacija` int(11) NOT NULL,
   `Vrsta` int(11) DEFAULT NULL,
   PRIMARY KEY (`idLajk_Dislajk`),
-  UNIQUE KEY `Lokacija_UNIQUE` (`Lokacija`),
   KEY `fk_Lajk_Dislajk_Korisnik1` (`Korisnik_idKorisnik`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -406,8 +418,12 @@ CREATE TABLE IF NOT EXISTS `lista` (
 
 INSERT INTO `lista` (`idLista`, `Ime`, `Korisnik_idKorisnik`, `BrojLajk`, `BrojDislajk`) VALUES
 (1, 'Epic Lista', 1, 0, 0),
-(2, 'Jos Bolja', 2, 5, 0),
-(3, 'Najbolja Lista', 3, 0, 3);
+(2, 'Jos Bolja', 2, 0, 0),
+(3, 'Najbolja Lista', 2, 0, 0),
+(4, 'Meni Kul Filmovi', 3, 0, 0),
+(5, 'Best Of Horror', 3, 0, 0),
+(6, 'Skrrrrr', 1, 0, 0),
+(7, 'Fun Times', 4, 0, 0);
 
 -- --------------------------------------------------------
 

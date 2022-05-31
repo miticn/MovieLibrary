@@ -13,8 +13,7 @@ table.register {
     margin-right: auto;
     border: 5px solid;
     border-color: brown;
-    border-radius: 25px;
-    border-collapse: collapse;
+	border-collapse : separate;
 }
 
 tr{

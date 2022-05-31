@@ -19,15 +19,6 @@
 					<tr> <td>Pisci:</td> <td><input type='text' placeholder="Imena pisaca" name="pisci" required> </input></td></tr>
 					<tr> <td>Opis filma:</td> <td><input type='textarea' placeholder="Opis filma" name="opis" required> </input></td></tr>
 					<tr> <td>Žanrovi filma:</td> <td><input type='text' placeholder="žanrovi" name="zanrovi" required> </input></td></tr>
-					<tr> <td>Video platforme:</td></tr>
-					<tr>
-						<td><input type='checkbox' value="Netflix">Netflix</input></td>
-						<td><input type='checkbox' value="HBO GO">HBO GO</input></td>
-					</tr>
-					<tr>
-						<td><input type='checkbox' value="Amazon Prime">Amazon Prime</input></td>
-						<td><input type='checkbox' value="Disney Plus">Disney Plus</input></td>
-					</tr>
           <tr><td colspan="2" align="center"><input type="submit" value="Napravi film"></td></tr>
 
         </table>

@@ -26,6 +26,7 @@ Route::post('/createActor',[KorisnikController::class, 'createActor'])->middlewa
 Route::post('/createMovie',[KorisnikController::class, 'createMovie'])->middleware('auth')->name('createMovie');
 Route::get('/movie/{id}',[BaseController::class, 'movie'])->name('movie');
 Route::post('/movie/{id}/comment',[KorisnikController::class, 'comment'])->middleware('auth')->name('comment');
+Route::post('/movie/{id}/removeComment/{commId}',[KorisnikController::class, 'removeComment'])->middleware('auth')->name('removeComment');
 
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');
@@ -39,6 +40,8 @@ Route::get('/lista/{id}', [BaseController::class, 'lista'])->name('lista');
 
 Route::post('/izmeni', [KorisnikController::class, 'izmeni'])->middleware('auth')->name('izmeni');
 Route::post('/izmeni_submit', [KorisnikController::class, 'izmeni_submit'])->middleware('auth')->name('izmeni_submit');
+
+Route::post('/lista/oceni/{indikator}/{lokacija}/{vrsta}', [KorisnikController::class, 'oceni'])->middleware('auth')->name('oceni_listu');
 
 Route::post('/napravi_listu', [KorisnikController::class, 'napravi_listu'])->middleware('auth')->name('napravi_listu');
 Route::post('/lista/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_listu'])->middleware('auth')->name('sacuvaj_listu');

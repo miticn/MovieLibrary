@@ -8,6 +8,7 @@ use App\Models\KomentarModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\KorisnikModel;
+use App\Models\Lajk_DislajkModel;
 use App\Models\ListaModel;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,35 @@ class KorisnikController extends Controller{
             'Ime' => $request->Ime
         ]);
         $lista->cuvana_je()->attach(auth::id());
+        return back();
+    }
+
+    public function oceni(Request $request)
+    {
+        $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => $request->indikator, 'Lokacija' => $request->lokacija];
+        $ocena = Lajk_DislajkModel::where($podaci)->first();
+        $lista = ListaModel::find($request->lokacija);
+        if($ocena == null){
+            Lajk_DislajkModel::create([
+                'Korisnik_idKorisnik' => auth()->id(),
+                'Indikator' => $request->indikator,
+                'Lokacija' => $request->lokacija,
+                'Vrsta' => $request->vrsta
+            ]);
+            if($request->vrsta == 1){
+                $lista->BrojLajk++;
+            }else{
+                $lista->BrojDislajk++;
+            }
+        }else{
+            if($ocena->Vrsta == 1){
+                $lista->BrojLajk--;
+            }else{
+                $lista->BrojDislajk--;
+            }
+            $ocena->delete();
+        }
+        $lista->save();
         return back();
     }
 
@@ -146,5 +176,11 @@ class KorisnikController extends Controller{
         $komentar->Stranica = $id;
         $komentar->save();
         return redirect('/movie/'.$id);
+    }
+
+    public function removeComment(Request $request, $id ,$commId){
+        abort_if(! $request->user()->isAdmin(), 404);
+        $komentar = KomentarModel::find($commId);
+        $komentar->delete();
     }
 }
