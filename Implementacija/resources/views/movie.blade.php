@@ -98,7 +98,7 @@
                         {{$komentar->Tekst}}
                     </p>
                     <button class="comment-like guest">↑</button>
-                    78
+                    {{$komentar->BrojLajk-$komentar->BrojDislajk}}
                     <button class="comment-dislike guest">↓</button>
                 </td>
 
