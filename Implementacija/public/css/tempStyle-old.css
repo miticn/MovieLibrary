@@ -14,8 +14,13 @@ table.register {
     border: 5px solid;
     border-color: brown;
     border-radius: 25px;
+    border-collapse: collapse;
 }
 
 tr{
     height: 50;
+}
+
+.levoReg {
+    height: min-content;
 }

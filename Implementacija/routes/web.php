@@ -30,6 +30,7 @@ Route::post('/movie/{id}/comment',[KorisnikController::class, 'comment'])->middl
 Route::get('/login', [GostController::class, 'login'])->middleware('guest')->name('login');
 Route::get('/register', [GostController::class, 'register'])->middleware('guest')->name('register');
 Route::post('/login_submit', [GostController::class, 'login_submit'])->middleware('guest')->name('login_submit');
+Route::post('/register_submit', [GostController::class, 'register_submit'])->middleware('guest')->name('register_submit');
 
 Route::get('/logout', [KorisnikController::class, 'logout'])->middleware('auth')->name('logout');
 

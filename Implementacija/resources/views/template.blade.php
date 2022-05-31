@@ -14,6 +14,7 @@
 			<link rel='stylesheet' href='{{ URL::asset('css/style.css') }}'>
 		@endsection
 		@yield('css')
+		@yield('registerStyles')
 		
 	</head>
 	<body>

@@ -30,4 +30,23 @@ class GostController extends Controller{
         }
             return redirect()->route('index');
     }
+
+    public function register_submit(Request $request)
+    {
+        $this->validate($request,[
+            'KorisnickoIme' => 'required',
+            'Lozinka' => 'required',
+            'PonovljenaLozinka' => 'required',
+            'ePosta' => 'required',
+            'Ime' => 'required',
+            'uslovi' => 'required',
+        ],
+        [
+            'required' => 'Polje je obavezno'
+        ]);
+
+        $korisnik = new KorisnikModel();
+        $korisnik->KorisnickoIme = $request->input('KorisnickoIme');
+        return redirect()->route('profile');
+    }
 }
