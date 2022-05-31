@@ -1,4 +1,9 @@
 @extends('template')
+@section('css')
+    <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>
+    <link rel='stylesheet' href='{{ URL::asset('css/tempStyle-old.css') }}'>
+@endsection
+
 @section('content')
 @auth
     @if (auth()->user()->isAdmin())

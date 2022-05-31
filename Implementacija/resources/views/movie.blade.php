@@ -1,4 +1,10 @@
 @extends('template')
+@section('css')
+    <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>
+    <link rel='stylesheet' href='{{ URL::asset('css/library_style.css') }}'>
+
+@endsection
+
 @section('content')
 <div class="content_wrapper">
     <table >
