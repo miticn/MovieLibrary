@@ -23,7 +23,7 @@
                         <input type="submit" value="&#128736;"></form>
                         @else
                         <form name="sacuvaj" action="{{route('sacuvaj_korisnika', ['id' => $profile->idKorisnik])}}"
-                            method="POST"><input type="submit" value="sacuvaj">@csrf</form>
+                            method="POST"><input type="submit" value="&#128190;">@csrf</form>
                         @endif
                     </td>
                     @endauth
@@ -48,7 +48,7 @@
             <form name="napravi_listu" action="{{route('napravi_listu')}}" method="POST">
                 @csrf
                 <td>
-                    <input type="submit" value="Napravi listu">
+                    <input type="submit" value="&#10133;">
                 </td>
                 <td id="input_lista">
                     <input type="text" name="Ime">
@@ -71,12 +71,20 @@
                     method="POST"><input type="submit" value="&#10006;">@csrf</form>
                 @else
                 <form name="sacuvaj" action="{{route('sacuvaj_listu', ['id' => $lista->idLista])}}"
-                    method="POST"><input type="submit" value="Sacuvaj">@csrf</form>
+                    method="POST"><input type="submit" value="&#128190;">@csrf</form>
                 @endif
                 <form name="oceni" action="{{route('oceni_listu', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '1'])}}" method="POST">
-                    <input type="submit" value="&#128525;">@csrf</form>
+                    @csrf
+                    @if($lista->ocenio() == 1) <input style="background-color: #950750;" type="submit" value="&#128525;">
+                    @else <input type="submit" value="&#128525;">
+                    @endif
+                </form>
                 <form name="oceni" action="{{route('oceni_listu', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '0'])}}" method="POST">
-                    <input type="submit" value="&#128545;">@csrf</form>
+                    @csrf
+                    @if($lista->ocenio() == -1) <input style="background-color: #950750;" type="submit" value="&#x1F92E;">
+                    @else <input type="submit" value="&#x1F92E;">
+                    @endif
+                </form>
                 @endauth
                 <form style="color: white; font-size: 20px;"> {{$lista->BrojLajk - $lista->BrojDislajk}} @csrf</form>
             </div>

@@ -38,17 +38,16 @@ class ListaModel extends Model
         return $this->belongsToMany(FilmModel::class, 'u_listi', 'Lista_idLista', 'Film_idFilm');
     }
 
-    // public function ocena(){
-    //     $brojLajk = DB::table('Lajk_Dislajk')
-    //     ->where('Indikator', '=', 3)
-    //     ->where('Lokacija', '=', $this->idLista)
-    //     ->where('Vrsta', '=', 1)
-    //     ->count();
-    //     $brojDislajk = DB::table('Lajk_Dislajk')
-    //     ->where('Indikator', '=', 3)
-    //     ->where('Lokacija', '=', $this->idLista)
-    //     ->where('Vrsta', '=', 0)
-    //     ->count();
-    //     return $brojLajk - $brojDislajk;
-    // }
+    public function ocenio()
+    {   
+        $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => '3', 'Lokacija' => $this->idLista];
+        $ocena = Lajk_DislajkModel::where($podaci)->first();
+        if($ocena == null){
+            return 0;
+        }elseif($ocena->Vrsta == 1){
+            return 1;
+        }else{
+            return -1;
+        }
+    }
 }
