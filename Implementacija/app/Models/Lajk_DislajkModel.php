@@ -11,6 +11,7 @@ class Lajk_DislajkModel extends Model
 
     protected $table = 'lajk_dislajk';
     protected $primaryKey = 'idLajk_Dislajk';
+    public $timestamps = false;
     
     protected $fillable = [
         'idLajk_Dislajk',
@@ -19,4 +20,9 @@ class Lajk_DislajkModel extends Model
         'Lokacija',
         'Vrsta'
     ];
+
+    public function oceni($request)
+    {
+
+    }
 }
