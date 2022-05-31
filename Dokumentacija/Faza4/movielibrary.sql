@@ -418,7 +418,7 @@ INSERT INTO `lista` (`idLista`, `Ime`, `Korisnik_idKorisnik`, `BrojLajk`, `BrojD
 DROP TABLE IF EXISTS `prikazuje_se`;
 CREATE TABLE IF NOT EXISTS `prikazuje_se` (
   `Film_idFilm` int(11) NOT NULL,
-  `URL` varchar(45) DEFAULT NULL,
+  `URL` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`Film_idFilm`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
