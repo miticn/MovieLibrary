@@ -19,23 +19,26 @@
             @error('KorisnickoIme')
                 <td class="error">{{$message}}</td>
             @enderror
+            @if(session('korImeErr'))
+                <td class="error">{{session('korImeErr')}}</td>
+            @endif
         </tr>
         <tr>
             <td>Unesite lozinku: </td>
             <td>
-                <input type='password' placeholder="Lozinka" name="Lozinka">
+                <input type='password' placeholder="Sifra" name="Sifra">
             </td>
         </tr>
         <tr class="levoReg">
             <td></td>
-            @error('Lozinka')
+            @error('Sifra')
                 <td class="error">{{$message}}</td>
             @enderror
         </tr>
         <tr>
             <td>Ponovite lozinku: </td>
             <td>
-                <input type='password' placeholder="Ponovite lozinku" name="PonovljenaLozinka">
+                <input type='password' placeholder="Ponovite lozinku" name="PonovljenaSifra">
             </td>
         </tr>
         <tr class="levoReg">

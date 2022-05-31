@@ -36,31 +36,38 @@ class GostController extends Controller{
     {
         $this->validate($request,[
             'KorisnickoIme' => 'required',
-            'Lozinka' => 'required',
-            'PonovljenaLozinka' => 'required',
-            'ePosta' => 'required',
+            'Sifra' => 'required',
+            'PonovljenaSifra' => 'required',
+            'ePosta' => 'required|regex:/^\w+@[a-z]+\.[a-z]{2,3}$/',
             'Ime' => 'required',
             'uslovi' => 'required',
         ],
         [
-            'required' => 'Polje je obavezno'
+            'required' => 'Polje je obavezno',
+            'regex' => 'mejl nije ispravan'
         ]);
 
         $korisnik = new KorisnikModel();
         $korisnik->KorisnickoIme = $request->KorisnickoIme;
-        $sifra = $request->Lozinka;
-        $ponSifra = $request->PonovljenaLozinka;
+        $sifra = $request->Sifra;
+        $ponSifra = $request->PonovljenaSifra;
         if($sifra == $ponSifra){
             $korisnik->sifra = $sifra;
         } else {
             return back()->with('status', 'Sifre se ne poklapaju.');
+        }
+        $korisnikCheck = KorisnikModel::where('KorisnickoIme', $request->Ime);
+        if(!empty($korisnikCheck)) {
+            return back()->with('korImeErr', 'Vec postoji korisnik sa ovim korisnickim imenom.');
         }
         $korisnik->Ime = $request->Ime;
         $korisnik->email = $request->ePosta;
         $korisnik->vrsta = 0;
         $korisnik->opis = "Ja nisam admin";
         $korisnik->save();
-        //return redirect()->route('profile', ['id' => $korisnik->idKorisnik]);
-        return redirect()->route('index');
+        if(!auth()->attempt($request->only('KorisnickoIme', 'Sifra'))){
+            return back()->with('stat', 'Pogresni podaci.');
+        }
+        return redirect()->route('profile', ['id' => $korisnik->idKorisnik]);
     }
 }
