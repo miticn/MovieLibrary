@@ -73,9 +73,10 @@
                 <form name="sacuvaj" action="{{route('sacuvaj_listu', ['id' => $lista->idLista])}}"
                     method="POST"><input type="submit" value="sacuvaj">@csrf</form>
                 @endif
-                <form name="oceni"><input type="submit" value="oceni">@csrf</form>
+                <form name="oceni" action="{{route('oceni_listu', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '1'])}}" method="POST">
+                    <input type="submit" value="oceni">@csrf</form>
                 @endauth
-                <form style="color: white; font-size: 20px;">2452346 @csrf</form>
+                <form style="color: white; font-size: 20px;"> {{$lista->BrojLajk - $lista->BrojDislajk}} @csrf</form>
             </div>
             </div>
         </a>

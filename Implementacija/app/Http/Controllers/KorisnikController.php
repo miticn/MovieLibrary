@@ -8,6 +8,7 @@ use App\Models\KomentarModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\KorisnikModel;
+use App\Models\Lajk_DislajkModel;
 use App\Models\ListaModel;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,6 +46,30 @@ class KorisnikController extends Controller{
         $lista->cuvana_je()->attach(auth::id());
         return back();
     }
+
+    // public function oceni(Request $request)
+    // {
+    //     $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => $request->indikator, 'Lokacija' => $request->lokacija];
+    //     $ocena = Lajk_DislajkModel::where($podaci)->first();
+    //     $lista = ListaModel::find($request->lokacija);
+    //     if($ocena == null){
+    //         Lajk_DislajkModel::create($podaci, $request->vrsta);
+    //         if($request->vrsta == 1){
+    //             $lista->BrojLajk++;
+    //         }else{
+    //             $lista->BrojLajk--;
+    //         }
+    //     }elseif($ocena->vrsta == 1){
+    //         if($request->vrsta == 1){
+    //             $lista->BrojLajk--;
+    //             //$ocena->
+    //         }
+    //     }else{
+    //         $ocena->Vrsta = 0;
+    //     }
+    //     $ocena->save();
+    //     return view('testing', ['info' => $ocena]);
+    // }
 
     public function sacuvaj_listu(Request $request)
     {

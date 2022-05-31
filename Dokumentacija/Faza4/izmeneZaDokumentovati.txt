@@ -1,3 +1,5 @@
 Atribut Opis u Korisnik dodat
 Vrsta kod Korisnika smanjena na tinyint
 auto increment stavljen kod svih id
+dodati lajkovi i dislajkovi na komentare
+lokacija u lajk tabeli nije vise unique
