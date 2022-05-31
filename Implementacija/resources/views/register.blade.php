@@ -43,6 +43,9 @@
             @error('PonovljenaLozinka')
                 <td class="error">{{$message}}</td>
             @enderror
+            @if(session('status'))
+                <td class="error">{{session('status')}}</td>
+            @endif
         </tr>
         <tr>
             <td>Unesite adresu e-poste: </td>
@@ -59,7 +62,7 @@
         <tr>
             <td>Unesite ime i prezime: </td>
             <td>
-                <input type='text' placeholder="Ime" name="Ime" value="{{old('Ime')}}">as
+                <input type='text' placeholder="Ime" name="Ime" value="{{old('Ime')}}">
             </td>
         </tr>
         <tr class="levoReg">

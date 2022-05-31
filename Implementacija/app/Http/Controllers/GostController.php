@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KorisnikModel;
 
 class GostController extends Controller{
     public function login()
@@ -46,7 +47,20 @@ class GostController extends Controller{
         ]);
 
         $korisnik = new KorisnikModel();
-        $korisnik->KorisnickoIme = $request->input('KorisnickoIme');
-        return redirect()->route('profile');
+        $korisnik->KorisnickoIme = $request->KorisnickoIme;
+        $sifra = $request->Lozinka;
+        $ponSifra = $request->PonovljenaLozinka;
+        if($sifra == $ponSifra){
+            $korisnik->sifra = $sifra;
+        } else {
+            return back()->with('status', 'Sifre se ne poklapaju.');
+        }
+        $korisnik->Ime = $request->Ime;
+        $korisnik->email = $request->ePosta;
+        $korisnik->vrsta = 0;
+        $korisnik->opis = "Ja nisam admin";
+        $korisnik->save();
+        //return redirect()->route('profile', ['id' => $korisnik->idKorisnik]);
+        return redirect()->route('index');
     }
 }
