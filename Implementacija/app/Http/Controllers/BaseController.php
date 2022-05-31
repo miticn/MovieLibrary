@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
 use App\Models\GlumacModel;
+use App\Models\KomentarModel;
 use App\Models\KorisnikModel;
 use App\Models\ListaModel;
 
@@ -83,6 +84,21 @@ class BaseController extends Controller{
         $film = FilmModel::find($id);
         $score = BaseController::getScore($film->BrojLajk,$film->BrojDislajk);
         $trophy = BaseController::getTrophy($score);
-        return view('movie',['film'=>$film, 'score'=>$score, 'trophy'=>$trophy]);
+        $komentari = BaseController::getComments('movie',$id);
+        return view('movie',['film'=>$film, 'score'=>$score, 'trophy'=>$trophy,'komentari'=>$komentari]);
+    }
+
+    public static function getIndikator($naziv){
+        $indikator = -1;
+        if($naziv=='movie'){
+            $indikator = 0;
+        }else if ($naziv=='actor'){
+            $indikator = 1;
+        }
+        return $indikator;
+    }
+
+    public function getComments($indikator,$stranica){
+        return KomentarModel::where('Indikator',$indikator)->where('Stranica',$stranica)->get();
     }
 }

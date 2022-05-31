@@ -131,21 +131,18 @@ class KorisnikController extends Controller{
         return view('createMovie',['uspeh'=>'Film je uspešno kreiran.']);
     }
 
+
+    
+
     public function comment(Request $request, $id){
         $request->validate([
             'tekst' => 'required'
         ]);
         $indLong = explode('/',$request->getRequestUri())[1];
-        $indikator = 3;
-        if($indLong=='movie'){
-            $indikator = 0;
-        }else if ($indLong=='actor'){
-            $indikator = 1;
-        }
         $komentar = new KomentarModel();
         $komentar->Tekst = $request->tekst;
         $komentar->Korisnik_idKorisnik = auth()->id();
-        $komentar->Indikator = $indikator;
+        $komentar->Indikator = BaseController::getIndikator($indLong);
         $komentar->Stranica = $id;
         $komentar->save();
         return redirect('/movie/'.$id);

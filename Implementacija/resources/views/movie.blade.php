@@ -66,42 +66,26 @@
             </td>
         </tr>
         @endauth
+        @foreach ($komentari as $komentar)
+            <tr>
+                <td class="comment">
+                    <a href="profile-notLoggedin.html">
+                    <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.png" class="comment-profile-pic">
+                    </a>
+                    <h4 class="comment-username">
+                        <a href="profile-notLoggedin.html" class="comment-username">{{$komentar->getKorisnik->Ime}}</a>
+                    </h4>
+                    <hr>
+                    <p class="comment-text">
+                        {{$komentar->Tekst}}
+                    </p>
+                    <button class="comment-like guest">↑</button>
+                    78
+                    <button class="comment-dislike guest">↓</button>
+                </td>
 
-        <tr>
-            <td class="comment">
-                <a href="profile-notLoggedin.html">
-                <img src="profile_images/profile_pic.png" class="comment-profile-pic">
-                </a>
-                <h4 class="comment-username">
-                    <a href="profile-notLoggedin.html" class="comment-username">Marko Markovic</a>
-                </h4>
-                <hr>
-                <p class="comment-text">
-                    Sjajan film, <a href="actor.html" class="handle">@Robert Pattinson</a> se jako dobro pokazao u ulozi betmena
-                </p>
-                <button class="comment-like guest">↑</button>
-                78
-                <button class="comment-dislike guest">↓</button>
-            </td>
-
-        </tr>
-        <tr >
-            <td class="comment">
-                <a href="profile-notLoggedin.html">
-                <img src="profile_images/profile_pic_default.jpg" class="comment-profile-pic">
-                </a>
-                <h4 class="comment-username">
-                    <a href="profile-notLoggedin.html" class="comment-username">Username</a>
-                </h4>
-                <hr>
-                <p class="comment-text">
-                    Sjajan film, među najboljim od svih betmen filmova
-                </p>
-                <button class="comment-like guest">↑</button>
-                24
-                <button class="comment-dislike guest">↓</button>
-            </td>
-        </tr>
+            </tr>
+        @endforeach
     </table>
 </div>
 @endsection

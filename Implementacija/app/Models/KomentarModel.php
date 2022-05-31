@@ -20,4 +20,8 @@ class KomentarModel extends Model
         'Indikator',
         'Stranica'
     ];
+
+    public function getKorisnik(){
+        return $this->hasOne(KorisnikModel::class,'idKorisnik','Korisnik_idKorisnik');
+    }
 }
