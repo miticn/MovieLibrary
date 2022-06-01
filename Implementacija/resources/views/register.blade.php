@@ -61,6 +61,9 @@
             @error('ePosta')
                 <td class="error">{{$message}}</td>
             @enderror
+            @if(session('emailErr'))
+                <td class="error">{{session('emailErr')}}</td>
+            @endif
         </tr>
         <tr>
             <td>Unesite ime i prezime: </td>
