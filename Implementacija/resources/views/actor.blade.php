@@ -42,7 +42,7 @@
         <tr>
             <td class="comment">
                 Ostavite komentar:
-                <form method="POST" action="/movie/{{$glumac->idGlumac}}/comment">
+                <form method="POST" action="/actor/{{$glumac->idGlumac}}/comment">
                     @csrf
                     <br>
                     <div class="comment-box">
