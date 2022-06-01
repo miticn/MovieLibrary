@@ -73,20 +73,20 @@
                 <form name="sacuvaj" action="{{route('sacuvaj_listu', ['id' => $lista->idLista])}}"
                     method="POST"><input type="submit" value="&#128190;">@csrf</form>
                 @endif
-                <form name="oceni" action="{{route('oceni_listu', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '1'])}}" method="POST">
+                <form name="oceni" action="{{route('oceni', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '1'])}}" method="POST">
                     @csrf
                     @if($lista->ocenio() == 1) <input style="background-color: #950750;" type="submit" value="&#128525;">
                     @else <input type="submit" value="&#128525;">
                     @endif
                 </form>
-                <form name="oceni" action="{{route('oceni_listu', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '0'])}}" method="POST">
+                <form name="oceni" action="{{route('oceni', ['indikator' => '3', 'lokacija' => $lista->idLista, 'vrsta' => '0'])}}" method="POST">
                     @csrf
                     @if($lista->ocenio() == -1) <input style="background-color: #950750;" type="submit" value="&#x1F92E;">
                     @else <input type="submit" value="&#x1F92E;">
                     @endif
                 </form>
                 @endauth
-                <form style="color: white; font-size: 20px;"> {{$lista->BrojLajk - $lista->BrojDislajk}} @csrf</form>
+                <form class="lajkovi"> {{$lista->BrojLajk - $lista->BrojDislajk}} @csrf</form>
             </div>
             </div>
         </a>

@@ -51,7 +51,13 @@ class KorisnikController extends Controller{
     {
         $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => $request->indikator, 'Lokacija' => $request->lokacija];
         $ocena = Lajk_DislajkModel::where($podaci)->first();
-        $lista = ListaModel::find($request->lokacija);
+        $podatak = ListaModel::find($request->lokacija);
+        switch($request->indikator){
+            case 0: $podatak = FilmModel::find($request->lokacija); break;
+            case 1: $podatak = GlumacModel::find($request->lokacija); break;
+            case 2: $podatak = KomentarModel::find($request->lokacija); break; 
+            case 0: $podatak = ListaModel::find($request->lokacija); break;
+        }
         if($ocena == null){
             Lajk_DislajkModel::create([
                 'Korisnik_idKorisnik' => auth()->id(),
@@ -60,19 +66,33 @@ class KorisnikController extends Controller{
                 'Vrsta' => $request->vrsta
             ]);
             if($request->vrsta == 1){
-                $lista->BrojLajk++;
+                $podatak->BrojLajk++;
             }else{
-                $lista->BrojDislajk++;
+                $podatak->BrojDislajk++;
             }
         }else{
             if($ocena->Vrsta == 1){
-                $lista->BrojLajk--;
+                $podatak->BrojLajk--;
             }else{
-                $lista->BrojDislajk--;
+                $podatak->BrojDislajk--;
             }
             $ocena->delete();
         }
-        $lista->save();
+        $podatak->save();
+        return back();
+    }
+
+    public function sacuvaj_film(Request $request)
+    {
+        $lista = ListaModel::find($request->get('izabrana'));
+        $lista->cuva_film()->attach($request->film);
+        return back();
+    }
+
+    public function zaboravi_film(Request $request)
+    {
+        $lista = ListaModel::find($request->lista);
+        $lista->cuva_film()->detach($request->film);
         return back();
     }
 
@@ -182,5 +202,6 @@ class KorisnikController extends Controller{
         abort_if(! $request->user()->isAdmin(), 404);
         $komentar = KomentarModel::find($commId);
         $komentar->delete();
+        return back();
     }
 }

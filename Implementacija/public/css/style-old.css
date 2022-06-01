@@ -217,6 +217,15 @@ i.trash{
 	text-shadow: 1px 1px 1px black;
 }
 
+.lajkovi{
+	color: white;
+	font-size: 20px;
+}
+
+.dugmici form{
+	display: inline-block;
+}
+
 table.search{
 	width:100%;
 	border: 1px solid black;

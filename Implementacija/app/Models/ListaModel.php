@@ -50,4 +50,9 @@ class ListaModel extends Model
             return -1;
         }
     }
+
+    public function napravio($user)
+    {
+        return ListaModel::where('Korisnik_idKorisnik', '=', $user);
+    }
 }

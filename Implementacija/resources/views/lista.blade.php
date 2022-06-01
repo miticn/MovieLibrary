@@ -7,10 +7,13 @@
     </tr>
 @foreach ($lista->cuva_film as $film)
     <tr><td style="border:5px solid black;">
-        <a href="/">
-            <div>{{$film->Naziv}}</div>
-            <div class="background_movie"style="background-image: url('{{URL::asset('IMG/img_film/film'.
-            $film->idFilm.'.jpg')}}')"></div></a>
+        <a href="{{route('movie', ['id' => $film->idFilm])}}">
+            {{$film->Naziv}}
+            <div class="background_movie"style="background-image: url('{{URL::asset('IMG/img_film/film'.$film->idFilm.'.jpg')}}')">
+            @if($lista->Korisnik_idKorisnik == auth()->id())
+                <form style="margin-left: 100%;" name="zaboravi_film" action="{{route('zaboravi_film', ['lista' => $lista->idLista, 'film' => $film->idFilm])}}" method="POST">
+                @csrf<input type="submit" value="&#10006;"></form></div></a>
+            @endif
     </td></tr>
 @endforeach
 </table>

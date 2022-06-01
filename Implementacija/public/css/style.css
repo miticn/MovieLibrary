@@ -300,6 +300,11 @@ table.login_form{
 	margin-top: 15px;
 }
 
+.lajkovi{
+	color: white;
+	font-size: 20px;
+}
+
 #input_lista input{
 	width: 100%;
 }

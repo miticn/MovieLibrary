@@ -14,8 +14,31 @@
                 <br>
                 <i class="fa {{$trophy}}"></i> {{$score}}%
                 <br>
-                <button class="like guest">↑</button>
-                <button class="dislike guest">↓</button>
+                @auth
+                <div class="dugmici">
+                    <form name="oceni" action="{{route('oceni', ['indikator' => '0', 'lokacija' => $film->idFilm, 'vrsta' => '1'])}}" method="POST">
+                        @csrf
+                        @if($film->ocenio() == 1) <input style="background-color: #950750;" type="submit" value="&#128525;">
+                        @else <input type="submit" value="&#128525;">
+                        @endif
+                    </form>
+                    <form name="oceni" action="{{route('oceni', ['indikator' => '0', 'lokacija' => $film->idFilm, 'vrsta' => '0'])}}" method="POST">
+                        @csrf
+                        @if($film->ocenio() == -1) <input style="background-color: #950750;" type="submit" value="&#x1F92E;">
+                        @else <input type="submit" value="&#x1F92E;">
+                        @endif
+                    </form>
+                    <form name="sacuvaj" action="{{route('sacuvaj_film', ['lista' => "izabrana" , 'film' => $film->idFilm ])}}" method="POST">
+                        @csrf
+                        <input type="submit" value="&#128190;">
+                        <select name="izabrana" id="bruv">
+                            @foreach (Auth::user()->napravljeneListe as $lista)          
+                            <option value="{{$lista->idLista}}">{{$lista->Ime}}</option>
+                            @endforeach
+                        </select>
+                    </form>
+                </div>
+                @endauth
                 <hr>
                 <h3>Opis</h3>
                 <hr>
@@ -97,9 +120,23 @@
                     <p class="comment-text">
                         {{$komentar->Tekst}}
                     </p>
-                    <button class="comment-like guest">↑</button>
-                    {{$komentar->BrojLajk-$komentar->BrojDislajk}}
-                    <button class="comment-dislike guest">↓</button>
+                    @auth
+                    <div class="dugmici">
+                    <form name="oceni" action="{{route('oceni', ['indikator' => '2', 'lokacija' => $komentar->idKomentar, 'vrsta' => '1'])}}" method="POST">
+                        @csrf
+                        @if($komentar->ocenio() == 1) <input style="background-color: #950750;" type="submit" value="&#128525;">
+                        @else <input type="submit" value="&#128525;">
+                        @endif
+                    </form>
+                    <form name="oceni" action="{{route('oceni', ['indikator' => '2', 'lokacija' => $komentar->idKomentar, 'vrsta' => '0'])}}" method="POST">
+                        @csrf
+                        @if($komentar->ocenio() == -1) <input style="background-color: #950750;" type="submit" value="&#x1F92E;">
+                        @else <input type="submit" value="&#x1F92E;">
+                        @endif
+                    </form>
+                    <form class="lajkovi">{{$komentar->BrojLajk-$komentar->BrojDislajk}}</form>
+                    </div>
+                    @endauth
                 </td>
 
             </tr>

@@ -37,4 +37,17 @@ class FilmModel extends Model
     {
         return $this->belongsToMany(ListaModel::class, 'u_listi', 'Film_idFilm', 'Lista_idLista');
     }
+
+    public function ocenio()
+    {   
+        $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => '0', 'Lokacija' => $this->idFilm];
+        $ocena = Lajk_DislajkModel::where($podaci)->first();
+        if($ocena == null){
+            return 0;
+        }elseif($ocena->Vrsta == 1){
+            return 1;
+        }else{
+            return -1;
+        }
+    }
 }

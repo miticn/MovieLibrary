@@ -41,7 +41,10 @@ Route::get('/lista/{id}', [BaseController::class, 'lista'])->name('lista');
 Route::post('/izmeni', [KorisnikController::class, 'izmeni'])->middleware('auth')->name('izmeni');
 Route::post('/izmeni_submit', [KorisnikController::class, 'izmeni_submit'])->middleware('auth')->name('izmeni_submit');
 
-Route::post('/lista/oceni/{indikator}/{lokacija}/{vrsta}', [KorisnikController::class, 'oceni'])->middleware('auth')->name('oceni_listu');
+Route::post('/oceni/{indikator}/{lokacija}/{vrsta}', [KorisnikController::class, 'oceni'])->middleware('auth')->name('oceni');
+
+Route::post('/cuvanje_filma/{lista}/{film}', [KorisnikController::class, 'sacuvaj_film'])->middleware('auth')->name('sacuvaj_film');
+Route::post('/zaboravljanje_filma/{lista}/{film}', [KorisnikController::class, 'zaboravi_film'])->middleware('auth')->name('zaboravi_film');
 
 Route::post('/napravi_listu', [KorisnikController::class, 'napravi_listu'])->middleware('auth')->name('napravi_listu');
 Route::post('/lista/sacuvaj/{id}', [KorisnikController::class, 'sacuvaj_listu'])->middleware('auth')->name('sacuvaj_listu');
