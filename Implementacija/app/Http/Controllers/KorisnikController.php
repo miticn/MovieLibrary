@@ -206,6 +206,9 @@ class KorisnikController extends Controller{
 
     public function addRole(Request $request,$idFilm,$idActor){
         abort_if(! $request->user()->isAdmin(), 404);
+        $request->validate([
+            'Ime_uloge' => 'required'
+        ]);
         if($idActor==-1){
             $idActor=$request->Glumac;
         }
@@ -214,8 +217,6 @@ class KorisnikController extends Controller{
         }
         $flim = FilmModel::find($idFilm);
         $flim->glumci()->attach($idActor,['Ime_uloge' => $request->Ime_uloge]);
-        //$flim = FilmModel::find($idFilm);
-        //$uloga = $flim->glumci()->detach($idActor);
         return redirect()->back();
     }
 }
