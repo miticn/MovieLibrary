@@ -26,7 +26,7 @@
                 <hr>
                 <ul>
                     @foreach ($film->glumci as $glumac)
-                        <li id ="1" class="cast-filmography">{{$glumac->pivot->Ime_uloge}} - <a href="/actor/{{$glumac->idGlumac}}">{{$glumac->Ime}} </a>
+                        <li id ="{{$glumac->idGlumac}}" class="cast-filmography">{{$glumac->pivot->Ime_uloge}} - <a href="/actor/{{$glumac->idGlumac}}">{{$glumac->Ime}} </a>
                         @auth
                         @if (auth()->user()->isAdmin())
                             <iframe name="nothing-role" style="display:none;"></iframe>
@@ -39,6 +39,15 @@
                         @endauth
                         </li>
                     @endforeach
+
+                    @auth
+                        @if (auth()->user()->isAdmin())
+                        <li class="cast-filmography">
+                            <input type="text">
+
+                        </li>
+                        @endif
+                    @endauth
 
                 </ul>
             </td>
