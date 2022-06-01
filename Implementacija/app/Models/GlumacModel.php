@@ -21,4 +21,8 @@ class GlumacModel extends Model
         'BrojLajk',
         'BrojDislajk'
     ];
+
+    public function filmovi(){
+        return $this->belongsToMany(FilmModel::class, 'glumi', 'Glumac_idGlumac', 'Film_idFilm')->withPivot('Ime_uloge');
+    }
 }
