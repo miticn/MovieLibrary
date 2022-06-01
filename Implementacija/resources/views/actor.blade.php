@@ -12,7 +12,7 @@
     <table>
         <tr>
             <td class="library-info" rowspan="2">
-                <img class="library-image" src="/IMG/img_actor/film{{$glumac->idGlumac}}.jpg"><br><b>{{$glumac->Ime}}</b>
+                <img class="library-image" src="/IMG/img_actor/actor{{$glumac->idGlumac}}.jpg"><br><b>{{$glumac->Ime}}</b>
                 <br>
                 <i class="fa {{$trophy}}"></i> {{$score}}%
                 <br>
@@ -61,7 +61,7 @@
             <tr>
                 <td class="comment" id="{{$komentar->idKomentar}}">
                     <a href="/profile/{{$komentar->Korisnik_idKorisnik}}">
-                    <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.png" class="comment-profile-pic">
+                    <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.jpg" class="comment-profile-pic">
                     </a>
                     <h4 class="comment-username">
                         <a href="/profile/{{$komentar->Korisnik_idKorisnik}}" class="comment-username">{{$komentar->getKorisnik->Ime}}</a>
