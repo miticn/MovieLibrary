@@ -1,7 +1,7 @@
 @extends('template')
 @section('css')
     <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>
-	<link rel='stylesheet' href='{{ URL::asset('css/tempStyle-old.css') }}'>
+	<link rel='stylesheet' href='{{ URL::asset('css/tempStyle-old-og.css') }}'>
 @endsection
 
 @section('content')
