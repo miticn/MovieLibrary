@@ -372,10 +372,10 @@ CREATE TABLE IF NOT EXISTS `korisnik` (
 --
 
 INSERT INTO `korisnik` (`idKorisnik`, `KorisnickoIme`, `Ime`, `email`, `Sifra`, `Vrsta`, `Opis`) VALUES
-(1, 'brucewillis', 'John McClane', 'bruce@movielibrary.com', 'bruce123', 1, 'Ja sam admin.'),
-(2, 'alanrickman', 'Hans Gruber', 'alan@movielibrary.com', 'alan123', 0, 'Ja nisam admin.'),
-(3, 'bonniebedelia', 'Holly Gennaro', 'holly@movielibrary.com', 'bonnie123', 0, 'Novajlija ovde.'),
-(4, 'reginaldveljohnson', 'Sgt. Al Powell', 'reginald@movielibrary.com', 'reginald123', 0, 'Novajlija ovde.');
+(1, 'brucewillis', 'John McClane', 'bruce@movielibrary.com', '$2y$10$c0qR5WP4Q/XyWqZMqn2F5eUUyYF9hRFRKtq3LaFYHTu3CPW3zoEja', 1, 'Ja sam admin.'),
+(2, 'alanrickman', 'Hans Gruber', 'alan@movielibrary.com', '$2y$10$G5O2i0N/Cd14SmWzHkKwBeguGUSm2XLN3KiqgRthrFU.Notku8H9K', 0, 'Ja nisam admin.'),
+(3, 'bonniebedelia', 'Holly Gennaro', 'holly@movielibrary.com', '$2y$10$c5d.OCtQNmXMCvsmTSH1MeeI8jMCjkp1cRsoAyPkREuEMwalPuVSm', 0, 'Novajlija ovde.'),
+(4, 'reginaldveljohnson', 'Sgt. Al Powell', 'reginald@movielibrary.com', '$2y$10$luqfDtaY.uwxEc6dgG7yd.AxMgptLiLXXVndBGY9SobxHCHgA4CFW', 0, 'Novajlija ovde.');
 
 -- --------------------------------------------------------
 
