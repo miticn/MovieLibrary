@@ -22,6 +22,11 @@
                 <p>
                     {{$film->Opis}}
                 </p>
+                <h3>Detalji o filmu:</h3>
+                Režiseri: {{$film->Reziseri}}<br>
+                Pisci: {{$film->Pisci}}<br>
+                Trajanje filma: {{$film->Trajanje}}<br>
+                Datum objavljivanja: {{$film->Datum_Objave}}</p>
                 <h3>Uloge</h3>
                 <hr>
                 <ul>
