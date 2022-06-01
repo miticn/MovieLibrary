@@ -42,8 +42,17 @@
 
                     @auth
                         @if (auth()->user()->isAdmin())
-                        <li class="cast-filmography">
-                            <input type="text">
+                        <li class="add-cast">
+                            <form class="hidden-form" method="POST" action="/addRole/{{$film->idFilm}}/-1">
+                            @csrf
+                            <input class="add-cast" name="Ime_uloge" type="text" placeholder="Ime uloge..." required>
+                            <select class="add-cast" name="Glumac" id="glumac" required>
+                                @foreach($sviGlumci as $jedanGlumac)
+                                <option value="{{$jedanGlumac->idGlumac}}">{{$jedanGlumac->Ime}}</option>
+                                @endforeach
+                            </select>
+                            <button class="remove-role" type="submit">✓</button>
+                            </form>
 
                         </li>
                         @endif

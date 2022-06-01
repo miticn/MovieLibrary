@@ -187,6 +187,21 @@ class KorisnikController extends Controller{
     public function removeRole(Request $request,$idFilm,$idActor){
         abort_if(! $request->user()->isAdmin(), 404);
         $flim = FilmModel::find($idFilm);
-        $uloga = $flim->glumci()->detach($idActor);
+        $flim->glumci()->detach($idActor);
+    }
+
+    public function addRole(Request $request,$idFilm,$idActor){
+        abort_if(! $request->user()->isAdmin(), 404);
+        if($idActor==-1){
+            $idActor=$request->Glumac;
+        }
+        if($idFilm==-1){
+            $idFilm=$request->Film;
+        }
+        $flim = FilmModel::find($idFilm);
+        $flim->glumci()->attach($idActor,['Ime_uloge' => $request->Ime_uloge]);
+        //$flim = FilmModel::find($idFilm);
+        //$uloga = $flim->glumci()->detach($idActor);
+        return redirect()->back();
     }
 }

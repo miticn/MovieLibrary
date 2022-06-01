@@ -85,7 +85,8 @@ class BaseController extends Controller{
         $score = BaseController::getScore($film->BrojLajk,$film->BrojDislajk);
         $trophy = BaseController::getTrophy($score);
         $komentari = BaseController::getComments('movie',$id);
-        return view('movie',['film'=>$film, 'score'=>$score, 'trophy'=>$trophy,'komentari'=>$komentari]);
+        $sviGlumci = GlumacModel::all()->sortBy('Ime');
+        return view('movie',['film'=>$film, 'score'=>$score, 'trophy'=>$trophy,'komentari'=>$komentari,'sviGlumci'=>$sviGlumci]);
     }
 
     public static function getIndikator($naziv){
