@@ -198,10 +198,46 @@ class KorisnikController extends Controller{
         return redirect('/movie/'.$id);
     }
 
+    public function commentActor(Request $request, $id){
+        $request->validate([
+            'tekst' => 'required'
+        ]);
+        $indLong = explode('/',$request->getRequestUri())[1];
+        $komentar = new KomentarModel();
+        $komentar->Tekst = $request->tekst;
+        $komentar->Korisnik_idKorisnik = auth()->id();
+        $komentar->Indikator = BaseController::getIndikator($indLong);
+        $komentar->Stranica = $id;
+        $komentar->save();
+        return redirect('/actor/'.$id);
+    }
+
     public function removeComment(Request $request, $id ,$commId){
         abort_if(! $request->user()->isAdmin(), 404);
         $komentar = KomentarModel::find($commId);
         $komentar->delete();
         return back();
+    }
+
+    public function removeRole(Request $request,$idFilm,$idActor){
+        abort_if(! $request->user()->isAdmin(), 404);
+        $flim = FilmModel::find($idFilm);
+        $flim->glumci()->detach($idActor);
+    }
+
+    public function addRole(Request $request,$idFilm,$idActor){
+        abort_if(! $request->user()->isAdmin(), 404);
+        $request->validate([
+            'Ime_uloge' => 'required'
+        ]);
+        if($idActor==-1){
+            $idActor=$request->Glumac;
+        }
+        if($idFilm==-1){
+            $idFilm=$request->Film;
+        }
+        $flim = FilmModel::find($idFilm);
+        $flim->glumci()->attach($idActor,['Ime_uloge' => $request->Ime_uloge]);
+        return redirect()->back();
     }
 }
