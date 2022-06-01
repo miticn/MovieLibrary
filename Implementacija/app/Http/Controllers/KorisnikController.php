@@ -178,6 +178,20 @@ class KorisnikController extends Controller{
         return redirect('/movie/'.$id);
     }
 
+    public function commentActor(Request $request, $id){
+        $request->validate([
+            'tekst' => 'required'
+        ]);
+        $indLong = explode('/',$request->getRequestUri())[1];
+        $komentar = new KomentarModel();
+        $komentar->Tekst = $request->tekst;
+        $komentar->Korisnik_idKorisnik = auth()->id();
+        $komentar->Indikator = BaseController::getIndikator($indLong);
+        $komentar->Stranica = $id;
+        $komentar->save();
+        return redirect('/actor/'.$id);
+    }
+
     public function removeComment(Request $request, $id ,$commId){
         abort_if(! $request->user()->isAdmin(), 404);
         $komentar = KomentarModel::find($commId);
