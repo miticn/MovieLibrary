@@ -197,4 +197,10 @@ class KorisnikController extends Controller{
         $komentar = KomentarModel::find($commId);
         $komentar->delete();
     }
+
+    public function removeRole(Request $request,$idFilm,$idActor){
+        abort_if(! $request->user()->isAdmin(), 404);
+        $flim = FilmModel::find($idFilm);
+        $uloga = $flim->glumci()->detach($idActor);
+    }
 }

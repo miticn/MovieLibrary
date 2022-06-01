@@ -26,7 +26,18 @@
                 <hr>
                 <ul>
                     @foreach ($film->glumci as $glumac)
-                        <li class="cast-filmography">{{$glumac->pivot->Ime_uloge}} - <a href="/actor/{{$glumac->idGlumac}}">{{$glumac->Ime}} <a></li>
+                        <li id ="1" class="cast-filmography">{{$glumac->pivot->Ime_uloge}} - <a href="/actor/{{$glumac->idGlumac}}">{{$glumac->Ime}} </a>
+                        @auth
+                        @if (auth()->user()->isAdmin())
+                            <iframe name="nothing-role" style="display:none;"></iframe>
+                            <form class="hidden-form" method="POST" action="/roleRemove/{{$film->idFilm}}/{{$glumac->idGlumac}}/"target="nothing-role">
+                                @csrf
+                        
+                                <button class="remove-role" type="submit" onclick="removeFadeOut(this.parentNode.parentNode.id)">X</button>
+                            </form>
+                        @endif
+                        @endauth
+                        </li>
                     @endforeach
 
                 </ul>
@@ -86,7 +97,7 @@
                         @auth
                             @if (auth()->user()->isAdmin())
                                 <iframe name="nothing" style="display:none;"></iframe>
-                                <form method="POST" action="/movie/{{$film->idFilm}}/removeComment/{{$komentar->idKomentar}}" target="nothing">
+                                <form class="hidden-form" method="POST" action="/movie/{{$film->idFilm}}/removeComment/{{$komentar->idKomentar}}" target="nothing">
                                     @csrf
                                     <button type="submit" class="remove-comment" onclick="removeFadeOut(this.parentNode.parentNode.parentNode.id)">X</button>
                                 </form>

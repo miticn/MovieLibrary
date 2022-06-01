@@ -54,9 +54,18 @@ li.cast-filmography{
 	border: 2px solid;
 	border-radius: 10px;
 	padding: 5px;
-	flex-direction: left;
-	width: 50%;
+	width: 93%;
 	background: #f5a6db;
+}
+
+button.remove-role{
+	background-color: inherit;
+	border: none;
+	float: right;
+}
+
+form.hidden-form{
+	display: inline;
 }
 
 .library-info{
