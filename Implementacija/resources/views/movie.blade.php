@@ -49,8 +49,37 @@
                 <hr>
                 <ul>
                     @foreach ($film->glumci as $glumac)
-                        <li class="cast-filmography">{{$glumac->pivot->Ime_uloge}} - <a href="/actor/{{$glumac->idGlumac}}">{{$glumac->Ime}} <a></li>
+                        <li id ="{{$glumac->idGlumac}}" class="cast-filmography">{{$glumac->pivot->Ime_uloge}} - <a href="/actor/{{$glumac->idGlumac}}">{{$glumac->Ime}} </a>
+                        @auth
+                        @if (auth()->user()->isAdmin())
+                            <iframe name="nothing-role" style="display:none;"></iframe>
+                            <form class="hidden-form" method="POST" action="/roleRemove/{{$film->idFilm}}/{{$glumac->idGlumac}}/"target="nothing-role">
+                                @csrf
+                        
+                                <button class="remove-role" type="submit" onclick="removeFadeOut(this.parentNode.parentNode.id)">X</button>
+                            </form>
+                        @endif
+                        @endauth
+                        </li>
                     @endforeach
+
+                    @auth
+                        @if (auth()->user()->isAdmin())
+                        <li class="add-cast">
+                            <form class="hidden-form" method="POST" action="/addRole/{{$film->idFilm}}/-1">
+                            @csrf
+                            <input class="add-cast" name="Ime_uloge" type="text" placeholder="Ime uloge..." required>
+                            <select class="add-cast" name="Glumac" id="glumac" required>
+                                @foreach($sviGlumci as $jedanGlumac)
+                                <option value="{{$jedanGlumac->idGlumac}}">{{$jedanGlumac->Ime}}</option>
+                                @endforeach
+                            </select>
+                            <button class="remove-role" type="submit">✓</button>
+                            </form>
+
+                        </li>
+                        @endif
+                    @endauth
 
                 </ul>
             </td>
@@ -109,7 +138,7 @@
                         @auth
                             @if (auth()->user()->isAdmin())
                                 <iframe name="nothing" style="display:none;"></iframe>
-                                <form method="POST" action="/movie/{{$film->idFilm}}/removeComment/{{$komentar->idKomentar}}" target="nothing">
+                                <form class="hidden-form" method="POST" action="/movie/{{$film->idFilm}}/removeComment/{{$komentar->idKomentar}}" target="nothing">
                                     @csrf
                                     <button type="submit" class="remove-comment" onclick="removeFadeOut(this.parentNode.parentNode.parentNode.id)">X</button>
                                 </form>

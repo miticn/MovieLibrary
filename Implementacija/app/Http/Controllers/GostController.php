@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KorisnikModel;
+use Illuminate\Support\Facades\Hash;
 
 class GostController extends Controller{
     public function login()
@@ -24,16 +25,34 @@ class GostController extends Controller{
         ],
         [
             'required' => 'Polje :attribute je obavezno.'
-        ]);
+        ]); 
 
-        if(!auth()->attempt($request->only('KorisnickoIme', 'Sifra'))){
+        $korIme = $request->KorisnickoIme;
+        $sifra = $request->Sifra;
+
+        $korImeCount = KorisnikModel::where('KorisnickoIme', $korIme)->count();
+        $emailCount = KorisnikModel::where('email', $korIme)->count();
+
+        if($korImeCount > 0){
+            $korisnik = KorisnikModel::where('KorisnickoIme', $korIme)->first();
+        } else if($emailCount > 0) {
+            $korisnik = KorisnikModel::where('email', $korIme)->first();
+        } else {
             return back()->with('status', 'Pogresni podaci.');
         }
-            return redirect()->route('index');
+
+        if(Hash::check($sifra, $korisnik->Sifra)){
+            $hashSifra = Hash::make($sifra);
+            auth()->attempt(['KorisnickoIme' => $korisnik->KorisnickoIme, 'Sifra' => $korisnik->Sifra]);
+        } else {
+            return back()->with('status', 'Pogresni podaci.');
+        }
+        return redirect()->route('index');
     }
 
     public function register_submit(Request $request)
     {
+        //dd($request);
         $this->validate($request,[
             'KorisnickoIme' => 'required',
             'Sifra' => 'required',
@@ -46,28 +65,35 @@ class GostController extends Controller{
             'required' => 'Polje je obavezno',
             'regex' => 'mejl nije ispravan'
         ]);
-
+        
         $korisnik = new KorisnikModel();
         $korisnik->KorisnickoIme = $request->KorisnickoIme;
         $sifra = $request->Sifra;
         $ponSifra = $request->PonovljenaSifra;
+        
         if($sifra == $ponSifra){
-            $korisnik->sifra = $sifra;
+            $korisnik->Sifra = Hash::make($sifra);
         } else {
             return back()->with('status', 'Sifre se ne poklapaju.');
         }
-        $korisnikCheck = KorisnikModel::where('KorisnickoIme', $request->Ime);
-        if(!empty($korisnikCheck)) {
-            return back()->with('korImeErr', 'Vec postoji korisnik sa ovim korisnickim imenom.');
+
+        $korisnikCount = KorisnikModel::where('KorisnickoIme', $request->KorisnickoIme)->count();
+        if($korisnikCount > 0) {
+            return back()->with('korImeErr', 'Korisnicko ime je zauzeto.');
+        }
+        $emailCount = KorisnikModel::where('email', $request->ePosta)->count();
+        if($emailCount > 0) {
+            return back()->with('emailErr', 'E-mail adresa je zauzeta.');
         }
         $korisnik->Ime = $request->Ime;
         $korisnik->email = $request->ePosta;
         $korisnik->vrsta = 0;
-        $korisnik->opis = "Ja nisam admin";
+        $korisnik->opis = "Novajlija ovde";
         $korisnik->save();
-        if(!auth()->attempt($request->only('KorisnickoIme', 'Sifra'))){
-            return back()->with('stat', 'Pogresni podaci.');
-        }
+        auth()->attempt(['KorisnickoIme' => $korisnik->KorisnickoIme, 'Sifra' => $korisnik->Sifra]);
+        //if(!auth()->attempt($request->only('KorisnickoIme', 'Sifra'))){
+          //  return back()->with('stat', 'Pogresni podaci.');
+        //}
         return redirect()->route('profile', ['id' => $korisnik->idKorisnik]);
     }
 }
