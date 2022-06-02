@@ -85,7 +85,8 @@ class BaseController extends Controller{
         $score = BaseController::getScore($glumac->brojLajk, $glumac->BrojDislajk);
         $trophy = BaseController::getTrophy($score);
         $komentari = BaseController::getComments('actor', $id);
-        return view('actor', ['glumac' => $glumac, 'score'=>$score, 'trophy' =>$trophy, 'komentari' => $komentari]);
+        $sviFilmovi = FilmModel::all()->sortBy('Naziv');
+        return view('actor', ['glumac' => $glumac, 'score'=>$score, 'trophy' =>$trophy, 'komentari' => $komentari,'sviFilmovi'=>$sviFilmovi]);
     }
 
     public function movie($id){
@@ -108,6 +109,6 @@ class BaseController extends Controller{
     }
 
     public function getComments($indikator,$stranica){
-        return KomentarModel::where('Indikator',$indikator)->where('Stranica',$stranica)->get();
+        return KomentarModel::where('Indikator',BaseController::getIndikator($indikator))->where('Stranica',$stranica)->get();
     }
 }
