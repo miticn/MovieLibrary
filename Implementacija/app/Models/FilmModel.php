@@ -1,6 +1,6 @@
 <?php
 
-/**Autori: Mateja Milojević, Nikola Mitic 17/0110 */
+/**Autori: Mateja Milojević 19/0382, Nikola Mitic 17/0110 */
 
 namespace App\Models;
 
