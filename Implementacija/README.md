@@ -5,7 +5,7 @@ Za pokretanje projekta se koristi sledeća naredba:
 
 
 Povezivanje /storage/app/public sa /public/IMG se vrši sledećom komandom:  
-```php .\artisan storage:link```
+```php artisan storage:link```
 
 
 Pokretanje periodičnog povezivanja sa cineplexxom se vriši sledećom komandom:  
