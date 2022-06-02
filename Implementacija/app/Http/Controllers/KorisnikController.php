@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
  * Korisnik kontroler za autorizovane korisnike i administratore
  */
 class KorisnikController extends Controller{
+    /**
+     * funkcija za izlogovanje, preusmerava na pocetnu stranu
+     */
     public function logout()
     {
         auth()->logout();

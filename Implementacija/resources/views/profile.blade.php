@@ -1,3 +1,4 @@
+<!-- Autori: Mateja Milojevic 2019/0382-->
 @extends('template')
 @section('content')
 <link rel="stylesheet" href="{{ URL::asset('css/profile.css') }}">

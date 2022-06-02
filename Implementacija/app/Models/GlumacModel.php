@@ -1,10 +1,15 @@
 <?php
 
+//Autori: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * klasa GlumacModel za tabelu glumac u bazi podataka
+ */
 class GlumacModel extends Model
 {
     use HasFactory;
@@ -22,6 +27,9 @@ class GlumacModel extends Model
         'BrojDislajk'
     ];
 
+    /**
+     * Funkcija koja vraca filmove u kom igra glumac
+     */
     public function filmovi(){
         return $this->belongsToMany(FilmModel::class, 'glumi', 'Glumac_idGlumac', 'Film_idFilm')->withPivot('Ime_uloge');
     }

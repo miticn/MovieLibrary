@@ -1,7 +1,5 @@
 <?php
-
-/**Autori: Mateja Milojević 2019/0382, Nikola Mitić 2017/0110*/
-
+//Autori: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110
 namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
@@ -12,6 +10,9 @@ use App\Models\ListaModel;
 
 use Illuminate\Http\Request;
 
+/**
+* BaseController - klasa za opste funkcije
+*/
 
 /**
  * Bazični kontroler koji služi i korisnicima i gostima
@@ -140,6 +141,14 @@ class BaseController extends Controller{
        return view('lista', ['lista' => ListaModel::find($id)]);
     }
 
+    /**
+     * Funkcija koja vraca prikaz filma sa adekvatnim podacima za taj film
+     *
+     * @param int $id
+     * 
+     * @return view
+     * 
+     */
     public function actor($id) {
         $glumac = GlumacModel::find($id);
         $score = BaseController::getScore($glumac->BrojLajk, $glumac->BrojDislajk);

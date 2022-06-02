@@ -1,6 +1,6 @@
 <?php
 
-/**Autori: Mateja Milojević 2019/0382*/
+/**Autori: Mateja Milojević 2019/0382, Momcilo Milic 2019/0377*/
 
 namespace App\Http\Controllers;
 
@@ -24,6 +24,9 @@ class GostController extends Controller{
         return view('login');
     }
 
+    /**
+     * Funkcija koja preusmerava na stranicu forme za registraciju
+     */
     public function register()
     {
         return view('register');
@@ -71,6 +74,9 @@ class GostController extends Controller{
         return redirect()->route('index');
     }
 
+    /**
+     * Funkcija za registraciju, tj. pravljenje novog korisnika
+     */
     public function register_submit(Request $request)
     {
         //dd($request);
