@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <!-- Autori: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110-->
+=======
+<!-- Autor: Momcilo Milic 19/0377, Nikola Mitic 17/0110-->
+>>>>>>> cdf951540443efdcc171444acccf9e08a5aabad8
 @extends('template')
 @section('css')
     <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>
