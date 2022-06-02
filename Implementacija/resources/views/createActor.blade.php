@@ -1,3 +1,4 @@
+<!-- Autor: Nikola Mitic 17/0110-->
 @extends('template')
 @section('css')
     <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>
