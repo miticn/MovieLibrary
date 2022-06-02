@@ -14,9 +14,17 @@ use Illuminate\Http\Request;
 * BaseController - klasa za opste funkcije
 */
 
+/**
+ * Bazični kontroler koji služi i korisnicima i gostima
+ */
 class BaseController extends Controller{
     /**
-     * Funkcija koja odredjuje vrstu trofeja
+     * Vraca html klase za odgovarajuci trofej na osnovu skora
+     *
+     * @param int $score
+     * 
+     * @return string
+ 
      */
     private static function getTrophy($score){
         if($score<50){
@@ -30,9 +38,13 @@ class BaseController extends Controller{
         }
         return $trophy;
     }
-
     /**
-     * Funkcija koja racuna i vraca rezultat u procentima na osnovu lajk/dislajk odnosa
+     * Vraca odgovarajuci skor za filmove i glumce na osnovu broja lajkova i dislajkova
+     *
+     * @param int $BrojLajk
+     * @param int $BrojDislajk
+     * 
+     * @return int
      */
     private static function getScore($BrojLajk,$BrojDislajk){
         if ($BrojLajk+$BrojDislajk===0) return 0;
@@ -40,7 +52,11 @@ class BaseController extends Controller{
     }
 
     /**
-     * Funkcija koja dobavlja rezultat i trofej za neku stranicu
+     * Racuna skorove i trofeje za niz stranica i vraca niz skorova i trofeja
+     *
+     * @param mixed $Library
+     * 
+     * @return int[]string[]
      */
     private static function getScoreAndTrophyArray($Library){
         $array = [];
@@ -53,16 +69,26 @@ class BaseController extends Controller{
         }
         return $array;
     }
-    
+
+
     /**
-     * Funkcija za preusmeravanje na stranicu profila
+     * profile
+     * 
+     * Prikaz profila na osnovu id-a
+     *
+     * @param mixed $id
+     * 
+     * @return view
      */
     public function profile($id){
         return view('profile', ['profile' => KorisnikModel::find($id)]);
     }
 
     /**
-     * Funkcija za preusmeravanje na pocetnu stranicu
+     * Funkcija koja se poziva prilokom otvaranja pocetne stranice
+     *
+     * @return view
+     * 
      */
     public function indexPage(){
         $filmovi = FilmModel::orderByDesc('BrojLajk')->limit(18)->get();
@@ -70,9 +96,13 @@ class BaseController extends Controller{
         
         return view('index',['filmovi' => $filmovi, 'scores'=>$array['scores'], 'trophies'=>$array['trophies']]);
     }
-
     /**
-     * Funkcija koja vrsi pretragu i preusmerava na stranicu sa rezultatima pretrage
+     * Funkcija za pretragu flilmova glumaca i korisnika
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
      */
     public function search(Request $request){
         $Naziv = $request->query('naziv');
@@ -98,7 +128,13 @@ class BaseController extends Controller{
     }
 
     /**
-     * Funkcija za preusmeravanje na stranicu liste
+     * lista
+     * 
+     * Prikaz liste na osnovu id-a
+     *
+     * @param mixed $id
+     * 
+     * @return view
      */
     public function lista($id)
     {
@@ -106,7 +142,12 @@ class BaseController extends Controller{
     }
 
     /**
-     * Funkcija za preusmeravanje na stranicu glumca
+     * Funkcija koja vraca prikaz filma sa adekvatnim podacima za taj film
+     *
+     * @param int $id
+     * 
+     * @return view
+     * 
      */
     public function actor($id) {
         $glumac = GlumacModel::find($id);
@@ -118,7 +159,12 @@ class BaseController extends Controller{
     }
 
     /**
-     * Funkcija za preusmeravanje na stranicu filma
+     * Funkcija koja vraca prikaz filma sa adekvatnim podacima za taj film
+     *
+     * @param int $id
+     * 
+     * @return view
+     * 
      */
     public function movie($id){
         $film = FilmModel::find($id);
@@ -130,7 +176,12 @@ class BaseController extends Controller{
     }
 
     /**
-     * Funkcija koja vraca indikator na osnovu naziva
+     * Dohvata indikator na osnovu naziva stranice
+     *
+     * @param string $naziv
+     * 
+     * @return int
+     * 
      */
     public static function getIndikator($naziv){
         $indikator = -1;
@@ -143,7 +194,13 @@ class BaseController extends Controller{
     }
 
     /**
-     * Funkcija koja vraca sve komentare na nekoj stranici
+     * Dohvata sve komentara za zadatu stranicu i indikator
+     *
+     * @param string $indikator
+     * @param int $stranica
+     * 
+     * @return KomentarModel
+     * 
      */
     public function getComments($indikator,$stranica){
         return KomentarModel::where('Indikator',BaseController::getIndikator($indikator))->where('Stranica',$stranica)->get();

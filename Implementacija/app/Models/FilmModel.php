@@ -1,6 +1,6 @@
 <?php
 
-//Autori: Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110
+/**Autori: Mateja Milojević 19/0382, Nikola Mitic 17/0110 */
 
 namespace App\Models;
 
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * klasa FilmModel za tabelu film u bazi podataka
+ * Model tabele filma
  */
 class FilmModel extends Model
 {
@@ -32,21 +32,30 @@ class FilmModel extends Model
     ];
 
     /**
-     * Funkcija koja vraca sve glumce filma
+     * Dohvata uloge i glumce za zadati film
+     *
+     * @return glumi
+     * 
      */
     public function glumci(){
         return $this->belongsToMany(GlumacModel::class, 'glumi', 'Film_idFilm', 'Glumac_idGlumac')->withPivot('Ime_uloge');
     }
-
     /**
-     * Funkcija koja proverava da li se film daje u bioskopu
+     * Proverava da li se film daje u bioskopima
+     *
+     * @return bool
+     * 
      */
     public function u_bioskopu(){
         return $this->hasOne(PrikazujeModel::class,'Film_idFilm');
     }
 
     /**
-     * Funkcija koja proverava da li se film nalazi u listi
+     * u_listi
+     * 
+     * Vraca odnos filma i listi u kojima je
+     *
+     * @return ListaModel
      */
     public function u_listi()
     {
@@ -54,7 +63,12 @@ class FilmModel extends Model
     }
 
     /**
-     * Funkcija koja proverava da li je trenutno ulogovani korisnik vec ocenio film
+     * ocenio
+     * 
+     * Vraca za zadatog korisnika vrednost int u odnosu na to da li je ocenio film
+     * 0 - nista, 1 - svidjanje, -1 - ne svidjanje
+     *
+     * @return int
      */
     public function ocenio()
     {   

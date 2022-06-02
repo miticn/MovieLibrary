@@ -35,7 +35,12 @@ class GlumacModel extends Model
     }
 
     /**
-     * Funkcija koja proverava da li je trenutno ulogovani korisnik vec ocenio glumca
+     * ocenio
+     * 
+     * Vraca za zadatog korisnika vrednost int u odnosu na to da li je ocenio film
+     * 0 - nista, 1 - svidjanje, -1 - ne svidjanje
+     *
+     * @return int
      */
     public function ocenio()
     {   

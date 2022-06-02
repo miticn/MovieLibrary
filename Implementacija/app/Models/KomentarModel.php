@@ -29,7 +29,10 @@ class KomentarModel extends Model
     ];
 
     /**
-     * Funkcija koja vraca autora komentara
+     * Dohvata korisnika ciji je komentar
+     *
+     * @return KorisnikModel
+     * 
      */
     public function getKorisnik(){
         return $this->hasOne(KorisnikModel::class,'idKorisnik','Korisnik_idKorisnik');

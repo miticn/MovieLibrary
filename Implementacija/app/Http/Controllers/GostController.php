@@ -1,6 +1,6 @@
 <?php
 
-//Autori: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110
+/**Autori: Mateja Milojević 2019/0382, Momcilo Milic 2019/0377*/
 
 namespace App\Http\Controllers;
 
@@ -9,11 +9,15 @@ use App\Models\KorisnikModel;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * GostController - klasa za funkcije logovanja i registracije korisnika
+ * Kontroler za neregistrovane korisnike
  */
 class GostController extends Controller{
     /**
-     * Funkcija koja preusmerava na stranicu forme za logovanje
+     * login
+     * 
+     * Odlazak na stranu za prijavljivanje
+     *
+     * @return view
      */
     public function login()
     {
@@ -29,7 +33,13 @@ class GostController extends Controller{
     }
 
     /**
-     * Login funkcija koja koristi korisnicko ime ili email, i lozinku
+     * login_submit
+     * 
+     * Primanje i provera podataka pri prijavi
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function login_submit(Request $request)
     {

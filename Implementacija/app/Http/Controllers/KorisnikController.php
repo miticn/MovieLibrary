@@ -1,5 +1,7 @@
 <?php
-//Autori: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110
+
+/**Autori: Mateja Milojević 2019/0382, Nikola Mitic 2017/0110*/
+
 namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
@@ -13,7 +15,7 @@ use App\Models\ListaModel;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * Funkcije koje se pozivaju u rezimu korisnika
+ * Korisnik kontroler za autorizovane korisnike i administratore
  */
 class KorisnikController extends Controller{
     /**
@@ -26,7 +28,11 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * funkcija za preusmeravanje na formu za izmenu korisnickog profila
+     * izmeni
+     * 
+     * Odlazak na stranu za izmenu profila
+     *
+     * @return view
      */
     public function izmeni()
     {
@@ -34,7 +40,13 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * funkcija za prijavu izmena profila
+     * izmeni_submit
+     * 
+     * Potvrda izmena profila
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function izmeni_submit(Request $request)
     {
@@ -46,7 +58,13 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za pravljenje liste filmova
+     * napravi_listu
+     * 
+     * Pravljenje liste sa prosledjenim imenom od strane autorizovanog korisnika
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function napravi_listu(Request $request)
     {
@@ -63,7 +81,14 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija koja obradjuje lajk/dislajk ocenu
+     * oceni
+     * 
+     * Svidjanje/Ne svidjanje filma, glumca, komentara, liste... 
+     * Kriterijumi i podaci obrazlozeni u specifikacijama baze podataka
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function oceni(Request $request)
     {
@@ -101,7 +126,13 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za cuvanje filma u listu
+     * sacuvaj_film
+     * 
+     * Čuvanje filma u izabranu listu
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function sacuvaj_film(Request $request)
     {
@@ -111,7 +142,13 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za brisanje filma iz liste
+     * zaboravi_film
+     * 
+     * Uklanjanje filma iz liste
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function zaboravi_film(Request $request)
     {
@@ -121,7 +158,13 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za cuvanje liste drugog korisnika
+     * sacuvaj_listu
+     * 
+     * Čuvanje liste na profilu
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function sacuvaj_listu(Request $request)
     {
@@ -131,7 +174,13 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za brisanje liste iz cuvanih
+     * zaboravi_listu
+     * 
+     * Uklanjanje liste iz liste sačuvanih listi na profilu
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function zaboravi_listu(Request $request)
     {
@@ -141,7 +190,13 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * funkcija za cuvanje drugog korisnika
+     * sacuvaj_korisnika
+     * 
+     * Čuvanje izabranog profila na sopstvenom
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function sacuvaj_korisnika(Request $request)
     {
@@ -150,7 +205,13 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za brisanje korisnika iz cuvanih
+     * zaboravi_korisnika
+     * 
+     * Uklanjanje sačuvanog profila iz liste sačuvanih na profilu
+     *
+     * @param Request $request
+     * 
+     * @return view
      */
     public function zaboravi_korisnika(Request $request)
     {
@@ -158,8 +219,14 @@ class KorisnikController extends Controller{
         return back();
     }
 
+
     /**
-     * Funkcija za preusmeravanje na stranicu sa formom za pravljenje stranica
+     * Vraca pregled stranice za kreiranje stranica, ako je korisnik admin, a ako nije vraca 404 Not Found
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
      */
     public function createPage(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
@@ -167,7 +234,12 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za preusmeravanje na stranicu sa formom za pravljenje stranica filmova
+     * Vraca pregled stranice za kreiranje stranica filma, ako je korisnik admin, a ako nije vraca 404 Not Found
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
      */
     public function createPageMovie(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
@@ -175,7 +247,12 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za preusmeravanje na stranicu sa formom za pravljenje stranica glumaca
+     * Vraca pregled stranice za kreiranje stranica glumca, ako je korisnik admin, a ako nije vraca 404 Not Found
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
      */
     public function createPageActor(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
@@ -184,7 +261,12 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za pravljenje stranice glumca
+     * Dodaje glumca u bazu podataka, ako su ispostovani uslovi.
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
      */
     public function createActor(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
@@ -204,7 +286,12 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za pravljenje stranice filma
+     * Dodaje film u bazu podataka, ako su ispostovani uslovi.
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
      */
     public function createMovie(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
@@ -231,8 +318,17 @@ class KorisnikController extends Controller{
         return view('createMovie',['uspeh'=>'Film je uspešno kreiran.']);
     }
 
+
+    
+
     /**
-     * Funkcija za pravljenje komentara
+     * Dodaje komentar na zeljenu stranicu
+     *
+     * @param Request $request
+     * @param int $id
+     * 
+     * @return redirect
+     * 
      */
     public function comment(Request $request, $id){
         $request->validate([
@@ -252,7 +348,14 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * Funkcija za brisanje komentara
+     * Brise zeljeni komentar ako je korisnik admin
+     *
+     * @param Request $request
+     * @param int $id
+     * @param int $commId
+     * 
+     * @return void
+     * 
      */
     public function removeComment(Request $request, $id ,$commId){
         abort_if(! $request->user()->isAdmin(), 404);
@@ -262,7 +365,14 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * funkcija za brisanje uloge glumca
+     * Brise ulogu glumca ako ona postiji
+     *
+     * @param Request $request
+     * @param int $idFilm
+     * @param int $idActor
+     * 
+     * @return redirect
+     * 
      */
     public function removeRole(Request $request,$idFilm,$idActor){
         abort_if(! $request->user()->isAdmin(), 404);
@@ -273,7 +383,14 @@ class KorisnikController extends Controller{
     }
 
     /**
-     * funckija za dodavanj uloge glumca
+     * Dodaje ulogu glumca za zadati film, ako on vec ne glumi u tom filmu
+     *
+     * @param Request $request
+     * @param mixed $idFilm
+     * @param mixed $idActor
+     * 
+     * @return redirect
+     * 
      */
     public function addRole(Request $request,$idFilm,$idActor){
         abort_if(! $request->user()->isAdmin(), 404);

@@ -1,5 +1,5 @@
 <?php
-//Autori: Nikola Mitic 2017/0110
+/*@author     Nikola Mitic 17/0110*/
 namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
@@ -7,10 +7,16 @@ use App\Models\PrikazujeModel;
 use Weidner\Goutte\GoutteFacade;
 use Illuminate\Http\Request;
 
+/**
+ * Ovaj kontroler sluzi za povezivanje sa cineplexx.rs
+ */
 class CineplexxController extends Controller
 {
     /**
-     * funkcija koja azurira repertoar 
+     * Funkcija dovlaci filmove sa cineplexx.rs sajta sve filmove koji su trenutno u ponudi, 
+     * pa onda ih uporedjuje sa filmovima u lokalnoj bazi i cuva u PrikazujeModel.
+     * @return void
+     * 
      */
     public static function updateRepertoar(){
             $crawler = GoutteFacade::request('GET', 'https://www.cineplexx.rs/service/program.php');
@@ -31,7 +37,12 @@ class CineplexxController extends Controller
     }
 
     /**
-     * funkcija koja proverava da li se film nalazi u repertoaru
+     * Proverava da li se film sa $id prikazuje u cineplexxu.
+     *
+     * @param int $id
+     * 
+     * @return bool
+     * 
      */
     public static function inRepertoar($id){
         return PrikazujeModel::find($id)!=null;

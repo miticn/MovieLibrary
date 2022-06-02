@@ -1,6 +1,6 @@
 <?php
 
-//Autori: Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110
+/**Autori: Mateja Milojević */
 
 namespace App\Models;
 
@@ -10,7 +10,7 @@ use App\Models\KorisnikModel;
 use Illuminate\Support\Facades\DB;
 
 /**
- * klasa ListaModle za tabelu lista u bazi podataka
+ * Model tabele listi filmova
  */
 class ListaModel extends Model
 {
@@ -29,7 +29,11 @@ class ListaModel extends Model
     ];
 
     /**
-     * Funkcija koja proverava da li je listu cuva neki korisnik
+     * cuvana_je
+     * 
+     * Vraca odnos listi i profila koji je cuvaju
+     *
+     * @return KorisnikModel
      */
     public function cuvana_je()
     {
@@ -37,7 +41,11 @@ class ListaModel extends Model
     }
 
     /**
-     * Funkcija koja vraca korisnika koji je napravio listu
+     * autor
+     * 
+     * Vraca ime autora liste
+     *
+     * @return KorisnikModel
      */
     public function autor()
     {
@@ -45,7 +53,11 @@ class ListaModel extends Model
     }
 
     /**
-     * Funkcija koja vraca filmove koji se cuvaju u listi
+     * cuva_film
+     * 
+     * Vraca odnos liste i filmova koje cuva
+     *
+     * @return FilmModel
      */
     public function cuva_film()
     {
@@ -53,7 +65,12 @@ class ListaModel extends Model
     }
 
     /**
-     * Funkcija koja proverava da li je trenutno ulogovani korisnik vec ocenio listu
+     * ocenio
+     * 
+     * Vraca za zadatog korisnika vrednost int u odnosu na to da li je ocenio listu
+     * 0 - nista, 1 - svidjanje, -1 - ne svidjanje
+     *
+     * @return int
      */
     public function ocenio()
     {   
@@ -69,7 +86,13 @@ class ListaModel extends Model
     }
 
     /**
-     * Funkcija koja vraca listu koju je napravio zadati korisnik
+     * napravio
+     * 
+     * Vraca liste napravljene od strane prosledjenog korisnika
+     *
+     * @param mixed $user
+     * 
+     * @return ListaModel
      */
     public function napravio($user)
     {
