@@ -1,6 +1,6 @@
 <?php
 
-/**Autori: Mateja Milojević */
+/**Autori: Mateja Milojević 2019/0382, Nikola Mitić 2017/0110*/
 
 namespace App\Http\Controllers;
 

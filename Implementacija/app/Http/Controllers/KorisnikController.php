@@ -1,6 +1,6 @@
 <?php
 
-/**Autori: Mateja Milojević */
+/**Autori: Mateja Milojević 2019/0382, Nikola Mitic 2017/0110*/
 
 namespace App\Http\Controllers;
 
@@ -216,7 +216,6 @@ class KorisnikController extends Controller{
         return back();
     }
 
-<<<<<<< HEAD
 
     /**
      * Vraca pregled stranice za kreiranje stranica, ako je korisnik admin, a ako nije vraca 404 Not Found
@@ -226,8 +225,6 @@ class KorisnikController extends Controller{
      * @return view
      * 
      */
-=======
->>>>>>> 8f5d60b7764400f061bc81f531cf76303948edd2
     public function createPage(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
         return view('create');
@@ -318,7 +315,6 @@ class KorisnikController extends Controller{
         return view('createMovie',['uspeh'=>'Film je uspešno kreiran.']);
     }
 
-<<<<<<< HEAD
 
     
 
@@ -331,8 +327,6 @@ class KorisnikController extends Controller{
      * @return redirect
      * 
      */
-=======
->>>>>>> 8f5d60b7764400f061bc81f531cf76303948edd2
     public function comment(Request $request, $id){
         $request->validate([
             'tekst' => 'required'
