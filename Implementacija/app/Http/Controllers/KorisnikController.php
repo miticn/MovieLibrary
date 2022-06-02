@@ -357,6 +357,7 @@ class KorisnikController extends Controller{
     public function removeComment(Request $request, $id ,$commId){
         abort_if(! $request->user()->isAdmin(), 404);
         $komentar = KomentarModel::find($commId);
+        Lajk_DislajkModel::where('Lokacija',$commId)->where('Indikator','2')->delete();
         $komentar->delete();
         return back();
     }
