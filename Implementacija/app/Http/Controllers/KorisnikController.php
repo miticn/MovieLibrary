@@ -123,22 +123,54 @@ class KorisnikController extends Controller{
     }
 
 
+    /**
+     * Vraca pregled stranice za kreiranje stranica, ako je korisnik admin, a ako nije vraca 404 Not Found
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
+     */
     public function createPage(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
         return view('create');
     }
 
+    /**
+     * Vraca pregled stranice za kreiranje stranica filma, ako je korisnik admin, a ako nije vraca 404 Not Found
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
+     */
     public function createPageMovie(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
         return view('createMovie');
     }
 
+    /**
+     * Vraca pregled stranice za kreiranje stranica glumca, ako je korisnik admin, a ako nije vraca 404 Not Found
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
+     */
     public function createPageActor(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
         return view('createActor');
 
     }
 
+    /**
+     * Dodaje glumca u bazu podataka, ako su ispostovani uslovi.
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
+     */
     public function createActor(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
         $request->validate([
@@ -156,6 +188,14 @@ class KorisnikController extends Controller{
         return view('createActor',['uspeh'=>'Glumac je uspešno kreiran.']);
     }
 
+    /**
+     * Dodaje film u bazu podataka, ako su ispostovani uslovi.
+     *
+     * @param Request $request
+     * 
+     * @return view
+     * 
+     */
     public function createMovie(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
         $request->validate([
@@ -184,6 +224,15 @@ class KorisnikController extends Controller{
 
     
 
+    /**
+     * Dodaje komentar na zeljenu stranicu
+     *
+     * @param Request $request
+     * @param int $id
+     * 
+     * @return redirect
+     * 
+     */
     public function comment(Request $request, $id){
         $request->validate([
             'tekst' => 'required'
@@ -201,6 +250,16 @@ class KorisnikController extends Controller{
             return redirect('/actor/'.$id);
     }
 
+    /**
+     * Brise zeljeni komentar ako je korisnik admin
+     *
+     * @param Request $request
+     * @param int $id
+     * @param int $commId
+     * 
+     * @return void
+     * 
+     */
     public function removeComment(Request $request, $id ,$commId){
         abort_if(! $request->user()->isAdmin(), 404);
         $komentar = KomentarModel::find($commId);
@@ -208,6 +267,16 @@ class KorisnikController extends Controller{
         return back();
     }
 
+    /**
+     * Brise ulogu glumca ako ona postiji
+     *
+     * @param Request $request
+     * @param int $idFilm
+     * @param int $idActor
+     * 
+     * @return redirect
+     * 
+     */
     public function removeRole(Request $request,$idFilm,$idActor){
         abort_if(! $request->user()->isAdmin(), 404);
         $flim = FilmModel::find($idFilm);
@@ -216,6 +285,16 @@ class KorisnikController extends Controller{
         $flim->glumci()->detach($idActor);
     }
 
+    /**
+     * Dodaje ulogu glumca za zadati film, ako on vec ne glumi u tom filmu
+     *
+     * @param Request $request
+     * @param mixed $idFilm
+     * @param mixed $idActor
+     * 
+     * @return redirect
+     * 
+     */
     public function addRole(Request $request,$idFilm,$idActor){
         abort_if(! $request->user()->isAdmin(), 404);
         $request->validate([
