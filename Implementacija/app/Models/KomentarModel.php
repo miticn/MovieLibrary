@@ -23,6 +23,12 @@ class KomentarModel extends Model
         'BrojDislajk'
     ];
 
+    /**
+     * Dohvata korisnika ciji je komentar
+     *
+     * @return KorisnikModel
+     * 
+     */
     public function getKorisnik(){
         return $this->hasOne(KorisnikModel::class,'idKorisnik','Korisnik_idKorisnik');
     }

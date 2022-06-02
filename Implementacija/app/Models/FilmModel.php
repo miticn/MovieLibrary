@@ -1,6 +1,6 @@
 <?php
 
-/**Autori: Mateja Milojević */
+/**Autori: Mateja Milojević, Nikola Mitic 17/0110 */
 
 namespace App\Models;
 
@@ -31,9 +31,21 @@ class FilmModel extends Model
         'BrojDislajk'
     ];
 
+    /**
+     * Dohvata uloge i glumce za zadati film
+     *
+     * @return glumi
+     * 
+     */
     public function glumci(){
         return $this->belongsToMany(GlumacModel::class, 'glumi', 'Film_idFilm', 'Glumac_idGlumac')->withPivot('Ime_uloge');
     }
+    /**
+     * Proverava da li se film daje u bioskopima
+     *
+     * @return bool
+     * 
+     */
     public function u_bioskopu(){
         return $this->hasOne(PrikazujeModel::class,'Film_idFilm');
     }
@@ -56,7 +68,7 @@ class FilmModel extends Model
      * Vraca za zadatog korisnika vrednost int u odnosu na to da li je ocenio film
      * 0 - nista, 1 - svidjanje, -1 - ne svidjanje
      *
-     * @return view
+     * @return int
      */
     public function ocenio()
     {   

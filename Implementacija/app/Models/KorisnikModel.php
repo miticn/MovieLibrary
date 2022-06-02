@@ -79,6 +79,12 @@ class KorisnikModel extends Authenticatable
         return $this->hasMany(ListaModel::class, 'Korisnik_idKorisnik', 'idKorisnik');
     }
 
+    /**
+     * Proverava da li je korsnik admin
+     *
+     * @return bool
+     * 
+     */
     public function isAdmin(){
         return $this->Vrsta;
     }
