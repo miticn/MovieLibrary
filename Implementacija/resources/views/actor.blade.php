@@ -141,6 +141,13 @@
                         </form>
                     </div>
                     @endauth
+                    @guest
+                    <div class="dugmici">
+                        <input style="filter: grayscale(100%);background-color: #808080;" type="submit" value="&#128525;">
+                        <form class="like-number">{{$komentar->BrojLajk-$komentar->BrojDislajk}}</form>
+                        <input style="filter: grayscale(100%);background-color: #808080;" type="submit" value="&#x1F92E;">
+                    </div>
+                    @endguest
                 </td>
 
             </tr>
