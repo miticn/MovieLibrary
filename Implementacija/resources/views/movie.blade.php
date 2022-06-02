@@ -45,11 +45,16 @@
                 <p>
                     {{$film->Opis}}
                 </p>
+                <h3>Detalji o filmu:</h3>
+                Režiseri: {{$film->Reziseri}}<br>
+                Pisci: {{$film->Pisci}}<br>
+                Trajanje filma: {{$film->Trajanje}}<br>
+                Datum objavljivanja: {{$film->Datum_Objave}}</p>
                 <h3>Uloge</h3>
                 <hr>
                 <ul>
                     @foreach ($film->glumci as $glumac)
-                        <li id ="{{$glumac->idGlumac}}" class="cast-filmography">{{$glumac->pivot->Ime_uloge}} - <a href="/actor/{{$glumac->idGlumac}}">{{$glumac->Ime}} </a>
+                        <li id ="g{{$glumac->idGlumac}}" class="cast-filmography">{{$glumac->pivot->Ime_uloge}} - <a href="/actor/{{$glumac->idGlumac}}">{{$glumac->Ime}} </a>
                         @auth
                         @if (auth()->user()->isAdmin())
                             <iframe name="nothing-role" style="display:none;"></iframe>
@@ -129,9 +134,9 @@
         @endif
         @foreach ($komentari as $komentar)
             <tr>
-                <td class="comment" id="{{$komentar->idKomentar}}">
+                <td class="comment" id="k{{$komentar->idKomentar}}">
                     <a href="/profile/{{$komentar->Korisnik_idKorisnik}}">
-                    <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.png" class="comment-profile-pic">
+                    <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.jpg" class="comment-profile-pic">
                     </a>
                     <h4 class="comment-username">
                         <a href="/profile/{{$komentar->Korisnik_idKorisnik}}" class="comment-username">{{$komentar->getKorisnik->Ime}}</a>
