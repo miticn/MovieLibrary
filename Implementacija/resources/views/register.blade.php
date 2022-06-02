@@ -1,4 +1,4 @@
-<!-- Autor: Momcilo Milic, Mateja Milojevic-->
+<!-- Autor: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382-->
 @extends('template')
 @section('registerStyles')
 <link rel="stylesheet" href="{{URL::asset('css/tempStyle-old.css')}}">

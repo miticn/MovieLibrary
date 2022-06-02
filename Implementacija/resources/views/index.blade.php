@@ -1,3 +1,4 @@
+<!-- Autori: Nikola Mitic 2017/0110 -->
 @extends('template')
 @section('content')
 		<div class="row">

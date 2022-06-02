@@ -1,5 +1,7 @@
 <?php
 
+// Nikola Mitic 2017/0110
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;

@@ -1,22 +1,36 @@
 <?php
 
+//Autori: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KorisnikModel;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * GostController - klasa za funkcije logovanja i registracije korisnika
+ */
 class GostController extends Controller{
+    /**
+     * Funkcija koja preusmerava na stranicu forme za logovanje
+     */
     public function login()
     {
         return view('login');
     }
 
+    /**
+     * Funkcija koja preusmerava na stranicu forme za registraciju
+     */
     public function register()
     {
         return view('register');
     }
 
+    /**
+     * Login funkcija koja koristi korisnicko ime ili email, i lozinku
+     */
     public function login_submit(Request $request)
     {
         $this->validate($request,[
@@ -50,6 +64,9 @@ class GostController extends Controller{
         return redirect()->route('index');
     }
 
+    /**
+     * Funkcija za registraciju, tj. pravljenje novog korisnika
+     */
     public function register_submit(Request $request)
     {
         //dd($request);

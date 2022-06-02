@@ -1,5 +1,5 @@
 <?php
-
+//Autori: Nikola Mitic 2017/0110
 namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class CineplexxController extends Controller
 {
+    /**
+     * funkcija koja azurira repertoar 
+     */
     public static function updateRepertoar(){
             $crawler = GoutteFacade::request('GET', 'https://www.cineplexx.rs/service/program.php');
             PrikazujeModel::truncate();
@@ -27,6 +30,9 @@ class CineplexxController extends Controller
             });
     }
 
+    /**
+     * funkcija koja proverava da li se film nalazi u repertoaru
+     */
     public static function inRepertoar($id){
         return PrikazujeModel::find($id)!=null;
     }

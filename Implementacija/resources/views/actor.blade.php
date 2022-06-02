@@ -1,4 +1,4 @@
-<!-- Autor: Momcilo Milic -->
+<!-- Autori: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110-->
 @extends('template')
 @section('css')
     <link rel='stylesheet' href='{{ URL::asset('css/style-old.css') }}'>

@@ -1,5 +1,7 @@
 <?php
 
+//Autori: Mateja Milojevic 2019/0382, Nikola Mitic 2017/0110
+
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;

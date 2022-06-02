@@ -1,3 +1,4 @@
+<!-- Autori: Momcilo Milic 2019/0377, Mateja Milojevic 2019/0382 -->
 @extends('template')
 @section('content')
 <form name='login_form' action="{{route('login_submit')}}" method='POST'>
