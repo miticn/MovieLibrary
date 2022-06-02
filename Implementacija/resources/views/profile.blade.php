@@ -51,7 +51,7 @@
                     <input type="submit" value="&#10133;">
                 </td>
                 <td id="input_lista">
-                    <input type="text" name="Ime">
+                    <input type="text" placeholder="Nova lista" name="Ime">
                 </td>
             </form>
         </tr>
