@@ -82,7 +82,7 @@ class BaseController extends Controller{
 
     public function actor($id) {
         $glumac = GlumacModel::find($id);
-        $score = BaseController::getScore($glumac->brojLajk, $glumac->BrojDislajk);
+        $score = BaseController::getScore($glumac->BrojLajk, $glumac->BrojDislajk);
         $trophy = BaseController::getTrophy($score);
         $komentari = BaseController::getComments('actor', $id);
         $sviFilmovi = FilmModel::all()->sortBy('Naziv');
