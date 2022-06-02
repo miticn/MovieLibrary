@@ -56,7 +56,7 @@ class KorisnikController extends Controller{
             case 0: $podatak = FilmModel::find($request->lokacija); break;
             case 1: $podatak = GlumacModel::find($request->lokacija); break;
             case 2: $podatak = KomentarModel::find($request->lokacija); break; 
-            case 0: $podatak = ListaModel::find($request->lokacija); break;
+            case 3: $podatak = ListaModel::find($request->lokacija); break;
         }
         if($ocena == null){
             Lajk_DislajkModel::create([

@@ -172,3 +172,10 @@ div.comment-box{
 	background-color: red;
 	padding: 8px 10px 8px 10px;
 }
+
+.like-number{
+	color: black;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: larger;
+}

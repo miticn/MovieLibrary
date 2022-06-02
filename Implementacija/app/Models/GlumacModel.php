@@ -25,4 +25,17 @@ class GlumacModel extends Model
     public function filmovi(){
         return $this->belongsToMany(FilmModel::class, 'glumi', 'Glumac_idGlumac', 'Film_idFilm')->withPivot('Ime_uloge');
     }
+
+    public function ocenio()
+    {   
+        $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => '1', 'Lokacija' => $this->idGlumac];
+        $ocena = Lajk_DislajkModel::where($podaci)->first();
+        if($ocena == null){
+            return 0;
+        }elseif($ocena->Vrsta == 1){
+            return 1;
+        }else{
+            return -1;
+        }
+    }
 }

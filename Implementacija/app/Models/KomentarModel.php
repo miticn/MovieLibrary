@@ -29,7 +29,7 @@ class KomentarModel extends Model
 
     public function ocenio()
     {   
-        $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => '2', 'Lokacija' => $this->idLista];
+        $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => '2', 'Lokacija' => $this->idKomentar];
         $ocena = Lajk_DislajkModel::where($podaci)->first();
         if($ocena == null){
             return 0;

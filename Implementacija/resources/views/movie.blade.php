@@ -113,7 +113,6 @@
         <h3>Komentari</h3>
         @auth
             
-        
         <tr>
             <td class="comment">
                 Ostavite komentar:
@@ -136,10 +135,11 @@
             <tr>
                 <td class="comment" id="k{{$komentar->idKomentar}}">
                     <a href="/profile/{{$komentar->Korisnik_idKorisnik}}">
-                    <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.jpg" class="comment-profile-pic">
+                    <img src="/IMG/img_profile/profile{{$komentar->Korisnik_idKorisnik}}.jpg" class="comment-profile-pic"
+                    onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_profile/profile_def.jpg')}}'">
                     </a>
                     <h4 class="comment-username">
-                        <a href="/profile/{{$komentar->Korisnik_idKorisnik}}" class="comment-username">{{$komentar->getKorisnik->Ime}}</a>
+                        <a href="/profile/{{$komentar->Korisnik_idKorisnik}}" class="comment-username">{{$komentar->getKorisnik->KorisnickoIme}}</a>
                         @auth
                             @if (auth()->user()->isAdmin())
                                 <iframe name="nothing" style="display:none;"></iframe>
@@ -156,19 +156,19 @@
                     </p>
                     @auth
                     <div class="dugmici">
-                    <form name="oceni" action="{{route('oceni', ['indikator' => '2', 'lokacija' => $komentar->idKomentar, 'vrsta' => '1'])}}" method="POST">
-                        @csrf
-                        @if($komentar->ocenio() == 1) <input style="background-color: #950750;" type="submit" value="&#128525;">
-                        @else <input type="submit" value="&#128525;">
-                        @endif
-                    </form>
-                    <form name="oceni" action="{{route('oceni', ['indikator' => '2', 'lokacija' => $komentar->idKomentar, 'vrsta' => '0'])}}" method="POST">
-                        @csrf
-                        @if($komentar->ocenio() == -1) <input style="background-color: #950750;" type="submit" value="&#x1F92E;">
-                        @else <input type="submit" value="&#x1F92E;">
-                        @endif
-                    </form>
-                    <form class="lajkovi">{{$komentar->BrojLajk-$komentar->BrojDislajk}}</form>
+                        <form name="oceni" action="{{route('oceni', ['indikator' => '2', 'lokacija' => $komentar->idKomentar, 'vrsta' => '1'])}}" method="POST">
+                            @csrf
+                            @if($komentar->ocenio() == 1) <input style="background-color: #950750;" type="submit" value="&#128525;">
+                            @else <input type="submit" value="&#128525;">
+                            @endif
+                        </form>
+                        <form class="like-number">{{$komentar->BrojLajk-$komentar->BrojDislajk}}</form>
+                        <form name="oceni" action="{{route('oceni', ['indikator' => '2', 'lokacija' => $komentar->idKomentar, 'vrsta' => '0'])}}" method="POST">
+                            @csrf
+                            @if($komentar->ocenio() == -1) <input style="background-color: #950750;" type="submit" value="&#x1F92E;">
+                            @else <input type="submit" value="&#x1F92E;">
+                            @endif
+                        </form>
                     </div>
                     @endauth
                 </td>
