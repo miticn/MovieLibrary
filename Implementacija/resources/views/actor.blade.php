@@ -32,6 +32,12 @@
                     </form>
                 </div>
                 @endauth
+                @guest
+                <div class="dugmici">
+                    <input style="filter: grayscale(100%);background-color: #808080;" type="submit" value="&#128525;">
+                    <input style="filter: grayscale(100%);background-color: #808080;" type="submit" value="&#x1F92E;">
+                </div>
+                @endguest
                 <hr>
                 <h3>Opis</h3>
                 <hr>
