@@ -1,12 +1,24 @@
 <?php
 
+/**Autori: Mateja Milojević */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KorisnikModel;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * Kontroler za neregistrovane korisnike
+ */
 class GostController extends Controller{
+    /**
+     * login
+     * 
+     * Odlazak na stranu za prijavljivanje
+     *
+     * @return view
+     */
     public function login()
     {
         return view('login');
@@ -17,6 +29,15 @@ class GostController extends Controller{
         return view('register');
     }
 
+    /**
+     * login_submit
+     * 
+     * Primanje i provera podataka pri prijavi
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function login_submit(Request $request)
     {
         $this->validate($request,[

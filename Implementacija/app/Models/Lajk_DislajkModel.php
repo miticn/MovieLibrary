@@ -1,10 +1,15 @@
 <?php
 
+/**Autori: Mateja Milojević */
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Model tabele Svidjanja i Ne Svidjanja
+ */
 class Lajk_DislajkModel extends Model
 {
     use HasFactory;

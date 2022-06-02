@@ -1,10 +1,15 @@
 <?php
 
+/**Autori: Mateja Milojević */
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Model tabele filma
+ */
 class FilmModel extends Model
 {
     use HasFactory;
@@ -33,11 +38,26 @@ class FilmModel extends Model
         return $this->hasOne(PrikazujeModel::class,'Film_idFilm');
     }
 
+    /**
+     * u_listi
+     * 
+     * Vraca odnos filma i listi u kojima je
+     *
+     * @return ListaModel
+     */
     public function u_listi()
     {
         return $this->belongsToMany(ListaModel::class, 'u_listi', 'Film_idFilm', 'Lista_idLista');
     }
 
+    /**
+     * ocenio
+     * 
+     * Vraca za zadatog korisnika vrednost int u odnosu na to da li je ocenio film
+     * 0 - nista, 1 - svidjanje, -1 - ne svidjanje
+     *
+     * @return view
+     */
     public function ocenio()
     {   
         $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => '0', 'Lokacija' => $this->idFilm];

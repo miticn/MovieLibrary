@@ -1,5 +1,7 @@
 <?php
 
+/**Autori: Mateja Milojević */
+
 namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
@@ -12,6 +14,9 @@ use App\Models\Lajk_DislajkModel;
 use App\Models\ListaModel;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Korisnik kontroler za autorizovane korisnike i administratore
+ */
 class KorisnikController extends Controller{
     public function logout()
     {
@@ -19,11 +24,27 @@ class KorisnikController extends Controller{
         return redirect()->route('index');
     }
 
+    /**
+     * izmeni
+     * 
+     * Odlazak na stranu za izmenu profila
+     *
+     * @return view
+     */
     public function izmeni()
     {
         return view('izmeni');
     }
 
+    /**
+     * izmeni_submit
+     * 
+     * Potvrda izmena profila
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function izmeni_submit(Request $request)
     {
         if($request->has('slika')){
@@ -33,6 +54,15 @@ class KorisnikController extends Controller{
         return redirect()->route('profile', ['id' => auth()->id(), 'profile' => KorisnikModel::find(auth()->id())]);
     }
 
+    /**
+     * napravi_listu
+     * 
+     * Pravljenje liste sa prosledjenim imenom od strane autorizovanog korisnika
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function napravi_listu(Request $request)
     {
         $this->validate($request,[
@@ -47,6 +77,16 @@ class KorisnikController extends Controller{
         return back();
     }
 
+    /**
+     * oceni
+     * 
+     * Svidjanje/Ne svidjanje filma, glumca, komentara, liste... 
+     * Kriterijumi i podaci obrazlozeni u specifikacijama baze podataka
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function oceni(Request $request)
     {
         $podaci = ['Korisnik_idKorisnik' => auth()->id(), 'Indikator' => $request->indikator, 'Lokacija' => $request->lokacija];
@@ -82,6 +122,15 @@ class KorisnikController extends Controller{
         return back();
     }
 
+    /**
+     * sacuvaj_film
+     * 
+     * Čuvanje filma u izabranu listu
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function sacuvaj_film(Request $request)
     {
         $lista = ListaModel::find($request->get('izabrana'));
@@ -89,6 +138,15 @@ class KorisnikController extends Controller{
         return back();
     }
 
+    /**
+     * zaboravi_film
+     * 
+     * Uklanjanje filma iz liste
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function zaboravi_film(Request $request)
     {
         $lista = ListaModel::find($request->lista);
@@ -96,6 +154,15 @@ class KorisnikController extends Controller{
         return back();
     }
 
+    /**
+     * sacuvaj_listu
+     * 
+     * Čuvanje liste na profilu
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function sacuvaj_listu(Request $request)
     {
         $lista = ListaModel::find($request->id);
@@ -103,6 +170,15 @@ class KorisnikController extends Controller{
         return back();
     }
 
+    /**
+     * zaboravi_listu
+     * 
+     * Uklanjanje liste iz liste sačuvanih listi na profilu
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function zaboravi_listu(Request $request)
     {
         $lista = ListaModel::find($request->id);
@@ -110,18 +186,35 @@ class KorisnikController extends Controller{
         return back();
     }
 
+    /**
+     * sacuvaj_korisnika
+     * 
+     * Čuvanje izabranog profila na sopstvenom
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function sacuvaj_korisnika(Request $request)
     {
         KorisnikModel::find(auth::id())->sacuvani()->attach($request->id);
         return back();
     }
 
+    /**
+     * zaboravi_korisnika
+     * 
+     * Uklanjanje sačuvanog profila iz liste sačuvanih na profilu
+     *
+     * @param Request $request
+     * 
+     * @return view
+     */
     public function zaboravi_korisnika(Request $request)
     {
         KorisnikModel::find(auth::id())->sacuvani()->detach($request->id);
         return back();
     }
-
 
     public function createPage(Request $request){
         abort_if(! $request->user()->isAdmin(), 404);
@@ -180,9 +273,6 @@ class KorisnikController extends Controller{
         $request->file('poster')->storeAs('public/img_film','film'.($film->idFilm).'.jpg');
         return view('createMovie',['uspeh'=>'Film je uspešno kreiran.']);
     }
-
-
-    
 
     public function comment(Request $request, $id){
         $request->validate([
