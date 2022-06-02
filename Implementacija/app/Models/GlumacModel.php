@@ -14,11 +14,23 @@ class GlumacModel extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = 'glumac';
+    /**
+     * @var string
+     */
     protected $primaryKey = 'idGlumac';
     
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
+     /**
+     * @var string[]
+     */
     protected $fillable = [
         'Ime',
         'Opis',

@@ -1,6 +1,6 @@
 <?php
 
-//Autori: Nikola Mitic 2017/0110
+//Autori: Mateja Milojević 2019/0382
 
 namespace App\Models;
 
@@ -14,9 +14,18 @@ class KorisnikModel extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = 'korisnik';
+    /**
+     * @var string
+     */
     protected $primaryKey = 'idKorisnik';
     
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'KorisnickoIme',
         'Ime',

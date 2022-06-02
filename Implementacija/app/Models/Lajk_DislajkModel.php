@@ -14,10 +14,21 @@ class Lajk_DislajkModel extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = 'lajk_dislajk';
+    /**
+     * @var string
+     */
     protected $primaryKey = 'idLajk_Dislajk';
+    /**
+     * @var bool
+     */
     public $timestamps = false;
-    
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'idLajk_Dislajk',
         'Korisnik_idKorisnik',

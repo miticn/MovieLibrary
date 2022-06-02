@@ -14,11 +14,23 @@ class FilmModel extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = 'film';
+    /**
+     * @var string
+     */
     protected $primaryKey = 'idFilm';
     
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'Naziv',
         'Opis',

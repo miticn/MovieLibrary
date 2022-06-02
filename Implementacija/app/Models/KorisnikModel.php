@@ -1,6 +1,6 @@
 <?php
 
-/**Autori: Mateja Milojević 2019/0382*/
+/**Autori: Mateja Milojević 2019/0382, Nikola Mitic 2017/0110 */
 
 namespace App\Models;
 
@@ -18,10 +18,21 @@ class KorisnikModel extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    /**
+     * @var string
+     */
     protected $table = 'korisnik';
+    /**
+     * @var string
+     */
     protected $primaryKey = 'idKorisnik';
+    /**
+     * @var bool
+     */
     public $timestamps = false;
-    
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'KorisnickoIme',
         'Ime',

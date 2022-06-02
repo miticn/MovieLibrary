@@ -14,11 +14,24 @@ class KomentarModel extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = 'komentar';
+    
+    /**
+     * @var string
+     */
     protected $primaryKey = 'idKomentar';
     
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
+     /**
+     * @var string[]
+     */
     protected $fillable = [
         'Tekst',
         'Korisnik_idKorisnik',

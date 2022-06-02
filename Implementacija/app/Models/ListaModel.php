@@ -16,11 +16,23 @@ class ListaModel extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = 'lista';
+    /**
+     * @var string
+     */
     protected $primaryKey = 'idLista';
 
+    /**
+     * @var bool
+     */
     public $timestamps = false;
     
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'Ime',
         'Korisnik_idKorisnik',
