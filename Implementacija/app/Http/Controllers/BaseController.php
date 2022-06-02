@@ -1,5 +1,7 @@
 <?php
 
+/**Autori: Mateja Milojević */
+
 namespace App\Http\Controllers;
 
 use App\Models\FilmModel;
@@ -11,6 +13,9 @@ use App\Models\ListaModel;
 use Illuminate\Http\Request;
 
 
+/**
+ * Bazični kontroler koji služi i korisnicima i gostima
+ */
 class BaseController extends Controller{
     /**
      * Vraca html klase za odgovarajuci trofej na osnovu skora
@@ -65,6 +70,15 @@ class BaseController extends Controller{
     }
 
 
+    /**
+     * profile
+     * 
+     * Prikaz profila na osnovu id-a
+     *
+     * @param mixed $id
+     * 
+     * @return view
+     */
     public function profile($id){
         return view('profile', ['profile' => KorisnikModel::find($id)]);
     }
@@ -112,6 +126,15 @@ class BaseController extends Controller{
         return view('search',['filmovi' => $filmovi, "glumci" => $glumci, "stFilmovi"=> $stFilmovi, "stGlumci"=> $stGlumci ,"korisnici" => $korisnici ,"naziv" => $Naziv]);
     }
 
+    /**
+     * lista
+     * 
+     * Prikaz liste na osnovu id-a
+     *
+     * @param mixed $id
+     * 
+     * @return view
+     */
     public function lista($id)
     {
        return view('lista', ['lista' => ListaModel::find($id)]);
