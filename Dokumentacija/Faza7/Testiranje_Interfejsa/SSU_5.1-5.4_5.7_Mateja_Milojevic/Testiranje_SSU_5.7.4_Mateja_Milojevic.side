@@ -1,0 +1,106 @@
+{
+  "id": "7f3165d5-77de-45bf-9870-1c0f8efd310d",
+  "version": "2.0",
+  "name": "Testiranje_SSU_5.7.4_Mateja_Milojevic",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "57d6bd88-7dbf-4387-aefd-0aa05b6ba4d7",
+    "name": "1_Svidjanje_Library_Stranice",
+    "commands": [{
+      "id": "94a14d2c-90d0-45f8-bc1a-d5ed96215fe6",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ea3d703d-759c-4831-8b38-78bde795e993",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e7c880f2-9e0a-4aa4-b240-cd3781b85e80",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-sm-2:nth-child(2) .movie-banner",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-sm-2:nth-child(2) .movie-banner", "css:finder"],
+        ["xpath=//div[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b16d6e8-0aad-4bc9-9756-71d7d3fbb66b",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(1) > input:nth-child(2)",
+      "targets": [
+        ["css=form:nth-child(1) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='😍']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2c59ad33-db35-4fd3-9165-ab65ece56ef7",
+    "name": "2_Ne_Svidjanje_Library_Stranice",
+    "commands": [{
+      "id": "af1f2179-8e9a-41b6-8656-6aa6a8f6b58e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23fb85e0-0c11-4b65-970e-b776f1d24c68",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1056x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74b7f97e-b6d9-4b68-96f0-bff9f85d7b7e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-sm-2:nth-child(4) .movie-banner",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-sm-2:nth-child(4) .movie-banner", "css:finder"],
+        ["xpath=//div[4]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00245743-b793-4889-93f0-a996f5d52f29",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(2) > input:nth-child(2)",
+      "targets": [
+        ["css=form:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='🤮']", "xpath:attributes"],
+        ["xpath=//form[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a4e8dd4-e5d3-473d-a98b-3ac48d7568fb",
+      "comment": "",
+      "command": "verifyValue",
+      "target": "css=form:nth-child(2) > input:nth-child(2)",
+      "targets": [
+        ["css=form:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='🤮']", "xpath:attributes"],
+        ["xpath=//form[2]/input[2]", "xpath:position"]
+      ],
+      "value": "🤮"
+    }]
+  }],
+  "suites": [{
+    "id": "7b0f18cd-8d83-43f4-8a73-92b92e034766",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}

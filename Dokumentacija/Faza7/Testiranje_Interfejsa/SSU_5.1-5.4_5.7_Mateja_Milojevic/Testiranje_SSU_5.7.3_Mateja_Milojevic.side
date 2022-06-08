@@ -1,0 +1,95 @@
+{
+  "id": "10986658-4f0e-46fb-bf14-b3f36fb38270",
+  "version": "2.0",
+  "name": "Testiranje_SSU_5.7.3_Mateja_Milojevic",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "d7d716c6-f81b-4c3c-92b9-f64572e1553a",
+    "name": "1_Postavljanje_Komentara",
+    "commands": [{
+      "id": "58a65cc8-a849-4d81-88b9-e7c462259596",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9a612ac2-85d8-47eb-8fa0-b2e9874184b1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1053x807",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80157b58-9151-42c0-9531-981ddedc6bb9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner", "css:finder"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79013315-c016-4d68-bfba-1caad72e021b",
+      "comment": "",
+      "command": "click",
+      "target": "name=tekst",
+      "targets": [
+        ["name=tekst", "name"],
+        ["css=.comment-box:nth-child(1)", "css:finder"],
+        ["xpath=//textarea[@id='']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1bb11b8-0bab-4558-8b8a-e8886a61e90f",
+      "comment": "",
+      "command": "type",
+      "target": "name=tekst",
+      "targets": [
+        ["name=tekst", "name"],
+        ["css=.comment-box:nth-child(1)", "css:finder"],
+        ["xpath=//textarea[@id='']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "epic"
+    }, {
+      "id": "c49fc46c-8a92-436b-94c4-fa5e11caacce",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@value='Objavi']", "xpath:attributes"],
+        ["xpath=//td/form/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7737caaa-3a4d-4cf2-8938-1cfa1eefa678",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=alanrickman",
+      "targets": [
+        ["linkText=alanrickman", "linkText"],
+        ["css=.comment-username:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'alanrickman')]", "xpath:link"],
+        ["xpath=//td[@id='k5']/h4/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/profile/2')])[3]", "xpath:href"],
+        ["xpath=//h4/a", "xpath:position"],
+        ["xpath=//a[contains(.,'alanrickman')]", "xpath:innerText"]
+      ],
+      "value": "alanrickman"
+    }]
+  }],
+  "suites": [{
+    "id": "95b004c7-e79a-4e18-afe4-43b439f84a0a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}

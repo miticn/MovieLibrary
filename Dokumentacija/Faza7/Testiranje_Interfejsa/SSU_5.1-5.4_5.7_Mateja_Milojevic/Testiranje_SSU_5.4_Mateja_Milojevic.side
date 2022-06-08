@@ -1,0 +1,119 @@
+{
+  "id": "22d3a8b8-4c34-46d3-967e-83649ee0152c",
+  "version": "2.0",
+  "name": "Testiranje_SSU_5.4_Mateja_Milojevic",
+  "url": "http://localhost:8000/",
+  "tests": [{
+    "id": "9f72904e-72fe-4a80-81dd-c5f259e02659",
+    "name": "1_Gost_Prelazi_Sa_Pocetne_Strane_Na_Stranicu_Filma",
+    "commands": [{
+      "id": "6bf668ce-149d-49c2-b494-4e06baf262d9",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "276bc4e5-c0c7-4d6d-b0f1-df92efd01a54",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39bb9c88-7926-4561-a33d-9a4bab8435fb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner", "css:finder"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f69d256-11f6-480f-94c1-8973af65ac29",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h3:nth-child(9)",
+      "targets": [
+        ["css=h3:nth-child(9)", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Opis')]", "xpath:innerText"]
+      ],
+      "value": "Opis"
+    }]
+  }, {
+    "id": "9d007499-be11-4165-8904-8dc02a7cf20f",
+    "name": "2_Gost_Prelazi_Sa_Pocetne_Strane_Na_Opciju_Za_Prijavu/Registraciju",
+    "commands": [{
+      "id": "2babb624-14ae-4853-9424-a02c0e256f0e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "efe6ac93-0226-47d8-95b3-d5b87343aebe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1053x807",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "987038e4-c1b3-4e30-8f33-77c7b33cb3de",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.account:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/login']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7508cb4b-63fe-4f09-af47-149f92cf2299",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎",
+      "targets": [
+        ["linkText=𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎", "linkText"],
+        ["css=.logo", "css:finder"],
+        ["xpath=//a[contains(text(),'𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/index')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'𝑀𝑜𝓋𝒾𝑒𝐿𝒾𝒷𝓇𝒶𝓇𝓎')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "54bec9d1-1a9d-4063-8ce5-24a4fa52903f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Registruj se",
+      "targets": [
+        ["linkText=Registruj se", "linkText"],
+        ["css=.account:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Registruj se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/register']", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Registruj se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "1dda0cc4-f226-445d-a0de-9b4cb4127ff9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9f72904e-72fe-4a80-81dd-c5f259e02659"]
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}

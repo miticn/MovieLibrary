@@ -1,0 +1,147 @@
+{
+  "id": "22d3a8b8-4c34-46d3-967e-83649ee0152c",
+  "version": "2.0",
+  "name": "Testiranje_SSU_5.4_Mateja_Milojevic",
+  "url": "http://localhost:8000/",
+  "tests": [{
+    "id": "7ce3df76-7780-4066-b954-38859fdcc946",
+    "name": "1_Korisnik_Da_Pregleda_Library_Stranicu_Koja_Je_U_Vezi_Sa_Trenutnom",
+    "commands": [{
+      "id": "5b502fb2-e1a0-4d77-a220-84b1bbec1c6b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6c7bd781-db42-459a-b930-ae7c319132fa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1051x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eacc579a-6789-4106-908a-c7e7817ef0e1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner", "css:finder"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0f40a51-9b2a-4465-8f2b-c6dc7dc31065",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h3:nth-child(12)",
+      "targets": [
+        ["css=h3:nth-child(12)", "css:finder"],
+        ["xpath=//h3[2]", "xpath:position"],
+        ["xpath=//h3[contains(.,'Detalji o filmu:')]", "xpath:innerText"]
+      ],
+      "value": "Detalji o filmu:"
+    }, {
+      "id": "3ba56172-a941-44d6-8819-2719cb0f7406",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Andy Samberg",
+      "targets": [
+        ["linkText=Andy Samberg", "linkText"],
+        ["css=#g71 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Andy Samberg')]", "xpath:link"],
+        ["xpath=//li[@id='g71']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/actor/71')]", "xpath:href"],
+        ["xpath=//td/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Andy Samberg')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b01c4b42-7f4e-4d9f-abd6-1d0a4e4de69b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h3:nth-child(13)",
+      "targets": [
+        ["css=h3:nth-child(13)", "css:finder"],
+        ["xpath=//h3[2]", "xpath:position"],
+        ["xpath=//h3[contains(.,'Uloge')]", "xpath:innerText"]
+      ],
+      "value": "Uloge"
+    }, {
+      "id": "a47dbaf6-7411-4fb5-a43b-33005cdc943e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Chip n Dale: Rescue Rangers",
+      "targets": [
+        ["linkText=Chip n Dale: Rescue Rangers", "linkText"],
+        ["css=#f19 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Chip n Dale: Rescue Rangers')]", "xpath:link"],
+        ["xpath=//li[@id='f19']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/movie/19')]", "xpath:href"],
+        ["xpath=//td/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Chip n Dale: Rescue Rangers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "91e527d5-2b70-479a-9163-58463eeff874",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h3:nth-child(12)",
+      "targets": [
+        ["css=h3:nth-child(12)", "css:finder"],
+        ["xpath=//h3[2]", "xpath:position"],
+        ["xpath=//h3[contains(.,'Detalji o filmu:')]", "xpath:innerText"]
+      ],
+      "value": "Detalji o filmu:"
+    }]
+  }, {
+    "id": "6e1f1a14-61d4-4e20-b550-159a65a443fb",
+    "name": "2_Korisnik_Zeli_Da_Vidi_Dostupnost_Fima_U_Bioskopu",
+    "commands": [{
+      "id": "98470cb6-bb40-4941-be9a-047c927decba",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7af6ceff-ddf0-4e47-98b6-0b7a42bca503",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1053x807",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c3b2e6d-ea55-40e5-8b06-b7b6e68c31a2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner", "css:finder"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20b3725d-6c2e-471c-8da4-5de9df756732",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h3:nth-child(12)",
+      "targets": [
+        ["css=h3:nth-child(12)", "css:finder"],
+        ["xpath=//h3[2]", "xpath:position"],
+        ["xpath=//h3[contains(.,'Detalji o filmu:')]", "xpath:innerText"]
+      ],
+      "value": "Detalji o filmu:"
+    }]
+  }],
+  "suites": [{
+    "id": "1dda0cc4-f226-445d-a0de-9b4cb4127ff9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}
