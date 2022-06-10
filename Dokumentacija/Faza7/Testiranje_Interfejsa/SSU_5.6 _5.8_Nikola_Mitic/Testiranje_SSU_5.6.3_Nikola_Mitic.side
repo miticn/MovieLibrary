@@ -1,0 +1,176 @@
+{
+  "id": "6dc7a4e5-544b-4ce5-aff7-6560707b57aa",
+  "version": "2.0",
+  "name": "Testiranje_SSU_5.6.3_Nikola_Mitic",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "5ea7acbd-76c7-4ca1-9e5f-97d70141a75f",
+    "name": "2.2.1 Korisnik uređuje listu",
+    "commands": [{
+      "id": "eee754d2-38e5-4191-a47a-339efec070cd",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e558677c-9ba2-4437-94a6-3bcd27b4456c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "42ccd561-e6f6-47fd-b84e-1e096fb1c067",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.account:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/login']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6165dcb-77ae-407f-917d-7b835bc6b735",
+      "comment": "",
+      "command": "click",
+      "target": "name=KorisnickoIme",
+      "targets": [
+        ["name=KorisnickoIme", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='KorisnickoIme']", "xpath:attributes"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0bc16703-230d-4ac9-acaf-6d88282b2e3b",
+      "comment": "",
+      "command": "type",
+      "target": "name=KorisnickoIme",
+      "targets": [
+        ["name=KorisnickoIme", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='KorisnickoIme']", "xpath:attributes"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "brucewillis"
+    }, {
+      "id": "072680ff-ab5d-474a-b66e-870652ce4b4b",
+      "comment": "",
+      "command": "click",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9e002a3-5c7a-45e4-b785-d239018602bb",
+      "comment": "",
+      "command": "type",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "bruce123"
+    }, {
+      "id": "82e02cdb-92fa-4df9-aa93-8e2b0f17efd1",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "0c4daaba-21a4-4f3b-aac4-d189dc77bc3e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.listic:nth-child(2) b",
+      "targets": [
+        ["css=.listic:nth-child(2) b", "css:finder"],
+        ["xpath=//td[@id='liste']/div/table/tbody/tr[2]/td/a/div/div/p/b", "xpath:idRelative"],
+        ["xpath=//b", "xpath:position"],
+        ["xpath=//b[contains(.,'Epic Lista')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f36b12e5-0e76-4441-a7d2-3f24b78a11c7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=Fantastic Beasts: The Secrets of Dumbledore",
+      "targets": [
+        ["linkText=Fantastic Beasts: The Secrets of Dumbledore", "linkText"],
+        ["css=tr:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Fantastic Beasts: The Secrets of Dumbledore')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:8000/movie/1']", "xpath:href"],
+        ["xpath=//td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Fantastic Beasts: The Secrets of Dumbledore')]", "xpath:innerText"]
+      ],
+      "value": "Fantastic Beasts: The Secrets of Dumbledore"
+    }, {
+      "id": "cc1220fd-af90-48e5-aee0-ab6fa2425032",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) input:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(3) input:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@value='✖'])[2]", "xpath:attributes"],
+        ["xpath=//tr[3]/td/a/div/form/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40e79706-343a-4757-9aa1-e5074519554f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=The Lost City",
+      "targets": [
+        ["linkText=The Lost City", "linkText"],
+        ["css=tr:nth-child(3) a", "css:finder"],
+        ["xpath=//a[contains(text(),'The Lost City')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:8000/movie/3']", "xpath:href"],
+        ["xpath=//tr[3]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'The Lost City')]", "xpath:innerText"]
+      ],
+      "value": "The Lost City"
+    }, {
+      "id": "a0d1ec44-d4af-4d48-8fbc-e84416a10839",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Odjavi se",
+      "targets": [
+        ["linkText=Odjavi se", "linkText"],
+        ["css=.account:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjavi se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/logout']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "276f0c23-c4c3-4145-aef3-55c16c9b43a2",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5ea7acbd-76c7-4ca1-9e5f-97d70141a75f"]
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}
