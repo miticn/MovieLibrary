@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Auth;
 
-class KontrollerMatTest extends TestCase
+class ListeCuvanjaIzmenaProfilaTest extends TestCase
 {
     /**
      * A basic test example.
@@ -26,7 +26,7 @@ class KontrollerMatTest extends TestCase
         $response->assertSuccessful();
         $response->assertViewIs('izmeni');
     }
-	public function test_izmeni_submit(){//fali test za fajl upload
+	public function test_izmeni_submit(){
         $imeToSet = "Novo ime Admina";
         $opisToSet = "Novi opis Admina";
         $idKorisnika = 1;
@@ -63,21 +63,31 @@ class KontrollerMatTest extends TestCase
         $this->assertEquals($idKorisnika,$lista->Korisnik_idKorisnik);
         $this->assertEquals($imeListe,$lista->Ime);
     }
-    public function oceni_test(){
-        $mockRequest = $this->createMock(Request::class);
-        
-    }
-    public function test_sacuvaj_film(){//Nema proveru za usera
-
+    public function test_sacuvaj_film_zaboravi_film(){
+        $idKorisnika = 1;
+        $filmId = 1;
+        $listId = 1;
+        $listId_block2 = 2;
+        Auth::shouldReceive('id')->andReturn($idKorisnika);
         $kc = new KorisnikController();
         $mockRequest = $this->createMock(Request::class);
-        $kc->sacuvaj_film($mockRequest);
+        $mockRequest->film= $filmId;
+        $mockRequest->izabrana = $listId;
 
-    }
-    public function test_zaboravi_film(){//Nema proveru za usera
-        $kc = new KorisnikController();
-        $mockRequest = $this->createMock(Request::class);
         $kc->sacuvaj_film($mockRequest);
+        $this->assertDatabaseHas('u_listi', ['Lista_idLista' => $listId, 'Film_idFilm' => $filmId]);
+
+
+        $mockRequest->lista = $listId;
+        $kc->zaboravi_film($mockRequest);
+
+        $this->assertDatabaseMissing('u_listi', ['Lista_idLista' => $listId, 'Film_idFilm' => $filmId]);
+
+
+        $mockRequest->izabrana = $listId_block2;
+        $kc->sacuvaj_film($mockRequest);
+        $this->assertDatabaseMissing('u_listi', ['Lista_idLista' => $listId_block2, 'Film_idFilm' => $filmId]);
+
     }
     public function test_sacuvaj_listu_i_zaboravi_listu(){
         $idListe = 7;

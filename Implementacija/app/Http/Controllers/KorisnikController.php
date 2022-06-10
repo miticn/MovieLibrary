@@ -136,9 +136,10 @@ class KorisnikController extends Controller{
      */
     public function sacuvaj_film(Request $request)
     {
-        $lista = ListaModel::find($request->get('izabrana'));
-        if(!($lista->cuva_film()->where('Film_idFilm',$request->film)->exists()))
-            $lista->cuva_film()->attach($request->film);
+        $lista = ListaModel::find($request->izabrana);
+        if($lista->Korisnik_idKorisnik==auth()->id()) 
+            if(!($lista->cuva_film()->where('Film_idFilm',$request->film)->exists()))
+                $lista->cuva_film()->attach($request->film);
         return back();
     }
 
@@ -154,7 +155,9 @@ class KorisnikController extends Controller{
     public function zaboravi_film(Request $request)
     {
         $lista = ListaModel::find($request->lista);
-        $lista->cuva_film()->detach($request->film);
+        if($lista->Korisnik_idKorisnik==auth()->id()){
+            $lista->cuva_film()->detach($request->film);
+        }
         return back();
     }
 

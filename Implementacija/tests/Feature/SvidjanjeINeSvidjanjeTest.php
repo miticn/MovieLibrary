@@ -32,5 +32,9 @@ class SvidjanjeINeSvidjanjeTest extends TestCase
 
         $this->assertDatabaseHas('lajk_dislajk', ['Korisnik_idKorisnik' => $id, 'indikator' => $indikator, 'lokacija' => $lokacija, 'vrsta' => $vrsta]);
 
+
+        $base->oceni($mockreq);
+        $this->assertDatabaseMissing('lajk_dislajk', ['Korisnik_idKorisnik' => $id, 'indikator' => $indikator, 'lokacija' => $lokacija, 'vrsta' => $vrsta]);
+
     }
 }
