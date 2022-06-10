@@ -3,10 +3,10 @@
 @section('content')
 <form name='login_form' action="{{route('login_submit')}}" method='POST'>
     @csrf
-    <table class="login_form">
+    <table class="login_form box">
         <tr>
-            <td class="levo">Korisnicko ime: </td>
-            <td><input type="text" placeholder="Korisnicko ime ili email" name="KorisnickoIme" value="{{old('KorisnickoIme')}}"></td>
+            <td class="levo top">Korisnicko ime: </td>
+            <td class="levo top desno"><input type="text" placeholder="Korisnicko ime ili email" name="KorisnickoIme" value="{{old('KorisnickoIme')}}"></td>
         </tr>
         <tr>
             <td class="levo"></td>
@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td class="levo">Korisnicka sifra: </td>
-            <td><input type="password" placeholder="********" name="Sifra"></td>
+            <td class="levo desno"><input type="password" placeholder="********" name="Sifra"></td>
         </tr>
         <tr>
             <td class="levo"></td>
@@ -28,8 +28,8 @@
             @endif
         </tr>
         <tr id="prijavi_se">
-            <td class="levo"><a href="{{route('register')}}">Registruj se</td>
-            <td><input type="submit" value="Prijavi se"></td>
+            <td class="levo bottom"><a href="{{route('register')}}">Registruj se</td>
+            <td class="bottom"><input type="submit" value="Prijavi se"></td>
         </tr>
     </table>
 </form>

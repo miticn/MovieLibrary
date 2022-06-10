@@ -196,10 +196,8 @@ img.search{
 	margin: auto;
 	margin-top:300px;
 	height:180px;
-}
-
-table.login_form{
-	border: 5px solid black;
+	border: 4px solid brown;
+	border-radius: 5px;
 }
 
 .error{
@@ -211,9 +209,25 @@ table.login_form{
 	text-align: center;
 }
 
+.box{
+	padding:20px
+}
+
 .levo{
-	border-right: 5px solid black;
-	text-align: right;
+	text-align: center;
+	padding-left: 20px;
+}
+
+.bottom{
+	padding-bottom: 15px;
+}
+
+.top{
+	padding-top: 20px;
+}
+
+.desno{
+	padding-right: 20px;
 }
 
 .profile{
