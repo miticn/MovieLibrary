@@ -18,7 +18,7 @@
 			@for ($i = 0; $i < count($filmovi); $i++)
 				<tr class="search" onclick="window.location='movie/{{$filmovi[$i]->idFilm}}';">
 					<td class="search ocena"><i class="fa {{$stFilmovi['trophies'][$i]}}"></i> {{$stFilmovi['scores'][$i]}}%</td>
-					<td class="search poster"><img class="search" src="IMG/img_film/film{{$filmovi[$i]->idFilm}}.jpg"></td> 
+					<td class="search poster"><img class="search" src="IMG/img_film/film{{$filmovi[$i]->idFilm}}.jpg" onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_movie/default_poster.jpg')}}'"></td> 
 					<td class="search title"><b>{{$filmovi[$i]->Naziv}}</b></td> 
 				</tr>
 			@endfor
@@ -31,9 +31,9 @@
 				<th class="search">Naziv i opis</th>
 			</tr>
 			@for ($i = 0; $i < count($glumci); $i++)
-				<tr class="search" onclick="window.location='movie.html';">
+				<tr class="search" onclick="window.location='actor/{{$glumci[$i]->idGlumac}}';">
 					<td class="search"><i class="fa {{$stGlumci['trophies'][$i]}}"></i> {{$stGlumci['scores'][$i]}}%</td>
-					<td class="search poster"><img class="search" src="IMG/img_actor/actor{{$glumci[$i]->idGlumac}}.jpg"></td> 
+					<td class="search poster"><img class="search" src="IMG/img_actor/actor{{$glumci[$i]->idGlumac}}.jpg" onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_actor/default_poster.jpg')}}'"></td> 
 					<td class="search"><b>{{$glumci[$i]->Ime}}</b></td> 
 				</tr>
 			@endfor
@@ -50,7 +50,7 @@
 			@foreach($korisnici as $korisnik)
 				<tr class="search" onclick="window.location='profile/{{$korisnik->idKorisnik}}';">
 					<td class="search">{{$korisnik->KorisnickoIme}}</td>
-					<td class="search poster"><img class="search" src="IMG/img_profile/profile{{$korisnik->idKorisnik}}.png"></td> 
+					<td class="search poster"><img class="search" src="IMG/img_profile/profile{{$korisnik->idKorisnik}}.png" onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_profile/profile_def.jpg')}}'"></td> 
 					<td class="search"><b>{{$korisnik->Ime}}</b></td>
 					<td class="search"><b>{{$korisnik->Opis}}</b></td> 
 				</tr>

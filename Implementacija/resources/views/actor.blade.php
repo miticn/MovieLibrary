@@ -12,7 +12,8 @@
     <table>
         <tr>
             <td class="library-info" rowspan="2">
-                <img class="library-image" src="/IMG/img_actor/actor{{$glumac->idGlumac}}.jpg"><br><b>{{$glumac->Ime}}</b>
+                <img class="library-image" src="/IMG/img_actor/actor{{$glumac->idGlumac}}.jpg" 
+                onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_actor/default_poster.jpg')}}'"><br><b>{{$glumac->Ime}}</b>
                 <br>
                 <i class="fa {{$trophy}}"></i> {{$score}}%
                 <br>

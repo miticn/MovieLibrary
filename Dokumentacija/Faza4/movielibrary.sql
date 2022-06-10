@@ -348,6 +348,10 @@ CREATE TABLE IF NOT EXISTS `komentar` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `komentar` (`idKomentar`, `Tekst`, `Korisnik_idKorisnik`,`Indikator`, `Stranica`, `BrojLajk`, `BrojDislajk`) values
+(1, 'Dobar film', 2, 0, 2, 0, 0),
+(2, 'Dobar glumac', 2, 1, 5, 0, 0);
+
 --
 -- Table structure for table `korisnik`
 --

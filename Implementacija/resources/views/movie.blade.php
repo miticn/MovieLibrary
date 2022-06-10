@@ -11,7 +11,8 @@
     <table >
         <tr>
             <td class="library-info" rowspan="2">
-                <img class="library-image" src="/IMG/img_film/film{{$film->idFilm}}.jpg"><br><b>{{$film->Naziv}}</b>
+                <img class="library-image" src="/IMG/img_film/film{{$film->idFilm}}.jpg" 
+                onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_movie/default_poster.jpg')}}'"><br><b>{{$film->Naziv}}</b>
                 <br>
                 <i class="fa {{$trophy}}"></i> {{$score}}%
                 <br>
