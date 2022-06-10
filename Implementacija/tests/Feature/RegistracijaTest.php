@@ -129,6 +129,22 @@ class RegistracijaTest extends TestCase
 
     public function testNeispravanMail()
     {
-        $this->markTestSkipped('Preskoceno: Nije implementirano.');
+        $KorisnickoIme = 'testkorisnik';
+        $Sifra = 'testsifra';
+        $PonovljenaSifra = 'testsifra';
+        $ePosta = 'test@test.tst';
+        $Ime = 'test testic';
+        $uslovi = 'on';
+
+        $response = $this->post('/register_submit', [
+            'KorisnickoIme' => $KorisnickoIme,
+            'Sifra' => $Sifra,
+            'PonovljenaSifra' => $PonovljenaSifra,
+            'ePosta' => $ePosta,
+            'Ime' => $Ime,
+            'uslovi' => $uslovi
+        ]);
+
+        $response->assertStatus(302);
     }
 }
