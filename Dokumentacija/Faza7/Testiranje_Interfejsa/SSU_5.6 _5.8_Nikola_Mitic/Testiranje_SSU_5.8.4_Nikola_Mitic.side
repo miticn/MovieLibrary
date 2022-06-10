@@ -1,0 +1,302 @@
+{
+  "id": "45478895-7d0f-4f90-ab8f-5df6dbcf0857",
+  "version": "2.0",
+  "name": "Testiranje_SSU_5.8.4_Nikola_Mitic",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "8ad8c68c-04a1-49fc-bd91-6016f86975cd",
+    "name": "2.2.1 Korisnik ostavlja svidjanje, čuva i otvara željenu listu",
+    "commands": [{
+      "id": "0262a45d-659a-45c5-90a0-50bfb6a3662f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b4bf55bd-9da4-49dd-a27a-cd04fe9098f1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e6c6a240-8ef2-4282-b92e-02916478cd2b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.account:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/login']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc7445af-4089-4107-ac5a-0774e7a8d587",
+      "comment": "",
+      "command": "click",
+      "target": "name=KorisnickoIme",
+      "targets": [
+        ["name=KorisnickoIme", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='KorisnickoIme']", "xpath:attributes"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "06c3d077-0ca2-4369-aede-59dd59efdcc8",
+      "comment": "",
+      "command": "type",
+      "target": "name=KorisnickoIme",
+      "targets": [
+        ["name=KorisnickoIme", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='KorisnickoIme']", "xpath:attributes"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "brucewillis"
+    }, {
+      "id": "deb41319-fee6-424e-8302-057e44782dce",
+      "comment": "",
+      "command": "click",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b529eda-2d46-47fa-a338-d0c49d21dd88",
+      "comment": "",
+      "command": "type",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "bruce123"
+    }, {
+      "id": "9f9be15f-1490-4173-be63-c125eed68cc5",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "5b2fdcbf-bd67-4034-b48c-862f6948f956",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Hans Gruber",
+      "targets": [
+        ["linkText=Hans Gruber", "linkText"],
+        ["css=.profili:nth-child(1) a", "css:finder"],
+        ["xpath=//table[@id='profili_sacuvani']/tbody/tr/td/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/profile/2']", "xpath:href"],
+        ["xpath=//td[2]/div/table/tbody/tr/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Hans Gruber')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "33718e49-ed91-4d38-984e-c1892d81e3dc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.listic:nth-child(1) > .listic form:nth-child(2) > input:nth-child(2)",
+      "targets": [
+        ["css=.listic:nth-child(1) > .listic form:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='😍']", "xpath:attributes"],
+        ["xpath=//td[@id='liste']/div/table/tbody/tr/td/a/div/div[2]/form[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "856c021c-add1-449a-8d46-8b42f288b040",
+      "comment": "",
+      "command": "verifyValue",
+      "target": "css=.listic:nth-child(1) > .listic form:nth-child(2) > input:nth-child(2)",
+      "targets": [
+        ["css=.listic:nth-child(1) > .listic form:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='😍']", "xpath:attributes"],
+        ["xpath=//td[@id='liste']/div/table/tbody/tr/td/a/div/div[2]/form[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//form[2]/input[2]", "xpath:position"]
+      ],
+      "value": "😍"
+    }, {
+      "id": "d3efe9b7-873c-4d87-9179-e395c4520cbe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.listic:nth-child(1) > .listic b",
+      "targets": [
+        ["css=.listic:nth-child(1) > .listic b", "css:finder"],
+        ["xpath=//td[@id='liste']/div/table/tbody/tr/td/a/div/div/p/b", "xpath:idRelative"],
+        ["xpath=//b", "xpath:position"],
+        ["xpath=//b[contains(.,'Najbolja Lista')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "05185e7a-6e51-4070-8f50-ae2f72ea375a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td",
+      "targets": [
+        ["css=td", "css:finder"],
+        ["xpath=//td", "xpath:position"]
+      ],
+      "value": "Najbolja Lista by\\nHans Gruber"
+    }, {
+      "id": "d5201996-ba8b-41f1-bafd-778bb19b587b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Odjavi se",
+      "targets": [
+        ["linkText=Odjavi se", "linkText"],
+        ["css=.account:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjavi se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/logout']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "cf5c7a86-c121-4a11-9fb7-5707f55f30b0",
+    "name": "2.2.2 Korisnik se predomislio oko svoje reakcije na listu",
+    "commands": [{
+      "id": "a8d7b4f2-2acb-4227-9993-dc3ed2d450e3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2c13f757-79ae-4fed-af0a-d2a77bdba38a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68e913e6-0896-4552-ac3d-6fcebb866c03",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.account:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/login']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "acfd4bf7-0b83-498f-b3a1-363527f579a8",
+      "comment": "",
+      "command": "click",
+      "target": "name=KorisnickoIme",
+      "targets": [
+        ["name=KorisnickoIme", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='KorisnickoIme']", "xpath:attributes"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0ffa307-2023-4fae-aadf-bf599b085e74",
+      "comment": "",
+      "command": "type",
+      "target": "name=KorisnickoIme",
+      "targets": [
+        ["name=KorisnickoIme", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='KorisnickoIme']", "xpath:attributes"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "brucewillis"
+    }, {
+      "id": "1043145a-11ac-4567-bc3e-78ebc4daa663",
+      "comment": "",
+      "command": "click",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9f72d92-1e59-4cb1-be96-96fb062867dc",
+      "comment": "",
+      "command": "type",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "bruce123"
+    }, {
+      "id": "fcd37fb8-538a-4f37-848b-5b7f3e878347",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "c6f09b19-6eb8-448a-8645-92ba1abd6e52",
+      "comment": "",
+      "command": "click",
+      "target": "css=.listic:nth-child(4) form:nth-child(2) > input:nth-child(2)",
+      "targets": [
+        ["css=.listic:nth-child(4) form:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@value='😍'])[3]", "xpath:attributes"],
+        ["xpath=//td[@id='liste']/div/table/tbody/tr[4]/td/a/div/div[2]/form[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//tr[4]/td/a/div/div[2]/form[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "70ec83b9-6b6c-4e44-be5a-05cf0b621c36",
+      "comment": "",
+      "command": "assertValue",
+      "target": "css=.listic:nth-child(4) form:nth-child(2) > input:nth-child(2)",
+      "targets": [
+        ["css=.listic:nth-child(4) form:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@value='😍'])[3]", "xpath:attributes"],
+        ["xpath=//td[@id='liste']/div/table/tbody/tr[4]/td/a/div/div[2]/form[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//tr[4]/td/a/div/div[2]/form[2]/input[2]", "xpath:position"]
+      ],
+      "value": "😍"
+    }]
+  }],
+  "suites": [{
+    "id": "e126a35b-64e4-4c1c-8808-98634a37a895",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8ad8c68c-04a1-49fc-bd91-6016f86975cd"]
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}

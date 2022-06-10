@@ -513,28 +513,32 @@
       ],
       "value": ""
     }, {
-      "id": "25c43958-037f-4abd-a7a7-4659b63d30c5",
+      "id": "598f9e2a-4942-49cc-a21e-55c1d0d05087",
       "comment": "",
-      "command": "assertText",
-      "target": "css=#profile_ime > td:nth-child(1)",
+      "command": "assertValue",
+      "target": "name=Ime",
       "targets": [
-        ["css=#profile_ime > td:nth-child(1)", "css:finder"],
-        ["xpath=//tr[@id='profile_ime']/td", "xpath:idRelative"],
-        ["xpath=//td[2]/table/tbody/tr/td", "xpath:position"]
+        ["name=Ime", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='Ime']", "xpath:attributes"],
+        ["xpath=//td/input", "xpath:position"]
       ],
-      "value": "   Novi naziv"
+      "value": "Novi naziv"
     }, {
-      "id": "0e996bd8-f856-4ec2-87a8-79c3d2b02108",
+      "id": "5db2c662-1469-45db-b843-960a6076b72c",
       "comment": "",
-      "command": "assertText",
-      "target": "css=td > i",
+      "command": "click",
+      "target": "linkText=Odjavi se",
       "targets": [
-        ["css=td > i", "css:finder"],
-        ["xpath=//tr[@id='profile_opis']/td/i", "xpath:idRelative"],
-        ["xpath=//td/i", "xpath:position"],
-        ["xpath=//i[contains(.,'\"Novi Opis\"')]", "xpath:innerText"]
+        ["linkText=Odjavi se", "linkText"],
+        ["css=.account:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjavi se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/logout']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjavi se')]", "xpath:innerText"]
       ],
-      "value": "\"Novi Opis\""
+      "value": ""
     }]
   }, {
     "id": "4547d2fd-5e93-4e73-8881-0d151bdee439",

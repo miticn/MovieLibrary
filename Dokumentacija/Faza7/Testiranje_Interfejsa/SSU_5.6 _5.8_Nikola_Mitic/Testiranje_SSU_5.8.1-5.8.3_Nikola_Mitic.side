@@ -1,0 +1,158 @@
+{
+  "id": "3f284d5d-184a-42dc-90c1-9c93dc13853d",
+  "version": "2.0",
+  "name": "Testiranje_SSU_5.8.1-5.8.3_Nikola_Mitic",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "e60e7f0e-2453-4e5a-a263-efdd6f7b7ed2",
+    "name": "2.2.1 Korisnik pregleda i čuva tuđi profil",
+    "commands": [{
+      "id": "e2a16b08-384c-4ca4-b25c-2cbffa079727",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51eccece-8e09-4236-943a-ad6907a87105",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc4306f6-6391-4af2-9362-21318adda1d0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.account:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/login']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4598375d-38ff-45f0-aae8-134c105877ff",
+      "comment": "",
+      "command": "click",
+      "target": "name=KorisnickoIme",
+      "targets": [
+        ["name=KorisnickoIme", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='KorisnickoIme']", "xpath:attributes"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bc6311c-6dfa-47d6-816e-ac4215bee648",
+      "comment": "",
+      "command": "type",
+      "target": "name=KorisnickoIme",
+      "targets": [
+        ["name=KorisnickoIme", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='KorisnickoIme']", "xpath:attributes"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "brucewillis"
+    }, {
+      "id": "02f55c4e-c695-433e-b2f8-7d46f0a2048e",
+      "comment": "",
+      "command": "click",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fab339b8-cf6e-485c-b9eb-ce8629213d67",
+      "comment": "",
+      "command": "type",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "bruce123"
+    }, {
+      "id": "6dceb3f7-c90f-4ba8-8cdb-00748a1fd919",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=Sifra",
+      "targets": [
+        ["name=Sifra", "name"],
+        ["css=tr:nth-child(3) input", "css:finder"],
+        ["xpath=//input[@name='Sifra']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "15bd082d-8f94-4163-8a96-1aeefb32300e",
+      "comment": "",
+      "command": "open",
+      "target": "/profile/2",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8dc1eba3-5562-401f-816c-67e4ed928c64",
+      "comment": "",
+      "command": "click",
+      "target": "css=td > form > input:nth-child(1)",
+      "targets": [
+        ["css=td > form > input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='💾']", "xpath:attributes"],
+        ["xpath=//tr[@id='profile_ime']/td[2]/form/input", "xpath:idRelative"],
+        ["xpath=//td[2]/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de16d40d-7c52-425c-8219-14bd7906d171",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=[Novi naziv]",
+      "targets": [
+        ["linkText=[Novi naziv]", "linkText"],
+        ["css=.account:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'[Novi naziv]')]", "xpath:link"],
+        ["xpath=//nav[@id='menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/profile/1']", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'[Novi naziv]')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "812b1629-b506-44dc-9ba7-fcc3c86a7e82",
+      "comment": "",
+      "command": "assertText",
+      "target": "linkText=Hans Gruber",
+      "targets": [
+        ["linkText=Hans Gruber", "linkText"],
+        ["css=.profili:nth-child(1) a", "css:finder"],
+        ["xpath=//table[@id='profili_sacuvani']/tbody/tr/td/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/profile/2']", "xpath:href"],
+        ["xpath=//td[2]/div/table/tbody/tr/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Hans Gruber')]", "xpath:innerText"]
+      ],
+      "value": "Hans Gruber"
+    }]
+  }],
+  "suites": [{
+    "id": "e9390a7a-2bae-4cb8-a253-2c7d03d648de",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e60e7f0e-2453-4e5a-a263-efdd6f7b7ed2"]
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}

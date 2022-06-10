@@ -151,6 +151,7 @@ class BaseController extends Controller{
      */
     public function actor($id) {
         $glumac = GlumacModel::find($id);
+        abort_if($glumac==null, 404);
         $score = BaseController::getScore($glumac->BrojLajk, $glumac->BrojDislajk);
         $trophy = BaseController::getTrophy($score);
         $komentari = BaseController::getComments('actor', $id);
@@ -168,6 +169,7 @@ class BaseController extends Controller{
      */
     public function movie($id){
         $film = FilmModel::find($id);
+        abort_if($film==null, 404);
         $score = BaseController::getScore($film->BrojLajk,$film->BrojDislajk);
         $trophy = BaseController::getTrophy($score);
         $komentari = BaseController::getComments('movie',$id);
