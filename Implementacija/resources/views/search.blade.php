@@ -50,7 +50,7 @@
 			@foreach($korisnici as $korisnik)
 				<tr class="search" onclick="window.location='profile/{{$korisnik->idKorisnik}}';">
 					<td class="search">{{$korisnik->KorisnickoIme}}</td>
-					<td class="search poster"><img class="search" src="IMG/img_profile/profile{{$korisnik->idKorisnik}}.png" onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_profile/profile_def.jpg')}}'"></td> 
+					<td class="search poster"><img class="search" src="IMG/img_profile/profile{{$korisnik->idKorisnik}}.jpg" onerror="this.onerror=null; this.src='{{URL::asset('IMG/img_profile/profile_def.jpg')}}'"></td> 
 					<td class="search"><b>{{$korisnik->Ime}}</b></td>
 					<td class="search"><b>{{$korisnik->Opis}}</b></td> 
 				</tr>
