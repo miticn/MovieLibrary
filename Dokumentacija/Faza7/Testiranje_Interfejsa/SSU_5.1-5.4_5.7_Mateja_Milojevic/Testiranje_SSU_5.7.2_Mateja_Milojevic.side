@@ -1,0 +1,146 @@
+{
+  "id": "22d3a8b8-4c34-46d3-967e-83649ee0152c",
+  "version": "2.0",
+  "name": "Testiranje_SSU_5.7.2_Mateja_Milojevic",
+  "url": "http://localhost:8000/",
+  "tests": [{
+    "id": "89eba3ef-6c9a-4eb9-9e2c-8a96c157c1b1",
+    "name": "1_Korisnik_Uspesno_Dodaje_Film_U_Listu",
+    "commands": [{
+      "id": "f7d7fc76-5a06-44f4-97ee-9ead49a8b0a1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "42d6b753-9ec1-4f91-99ed-de3358e55083",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1051x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eba8e96f-3dce-4f9e-8298-6246f2f07f79",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner", "css:finder"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0479851-129d-485e-b068-6f3d95dd4cbf",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h3:nth-child(12)",
+      "targets": [
+        ["css=h3:nth-child(12)", "css:finder"],
+        ["xpath=//h3[2]", "xpath:position"],
+        ["xpath=//h3[contains(.,'Detalji o filmu:')]", "xpath:innerText"]
+      ],
+      "value": "Detalji o filmu:"
+    }, {
+      "id": "f31e3a4c-803e-40c5-8322-5ca521de10cc",
+      "comment": "",
+      "command": "click",
+      "target": "id=bruv",
+      "targets": [
+        ["id=bruv", "id"],
+        ["name=izabrana", "name"],
+        ["css=#bruv", "css:finder"],
+        ["xpath=//select[@id='bruv']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71ef3921-9510-46bd-b4bc-a4b8ead45bc6",
+      "comment": "",
+      "command": "select",
+      "target": "id=bruv",
+      "targets": [],
+      "value": "label=Najbolja Lista"
+    }, {
+      "id": "d7dab35b-02b9-4243-accc-3ad8aeb4a4f2",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=form:nth-child(3) > input:nth-child(2)",
+      "targets": [
+        ["css=form:nth-child(3) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='💾']", "xpath:attributes"],
+        ["xpath=//form[3]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "75c4d0da-d166-4f29-9b7c-61e688bb26e1",
+    "name": "2_Korisnik_Nema_Napravljenu_Listu",
+    "commands": [{
+      "id": "99d2a441-0267-48e5-9216-d3311ac3a0a6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3ae4212e-ade6-4b5b-a323-047462474f33",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1053x807",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "49cd5011-a46f-4cea-9eec-78a4ed91910e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-sm-2:nth-child(1) .movie-banner", "css:finder"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "96062b2d-3e3b-41fa-b756-f6317abb56fb",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h3:nth-child(12)",
+      "targets": [
+        ["css=h3:nth-child(12)", "css:finder"],
+        ["xpath=//h3[2]", "xpath:position"],
+        ["xpath=//h3[contains(.,'Detalji o filmu:')]", "xpath:innerText"]
+      ],
+      "value": "Detalji o filmu:"
+    }, {
+      "id": "40c64d7f-a7e7-4b06-90a8-526850c9b7ca",
+      "comment": "",
+      "command": "click",
+      "target": "id=bruv",
+      "targets": [
+        ["id=bruv", "id"],
+        ["name=izabrana", "name"],
+        ["css=#bruv", "css:finder"],
+        ["xpath=//select[@id='bruv']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7adb5653-56fd-45a8-b810-2af31a05aa3e",
+      "comment": "",
+      "command": "verifySelectedValue",
+      "target": "id=bruv",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "1dda0cc4-f226-445d-a0de-9b4cb4127ff9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}

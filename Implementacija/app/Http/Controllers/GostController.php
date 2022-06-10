@@ -71,7 +71,7 @@ class GostController extends Controller{
         } else {
             return back()->with('status', 'Pogresni podaci.');
         }
-        return redirect()->route('index');
+        return redirect()->route('profile', ['id' => $korisnik->idKorisnik]);
     }
 
     /**
