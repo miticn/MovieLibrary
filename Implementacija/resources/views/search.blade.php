@@ -31,7 +31,7 @@
 				<th class="search">Naziv i opis</th>
 			</tr>
 			@for ($i = 0; $i < count($glumci); $i++)
-				<tr class="search" onclick="window.location='movie.html';">
+				<tr class="search" onclick="window.location='actor/{{$glumci[$i]->idGlumac}}';">
 					<td class="search"><i class="fa {{$stGlumci['trophies'][$i]}}"></i> {{$stGlumci['scores'][$i]}}%</td>
 					<td class="search poster"><img class="search" src="IMG/img_actor/actor{{$glumci[$i]->idGlumac}}.jpg"></td> 
 					<td class="search"><b>{{$glumci[$i]->Ime}}</b></td> 
@@ -50,7 +50,7 @@
 			@foreach($korisnici as $korisnik)
 				<tr class="search" onclick="window.location='profile/{{$korisnik->idKorisnik}}';">
 					<td class="search">{{$korisnik->KorisnickoIme}}</td>
-					<td class="search poster"><img class="search" src="IMG/img_profile/profile{{$korisnik->idKorisnik}}.png"></td> 
+					<td class="search poster"><img class="search" src="IMG/img_profile/profile{{$korisnik->idKorisnik}}.jpg"></td> 
 					<td class="search"><b>{{$korisnik->Ime}}</b></td>
 					<td class="search"><b>{{$korisnik->Opis}}</b></td> 
 				</tr>
