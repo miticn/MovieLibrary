@@ -29,6 +29,7 @@
                         @else <input type="submit" value="&#x1F92E;">
                         @endif
                     </form>
+                    @if(!(Auth::user()->napravljeneListe)->isEmpty())
                     <form name="sacuvaj" action="{{route('sacuvaj_film', ['lista' => "izabrana" , 'film' => $film->idFilm ])}}" method="POST">
                         @csrf
                         <input type="submit" value="&#128190;">
@@ -38,6 +39,7 @@
                             @endforeach
                         </select>
                     </form>
+                    @endif
                 </div>
                 @endauth
                 @guest

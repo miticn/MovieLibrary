@@ -187,6 +187,10 @@ class KorisnikController extends Controller{
     {
         $lista = ListaModel::find($request->id);
         $lista->cuvana_je()->detach(auth::id());
+        if($lista->Korisnik_idKorisnik==auth::id()){
+            $lista->Korisnik_idKorisnik=NULL;
+            $lista->save();
+        }
         return back();
     }
 
