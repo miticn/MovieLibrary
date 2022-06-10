@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 30, 2022 at 10:00 PM
+-- Generation Time: Jun 10, 2022 at 07:55 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -20,8 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `movielibrary`
 --
-CREATE DATABASE IF NOT EXISTS `movielibrary`;
-USE `movielibrary`;
+
 -- --------------------------------------------------------
 
 --
@@ -68,17 +67,16 @@ CREATE TABLE IF NOT EXISTS `cuva_listu` (
 INSERT INTO `cuva_listu` (`Korisnik_id_cuva`, `Lista_id_cuvana`) VALUES
 (1, 1),
 (1, 2),
+(3, 2),
+(1, 3),
 (2, 3),
 (3, 3),
 (1, 4),
+(4, 4),
 (2, 5),
 (4, 6),
-(1, 3),
-(3, 7),
 (2, 7),
-(4, 4),
-(3, 2);
-
+(3, 7);
 
 -- --------------------------------------------------------
 
@@ -344,13 +342,17 @@ CREATE TABLE IF NOT EXISTS `komentar` (
   `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idKomentar`),
   KEY `fk_Komentar_Korisnik1` (`Korisnik_idKorisnik`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `komentar`
+--
 
-INSERT INTO `komentar` (`idKomentar`, `Tekst`, `Korisnik_idKorisnik`,`Indikator`, `Stranica`, `BrojLajk`, `BrojDislajk`) values
+INSERT INTO `komentar` (`idKomentar`, `Tekst`, `Korisnik_idKorisnik`, `Indikator`, `Stranica`, `BrojLajk`, `BrojDislajk`) VALUES
 (1, 'Dobar film', 2, 0, 2, 0, 0),
 (2, 'Dobar glumac', 2, 1, 5, 0, 0);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `korisnik`
@@ -408,13 +410,13 @@ DROP TABLE IF EXISTS `lista`;
 CREATE TABLE IF NOT EXISTS `lista` (
   `idLista` int(11) NOT NULL AUTO_INCREMENT,
   `Ime` varchar(45) NOT NULL,
-  `Korisnik_idKorisnik` int(11) NOT NULL,
+  `Korisnik_idKorisnik` int(11) DEFAULT NULL,
   `BrojLajk` int(11) NOT NULL DEFAULT '0',
   `BrojDislajk` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idLista`),
   UNIQUE KEY `idLista_UNIQUE` (`idLista`),
   KEY `fk_Lista_Korisnik_idx` (`Korisnik_idKorisnik`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lista`
@@ -422,12 +424,12 @@ CREATE TABLE IF NOT EXISTS `lista` (
 
 INSERT INTO `lista` (`idLista`, `Ime`, `Korisnik_idKorisnik`, `BrojLajk`, `BrojDislajk`) VALUES
 (1, 'Epic Lista', 1, 0, 0),
-(2, 'Jos Bolja', 2, 0, 0),
+(2, 'Jos Bolja', NULL, 0, 0),
 (3, 'Najbolja Lista', 2, 0, 0),
-(4, 'Meni Kul Filmovi', 3, 0, 0),
-(5, 'Best Of Horror', 3, 0, 0),
-(6, 'Skrrrrr', 1, 0, 0),
-(7, 'Fun Times', 4, 0, 0);
+(4, 'Meni Kul Filmovi', NULL, 0, 0),
+(5, 'Best Of Horror', NULL, 0, 0),
+(6, 'Skrrrrr', NULL, 0, 0),
+(7, 'Fun Times', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
