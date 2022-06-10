@@ -21,7 +21,7 @@ class ListeCuvanjaIzmenaProfilaTest extends TestCase
     public function test_izmeni(){
         $idKorisnika = 1;
         $user = KorisnikModel::find($idKorisnika);
-        $response = $this->actingAs($user)->post('/izmeni');
+        $response = $this->actingAs($user)->get('/izmeni');
 
         $response->assertSuccessful();
         $response->assertViewIs('izmeni');
@@ -31,14 +31,13 @@ class ListeCuvanjaIzmenaProfilaTest extends TestCase
         $opisToSet = "Novi opis Admina";
         $idKorisnika = 1;
 
-        $kc = new KorisnikController();
-        $mockRequest = $this->createStub(Request::class);
-        $mockRequest->Ime = $imeToSet;
-        $mockRequest->Opis = $opisToSet;
-        Auth::shouldReceive('id')->andReturn($idKorisnika);
+        $user = KorisnikModel::find($idKorisnika);
 
-        $kc->izmeni_submit($mockRequest);
-
+        $response= $this->actingAs($user)->from('profile',['id' =>$idKorisnika])->post('/izmeni_submit', [
+            'Ime' => $imeToSet,
+            'Opis' => $opisToSet
+        ]);
+        $response->assertRedirect('profile/1');
         $korisnik = KorisnikModel::find($idKorisnika);
 
         $this->assertEquals($korisnik->Ime,$imeToSet);

@@ -19,7 +19,7 @@
                     @auth    
                     <td style="text-align: right; width:50px;">
                         @if ($profile->idKorisnik == Auth::id())
-                        <form name="izmeni" action="{{route('izmeni')}}" method="POST">
+                        <form name="izmeni" action="{{route('izmeni')}}" method="GET">
                         @csrf
                         <input type="submit" value="&#128736;"></form>
                         @else

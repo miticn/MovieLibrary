@@ -13,6 +13,7 @@ use App\Models\KorisnikModel;
 use App\Models\Lajk_DislajkModel;
 use App\Models\ListaModel;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Korisnik kontroler za autorizovane korisnike i administratore
@@ -50,11 +51,16 @@ class KorisnikController extends Controller{
      */
     public function izmeni_submit(Request $request)
     {
+        $v = Validator::make($request->all(),[ 
+            'Ime' => 'required']
+        );
+        if ($v->fails()) 
+            return redirect()->back();
         if($request->has('slika')){
             $request->file('slika')->storeAs('public/img_profile','profile'.auth()->id().'.jpg');
         }
         KorisnikModel::find(auth()->id())->izmeniProfil($request);
-        return redirect()->route('profile', ['id' => auth()->id(), 'profile' => KorisnikModel::find(auth()->id())]);
+        return redirect()->route('profile', ['id' => auth()->id()]);
     }
 
     /**
