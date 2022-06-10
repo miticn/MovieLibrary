@@ -137,7 +137,8 @@ class KorisnikController extends Controller{
     public function sacuvaj_film(Request $request)
     {
         $lista = ListaModel::find($request->get('izabrana'));
-        $lista->cuva_film()->attach($request->film);
+        if(!($lista->cuva_film()->where('Film_idFilm',$request->film)->exists()))
+            $lista->cuva_film()->attach($request->film);
         return back();
     }
 
@@ -200,7 +201,8 @@ class KorisnikController extends Controller{
      */
     public function sacuvaj_korisnika(Request $request)
     {
-        KorisnikModel::find(auth::id())->sacuvani()->attach($request->id);
+        $korisnik = KorisnikModel::find(auth::id())->sacuvani()->where('idCuvan',$request->id);
+        if(!$korisnik->exists()) KorisnikModel::find(auth::id())->sacuvani()->attach($request->id);
         return back();
     }
 
